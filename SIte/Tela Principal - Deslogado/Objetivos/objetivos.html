@@ -19,10 +19,10 @@
             </div>
             <ul id="ul_navbar">
                 <li id="li_inicio"><a href="../Inicio/inicio.html">INÍCIO</a></li>
+                <li id="li_evolucao"><a href="../Evolucao/evolucao.html">EVOLUÇÃO</a></li>
                 <div id="selecionado_navbar">
-                    <li id="li_evolucao"><a href="../Evolucao/evolucao.html">EVOLUÇÃO</a></li>
+                    <li id="li_objetivos"><a href="../Objetivos/objetivos.html">OBJETIVOS</a></li>
                 </div>
-                <li id="li_objetivos"><a href="../Objetivos/objetivos.html">OBJETIVOS</a></li>
                 <li id="li_automacao"><a href="../Automacao/automacao.html">AUTOMAÇÃO</a></li>
                 <li id="li_mundo_moderno"><a href="../MundoModerno/mundomoderno.html">MUNDO MODERNO</a></li>
                 <li id="li_linguagens"><a href="../Linguagens/linguagens.html">LINGUAGENS</a></li>
@@ -34,65 +34,79 @@
 
         <!-- PARTE INICIAL -->
         <div id="parte_inicial">
-            <span id="texto_inicial">A programação surgiu com o desenvolvimento dos primeiros computadores, onde a
-                programação era feita diretamente em linguagem de máquina.<br>Então em 1957 surge a 1º linguagem de
-                programação, o <span style="text-decoration: underline;">FORTRAN</span>.</span>
+            <h1 id="texto_inicial">Mas afinal, o que é <span style="text-decoration: underline;">programação</span>?
+            </h1>
+
+            <div id="div_texto_programacao">
+                <span id="texto_programacao">Programação é o processo de criar conjuntos de instruções que os
+                    computadores podem seguir para executar tarefas específicas. É essencial para o desenvolvimento de
+                    software, sistemas e aplicativos que impulsionam a tecnologia moderna.</span>
+            </div>
         </div>
 
 
 
         <!-- ONDE TUDO COMEÇOU -->
         <div id="parte_explicacao">
-            <div id="div_caixas">
-                <div id="div_fortran">
-                    <h1>FORTRAN</h1>
-                    <div>
-                        <span>Desenvolvida pela IBM, foi a primeira linguagem de programação de alto nível, facilitando a escrita de códigos complexos para cálculos científicos e técnicos.</span>
-                    </div>
-                </div>
-
-                <div id="div_cobol">
-                    <h1>COBOL</h1>
-                    <div>
-                        <span>Criada para aplicações comerciais, permitiu uma linguagem mais próxima do inglês, simplificando o desenvolvimento de sistemas empresariais.</span>
-                    </div>
-                </div>
+            <div id="div_usos_tecnologia">
 
                 <div onclick="alternar()" id="botao_seta">
                     <img id="img_botao_seta" src="../../Icons/seta.png">
-                </div>
-
-                <div id="div_c">
-                    <h1>LINGUAGEM C</h1>
-                    <div>
-                        <span>Foi amplamente adotada devido à sua capacidade de escrever sistemas operacionais, compiladores e aplicativos de sistemas de forma eficaz.</span>
-                    </div>
-                </div>
-
-                <div id="div_poo">
-                    <h1>ORIENTADA A OBJETOS</h1>
-                    <div>
-                        <span>Na década de 1980 surgiram linguagens que introduziram conceitos de programação orientada a objetos, permitindo uma modelagem mais eficaz de sistemas complexos.</span>
-                    </div>
                 </div>
 
                 <div onclick="alternar2()" id="botao_seta2">
                     <img id="img_botao_seta2" src="../../Icons/seta.png">
                 </div>
 
-                <div id="div_web">
-                    <h1>WEB E SCRIPT</h1>
+                <!-- FAZER OS BOTOES DENTRO DOS CARDS, VÃO SE MOVER JUNTO COM OS CARDS, OU SEJA, 4 BOTOES E 4 FUNÇOES -->
+
+                <div class="card" id="card_e">
+                    <h1>Desenvolvimento de Software</h1>
                     <div>
-                        <span>O surgimento da internet impulsionou linguagens como JavaScript e PHP. Essas linguagens de script permitiram o desenvolvimento de páginas web dinâmicas e interativas.</span>
+                        <img src="../../Icons/Objetivos-Cards/desenvolvimento-software.jpeg">
+                        <span>Essa área engloba a criação de aplicativos, sistemas operacionais, software de gerenciamento empresarial e muito mais.</span>
                     </div>
                 </div>
 
-                <div id="div_modernas">
-                    <h1>LINGUAGENS MODERNAS</h1>
+                <div class="card" id="card_d">
+                    <h1>Inteligência Artificial</h1>
                     <div>
-                        <span>Linguagens como Python e Ruby ganharam popularidade devido à sua simplicidade e versatilidade. Além disso, paradigmas de programação têm sido explorados e implementados em linguagens modernas.</span>
+                        <img src="../../Icons/Objetivos-Cards/Inteligencia-Artificial.jpg">
+                        <span>Aqui, a programação é usada para criar algoritmos que permitem aos computadores aprender com dados e tomar decisões autônomas.</span>
                     </div>
                 </div>
+
+                <div class="card" id="card_e">
+                    <h1>Desenvolvimento Web</h1>
+                    <div>
+                        <span>Programação é fundamental para criar websites dinâmicos, aplicativos da web e plataformas de comércio eletrônico.</span>
+                    </div>
+                </div>
+
+                <div class="card" id="card_d">
+                    <h1>Cibersegurança</h1>
+                    <div>
+                        <span>Programação é usada para desenvolver ferramentas de segurança, detectar e mitigar vulnerabilidades, e proteger sistemas e redes contra ataques cibernéticos.</span>
+                    </div>
+                </div>
+                
+                <div class="card" id="card_e">
+                    <h1>Desenvolvimento de Jogos</h1>
+                    <div>
+                        <span>Neste campo, a programação é utilizada para criar a jogabilidade, gráficos, inteligência artificial e lógica dos jogos digitais.</span>
+                    </div>
+                </div>
+
+                <div class="card" id="card_d">
+                    <h1>Blockchain e Criptomoedas</h1>
+                    <div>
+                        <span>Programação é essencial para desenvolver e manter plataformas de blockchain, criar contratos inteligentes e implementar sistemas de criptomoedas.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="div_usos_outros">
+
             </div>
 
             <div id="botao_proxima_pagina">
@@ -121,4 +135,53 @@
 </body>
 
 </html>
-<script src="evolucao.js"></script>
+<script src="objetivos.js"></script>
+
+
+<!-- 
+- **Explicar como a programação permite a comunicação com computadores**: Através de linguagens de programação, os programadores podem escrever códigos que os computadores podem entender e executar. Isso permite que os computadores processem dados, realizem cálculos, exibam informações e interajam com os usuários.
+
+- **Mostrar aplicações de programação do mundo real em vários campos**: A programação é aplicada em uma variedade de campos, incluindo desenvolvimento de software, inteligência artificial, análise de dados, design de jogos, desenvolvimento web, automação industrial, medicina, finanças e muito mais. Ela desempenha um papel fundamental na criação de soluções tecnológicas inovadoras que impactam diretamente nossas vidas e impulsionam o progresso em diversas áreas.
+
+
+
+
+
+**Campos de Tecnologia:**
+
+1. **Desenvolvimento de Software**: Essa área engloba a criação de aplicativos, sistemas operacionais, software de gerenciamento empresarial e muito mais.
+
+2. **Inteligência Artificial (IA) e Aprendizado de Máquina**: Aqui, a programação é usada para criar algoritmos que permitem aos computadores aprender com dados e tomar decisões autônomas.
+
+3. **Desenvolvimento Web**: Programação é fundamental para criar websites dinâmicos, aplicativos da web e plataformas de comércio eletrônico.
+
+4. **Cibersegurança**: Programação é usada para desenvolver ferramentas de segurança, detectar e mitigar vulnerabilidades, e proteger sistemas e redes contra ataques cibernéticos.
+
+5. **Desenvolvimento de Jogos**: Neste campo, a programação é utilizada para criar a jogabilidade, gráficos, inteligência artificial e lógica dos jogos digitais.
+
+6. **Blockchain e Criptomoedas**: Programação é essencial para desenvolver e manter plataformas de blockchain, criar contratos inteligentes e implementar sistemas de criptomoedas.
+
+
+
+
+
+**Campos Comuns:**
+
+1. **Finanças**: Programação é usada em análise de dados financeiros, modelagem de riscos, negociação algorítmica e desenvolvimento de softwares de contabilidade.
+
+2. **Medicina**: Na medicina, a programação é aplicada em análise de imagens médicas, desenvolvimento de sistemas de registros de pacientes eletrônicos e simulações médicas.
+
+3. **Educação**: Programação é utilizada para desenvolver aplicativos educacionais, plataformas de aprendizado online e recursos interativos de ensino.
+
+4. **Transporte**: Na indústria de transporte, a programação é usada para otimizar rotas de transporte público, controlar sistemas de tráfego e desenvolver tecnologias de veículos autônomos.
+
+5. **Varejo**: Programação é aplicada em sistemas de gerenciamento de estoque, análise de dados de vendas, desenvolvimento de aplicativos de compras online e personalização de experiências de compra.
+
+6. **Entretenimento**: Além dos jogos, a programação é usada em plataformas de streaming de vídeo, produção de efeitos visuais em filmes e programas de televisão, e criação de aplicativos de entretenimento.
+
+
+
+
+
+
+ -->
