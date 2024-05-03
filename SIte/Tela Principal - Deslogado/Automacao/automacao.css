@@ -93,6 +93,7 @@ html, body {
 #div_navbar {
     height: 8vh;
     width: 100vw;
+    border-bottom: 0.25vw solid var(--cor-taupe);
 }
 
 #ul_navbar {
@@ -112,7 +113,7 @@ html, body {
     text-decoration: none;
 }
 
-#li_home, #li_csharp, #li_java, #li_javascript, #li_htmlecss, #li_sql {
+#li_inicio, #li_evolucao, #li_objetivos, #li_automacao, #li_mundo_moderno, #li_linguagens {
     font-size: 1.5vw;
     width: 13vw;
     font-weight: 700;
