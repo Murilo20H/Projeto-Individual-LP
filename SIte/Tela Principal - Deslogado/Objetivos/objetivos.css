@@ -169,6 +169,18 @@ html, body {
 }
 
 
+#selecionado_navbar li {
+    margin-top: -1%;
+}
+
+#barra_selecionado {
+    margin-top: 10%;
+    width: 7vw;
+    border-radius: 3vw;
+    background-color: var(--cor-taupe);
+    height: 1.2vh;
+}
+
 
 
 
@@ -205,6 +217,7 @@ html, body {
     width: 60%;
     border: 0.3vw solid var(--cor-caribbean);
     border-radius: 0.7vw;
+    padding: 0.5%;
     margin-top: 3%;
     overflow-y: hidden;
 }
@@ -232,17 +245,17 @@ html, body {
 
 
 
-/* ONDE TUDO COMEÇOU */
+/* CARDS */
 
 #parte_explicacao {
     width: 100vw;
-    height: 40%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#div_usos_tecnologia {
+#div_usos_tecnologia, #div_usos_outros {
     width: 300vw;
     height: 100%;
     left: 100vw;
@@ -250,29 +263,38 @@ html, body {
     position: relative;
 }
 
-/* LEFT -100VW
-transition: 0.5s */
+#div_usos_tecnologia {
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    border-bottom: 0.5vw solid var(--cor-taupe);
+}
+
+.titulo {
+    color: white;
+    margin-bottom: 3%;
+    font-size: 4vw;
+}
 
 
-
-#div_usos_tecnologia .card {
+#div_usos_tecnologia .card, #div_usos_outros .card {
     text-align: center;
-    width: 30vw;
+    width: 28vw;
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#div_usos_tecnologia .card h1 {
+#div_usos_tecnologia .card h1, #div_usos_outros .card h1 {
     font-size: 2vw;
     font-weight: 900;
-    color: white;
+    color: var(--cor-taupe);
 }
 
-#div_usos_tecnologia .card div {
+#div_usos_tecnologia .card .conteudo_card, #div_usos_outros .card .conteudo_card {
     margin-top: 5%;
     width: 80%;
+    padding: 0.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -282,14 +304,14 @@ transition: 0.5s */
     background: linear-gradient(180deg, rgba(2,52,89,1) 0%, rgba(0,44,47,1) 100%);
 }
 
-#div_usos_tecnologia .card div span {
+#div_usos_tecnologia .card .conteudo_card span, #div_usos_outros .card .conteudo_card span {
     font-size: 1.6vw;
     color: var(--cor-taupe);
     padding-left: 3%;
     padding-right: 3%;
 }
 
-#div_usos_tecnologia .card div img {
+#div_usos_tecnologia .card .conteudo_card img, #div_usos_outros .card .conteudo_card img {
     width: 20vw;
     height: auto;
     border-radius: 0.5vw;
@@ -308,54 +330,90 @@ transition: 0.5s */
     margin-right: 17vw;
 }
 
-
-
-
-
-
-
-
-
-/* BOTAO SETA */
-#botao_seta {
-    top: 53vh;
-    left: 6vw;
+#cards1, #cards2, #cards3 {
+    width: 100vw;
+    justify-content: center;
     position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+/* BOTOES SETAS */
+#botao_seta1, #botao_seta2, #botao_seta3, #botao_seta4 {
+    position: absolute;
     background-color: white;
     border-radius: 50%;
     width: 5vw;
     height: 5vw;
     display: flex;
     align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#img_botao_seta1, #img_botao_seta2, #img_botao_seta3, #img_botao_seta4 {
+    height: 2.8vw;
+    width: 3vw;
+}
+
+#botao_seta1, #botao_seta3 {
+    top: 50%;
+    right: 10vw;
+}
+
+#botao_seta2, #botao_seta4 {
+    top: 50%;
+    right: 90vw;
     transform: rotate(180deg);
-    justify-content: center;
-    display: none;
-    cursor: pointer;
 }
 
-#img_botao_seta {
-    height: 2.8vw;
-    width: 3vw;
-}
 
-#botao_seta2 {
-    top: 53vh;
-    display: flex;
-    left: 90vw;
-    position: relative;
+
+
+
+#botao_seta5, #botao_seta6, #botao_seta7, #botao_seta8 {
+    position: absolute;
     background-color: white;
     border-radius: 50%;
     width: 5vw;
     height: 5vw;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
-#img_botao_seta2 {
+#img_botao_seta5, #img_botao_seta6, #img_botao_seta7, #img_botao_seta8 {
     height: 2.8vw;
     width: 3vw;
 }
+
+#botao_seta5, #botao_seta7 {
+    top: 50%;
+    right: 10vw;
+}
+
+#botao_seta6, #botao_seta8 {
+    top: 50%;
+    right: 90vw;
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -385,12 +443,16 @@ transition: 0.5s */
     font-weight: 900;
     font-size: 1.4vw;
     border-radius: 0.7vw;
+    transition: 0.8s ease-in-out;
 }
 
 #botao_proxima_pagina button:hover {
     font-size: 1.55vw;
-    transition: 0.8s ease-in-out;
+    width: 25%;
 }
+
+
+
 
 
 

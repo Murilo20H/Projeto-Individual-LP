@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+
+
     <div>
         <!-- NAVBAR -->
         <div id="div_navbar">
@@ -20,6 +23,7 @@
             <ul id="ul_navbar">
                 <div id="selecionado_navbar">
                     <li id="li_inicio"><a href="../Inicio/inicio.html">INÍCIO</a></li>
+                    <div id="barra_selecionado"></div>
                 </div>
                 <li id="li_evolucao"><a href="../Evolucao/evolucao.html">EVOLUÇÃO</a></li>
                 <li id="li_objetivos"><a href="../Objetivos/objetivos.html">OBJETIVOS</a></li>
@@ -32,16 +36,14 @@
 
 
 
+
         <!-- PARTE INICIAL -->
         <div id="parte_inicial">
-            <div id="div_texto_inicial">
+            <div style="z-index: 1;" id="div_texto_inicial">
                 <h1>BEM VINDO!</h1>
                 <span id="texto_inicial">Aqui você descobrirá a fascinante jornada da <span
                         style="color: var(--cor-taupe); text-decoration: underline;">programação</span>, desde os
                     primórdios até os avanços tecnológicos que definem nossa era digital</span>
-            </div>
-            <div id="div_imagem_inicial">
-                <img id="imagem_inicial" src="../../Icons/programming-program-code-macbook-pro-laptop-apple.jpg">
             </div>
         </div>
 
@@ -87,7 +89,7 @@
             </div>
 
             <div id="botao_proxima_pagina">
-                <button>PRÓXIMA ETAPA: EVOLUÇÃO</button>
+                <button onclick="evolucao()">PRÓXIMA ETAPA: EVOLUÇÃO</button>
             </div>
 
 
@@ -97,10 +99,12 @@
                     <img id="img_logo" src="../../Icons/logo-sem-fundo.png">
                     <span id="span_logo">Programming</span>
                 </div>
-                <span id="texto_rodape">Clique aqui e saiba mais sobre o criador e a inspiração para a criação deste projeto!</span>
+                <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a criação deste
+                    projeto!</span>
                 <div id="contatos">
-                    <img id="logo_facebook" src="../../Icons/iconsfacebook.png">
-                    <img id="logo_instagram" src="../../Icons/iconsinstagram.png">
+                    <img onclick="email()" id="logo_email" src="../../Icons/email.png">
+                    <img onclick="linkedin()" id="logo_linkedin" src="../../Icons/linkedin.png">
+                    <img onclick="instagram()" id="logo_instagram" src="../../Icons/iconsinstagram.png">
                 </div>
             </div>
 
@@ -111,4 +115,4 @@
 </body>
 
 </html>
-<script src="home.js"></script>
+<script src="inicio.js"></script>
