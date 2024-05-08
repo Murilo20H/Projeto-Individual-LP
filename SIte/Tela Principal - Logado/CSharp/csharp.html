@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="csharp.css">
+    <link rel="icon" href="../../Icons/logo-sem-fundo.png">
+    <title>CSharp</title>
+</head>
+
+<body>
+
+
+
+    <div>
+        <!-- NAVBAR -->
+        <div id="div_navbar">
+            <div id="div_logo">
+                <img id="img_logo" src="../../Icons/logo-sem-fundo.png">
+            </div>
+            <ul id="ul_navbar">
+                <li id="li_inicio"><a href="../Inicio/inicio.html">INÍCIO</a></li>
+                <div id="selecionado_navbar">
+                    <li id="li_csharp"><a href="../Csharp/csharp.html">CSHARP</a></li>
+                    <div id="barra_selecionado"></div>
+                </div>
+                <li id="li_java"><a href="../Java/java.html">JAVA</a></li>
+                <li id="li_javascript"><a href="../Javascript/javascript.html">JAVASCRIPT</a></li>
+                <li id="li_html_css"><a href="../HTML&CSS/html_css.html">HTML & CSS</a></li>
+                <li id="li_sql"><a href="../SQL/sql.html">SQL</a></li>
+            </ul>
+            <button onclick="sair()" id="button_sair">SAIR</button>
+        </div>
+
+
+
+
+        <!-- PARTE INICIAL -->
+        <div id="parte_cima">
+
+            <div id="parte_explicacao">
+                <div id="logo_csharp">
+                    <img src="../../Icons/Logos-Linguagens/logo-csharp.png">
+                </div>
+
+                <div id="texto_explicacao">
+                    <h1>CSHARP OU C#</h1>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div onclick="abaixar()" id="botao_seta1">
+                <img id="img_botao_seta1" src="../Icons/seta.png">
+            </div>
+        </div>
+
+
+
+        <!-- ONDE TUDO COMEÇOU -->
+        <div id="parte_porque">
+            <div id="texto_porque">
+                <h1>POR QUE EU ESCOLHI O TEMA LINGUAGENS DE PROGRAMAÇÃO?</h1>
+                <span>Eu sempre me interessei por tecnologia e ela sempre esteve presente na minha vida, mas minha
+                    jornada na programação começou somente em 2023, quando participei de um curso de programação. Desde
+                    que eu comecei, já gostei bastante das linguagens de programação e de transformar ideias em soluções
+                    para diversos problemas.<br><br>Desde então, tenho me dedicado ao estudo e à prática das linguagens
+                    de programação, buscando compreender não apenas sua sintaxe, mas também os objetivos de cada
+                    linguagem para resolver desafios de forma eficiente.<br><br>A escolha do tema neste trabalho revela
+                    meu interesse pelo assunto. Estou ansioso para compartilhar meu projeto e contribuir para o avanço
+                    da tecnologia por meio da programação.
+            </div>
+        </div>
+
+        <!-- <div id="contatos">
+            <div id="formas_contato">
+
+                <div id="forma_contato">
+                    <img onclick="email()" src="../Icons/Sobre-Mim/logo-email.jpg">
+                    <span>E-mail</span>
+                </div>
+
+                <div id="forma_contato">
+                    <img onclick="github()" src="../Icons/Sobre-Mim/logo-github.png">
+                    <span>GitHub</span>
+                </div>
+
+                <div id="forma_contato">
+                    <img onclick="instagram()" src="../Icons/Sobre-Mim/logo-instagram.jpg">
+                    <span>Instagram</span>
+                </div>
+
+                <div id="forma_contato">
+                    <img onclick="linkedin()" src="../Icons/Sobre-Mim/logo_linkedin.jpg">
+                    <span>Linkedin</span>
+                </div>
+            </div>
+
+        </div> -->
+
+
+
+
+        <!-- RODAPÉ -->
+        <div id="rodape">
+            <div id="div_logo">
+                <img id="img_logo" src="../../Icons/logo-sem-fundo.png">
+            </div>
+            <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a
+                criação deste
+                projeto!</span>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script src="csharp.js"></script>
+
+<!-- 
+
+ Finalidade:
+C# (C Sharp) é uma linguagem de programação desenvolvida pela Microsoft, com ênfase na construção de aplicativos para a plataforma .NET. 
+
+** COISAS INTERESSANTES PARA COLOCAR
+
+ ** Ela é amplamente utilizada para o desenvolvimento de aplicativos desktop, web, mobile, jogos e sistemas embarcados.
+
+
+
+ Principais Características e Paradigma de Programação:
+ ** C# é uma linguagem de programação multiparadigma, predominantemente orientada a objetos, mas também suporta programação estruturada e funcional. 
+
+Sua sintaxe é similar à linguagem Java, tornando-a relativamente fácil de aprender para aqueles familiarizados com essa linguagem.
+
+
+
+
+
+ História:
+ ** C# foi desenvolvida pela Microsoft e lançada em 2000 como parte da plataforma .NET. Foi criada por Anders Hejlsberg e sua equipe na Microsoft. A linguagem foi projetada para ser simples, moderna, orientada a objetos e fortemente tipada.
+
+
+
+
+ Utilização Atual:
+ ** C# é amplamente utilizada na indústria de desenvolvimento de software, especialmente em empresas que utilizam tecnologias Microsoft. Ela é comumente empregada no desenvolvimento de aplicativos empresariais, sistemas de gerenciamento de banco de dados, jogos (por meio do framework Unity), aplicativos desktop e serviços web.
+
+
+
+
+
+ Exemplos de Aplicativos Populares:
+ ** Alguns exemplos de aplicativos populares desenvolvidos com C# incluem o Visual Studio IDE, Microsoft Office, sistemas de gerenciamento de banco de dados como o SQL Server, e uma ampla gama de jogos desenvolvidos com o Unity.
+
+
+
+
+
+
+ Regras de Sintaxe e Semântica:
+A sintaxe de C# é semelhante a outras linguagens da família C, com ênfase em chaves ({}) para delimitar blocos de código e ponto e vírgula (;) para terminar instruções. Ela suporta declaração de variáveis, estruturas de controle como if-else e loops, bem como funções e métodos.
+
+
+
+
+ Ferramentas de Desenvolvimento:
+Para o desenvolvimento em C#, a Microsoft oferece o Visual Studio como sua principal IDE. Outras ferramentas incluem o Visual Studio Code, que é uma opção mais leve e multiplataforma. 
+
+ ** Além disso, há uma série de frameworks e bibliotecas disponíveis para auxiliar no desenvolvimento, como o .NET Core e o Xamarin.
+
+
+
+
+
+ Pontos Fortes e Fracos:
+Os pontos fortes de C# incluem sua integração com a plataforma .NET, suporte a programação orientada a objetos, forte tipagem estática e ampla disponibilidade de ferramentas e recursos de desenvolvimento. No entanto, seu uso está principalmente ligado ao ecossistema Microsoft, o que pode limitar sua aplicabilidade em ambientes não-Windows. Além disso, embora tenha se expandido para outras plataformas com o .NET Core, ainda pode não ser a escolha ideal para todos os tipos de projetos.
+
+
+
+
+
+
+
+
+
+
+Exemplos de Código:
+Pequenos exemplos de código que demonstram a sintaxe e os recursos principais da linguagem, facilitando a compreensão para os iniciantes.
+
+
+ -->

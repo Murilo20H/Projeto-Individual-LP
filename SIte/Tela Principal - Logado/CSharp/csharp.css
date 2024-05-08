@@ -169,7 +169,7 @@ html, body {
 
 #barra_selecionado {
     margin-top: 5%;
-    width: 8.3vw;
+    width: 5.2vw;
     border-radius: 3vw;
     background-color: var(--cor-taupe);
     height: 1.2vh;
@@ -183,77 +183,70 @@ html, body {
 
 /* PARTE INICIAL */
 
-#parte_inicial {
+#parte_cima {
     margin-bottom: 3%;
     width: 100vw;
-    height: 50vh;
-    display: fixed;
-    justify-content: start;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(../../Icons/tela_programacao_02.jpg);
-    align-items: center;
-    background-position: center center;
-}
-
-#div_texto_inicial {
-    margin-left: 1%;
-    width: 100%;
-    height: 100%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    text-align: start;
 }
 
-#div_texto_inicial span {
-    text-decoration: underline;
-    color: transparent;
-    -webkit-text-stroke: 0.08vw white;
-    font-size: 4.8vw;
-    font-weight: 900;
-}
-
-
-
-
-
-
-
-/* ONDE TUDO COMEÇOU */
-
-#parte_resolve {
+#parte_explicacao {
     width: 100vw;
-    height: 30%;
+    height: 85%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
 }
 
-#parte_resolve h1 {
-    color: white;
-    font-weight: 700;
-    font-size: 4.6vw;
+#logo_csharp {
+    width: 34vw;
+    height: 34vw;
+    border-radius: 50%;
+    background-color: white;
+    align-items: center;
+    border: 0.5vw solid var(--cor-taupe);
+    justify-content: center;
+    display: flex;
+    margin-right: 5%;
+}
+
+#logo_csharp img {
+    width: 70%;
+    height: auto;
 }
 
 
-#texto_resolve {
-    border: 0.3vw solid var(--cor-caribbean);
-    width: 80%;
+
+
+
+
+
+/* PARTE EXPLICACAO */
+#texto_explicacao {
+    width: 50vw;
     border-radius: 3vw;
     height: 80%;
-    margin-top: 3%;
-    text-align: center;
+    border: 0.4vw solid white;
+    background-color: var(--cor-taupe);
+}
+
+#texto_explicacao h1 {
     padding: 1%;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 0.5vw;
+    text-align: center;
 }
 
-#texto_resolve span {
-    font-size: 1.9vw;
-    line-height: 1.4;
+#texto_explicacao span {
+    padding: 1%;
     color: var(--cor-taupe);
+    text-align: justify;
+    font-size: 2vw;
 }
-
-
 
 
 
@@ -266,7 +259,7 @@ html, body {
 
 
 /* BOTAO PROXIMA PAGINA */
-#botao_proxima_pagina {
+/* #botao_proxima_pagina {
     margin-top: 3%;
     margin-bottom: 3%;
     width: 100vw;
@@ -281,7 +274,7 @@ html, body {
     border: 0.2vw solid white;
     color: black;
     cursor: pointer;
-    width: 26%;
+    width: 21%;
     height: 100%;
     white-space: nowrap;
     font-weight: 900;
@@ -292,8 +285,8 @@ html, body {
 
 #botao_proxima_pagina button:hover {
     font-size: 1.55vw;
-    width: 28.5%;
-}
+    width: 22%;
+} */
 
 
 

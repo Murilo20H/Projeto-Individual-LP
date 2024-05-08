@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="icon" href="../../Icons/logo-sem-fundo.png">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <!-- BOTAO HOME -->
+    <div id="home" onclick="home()">VOLTAR</div>
+
+    <div id="tela_toda">
+
+
+        <div id="parte_beneficios">
+            <span id="titulo_beneficios">Com uma conta, você terá acesso a diversas páginas sobre linguagens de programação:</span>
+                <div id="beneficios">
+                    <div>
+                        <img src="../../Icons/foto_check.png">
+                        <span>CSHARP</span>
+                    </div>
+                    
+                    <div>
+                        <img src="../../Icons/foto_check.png">
+                        <span>JAVA</span>
+                    </div>
+                    
+                    <div>
+                        <img src="../../Icons/foto_check.png">
+                        <span>JAVASCRIPT</span>
+                    </div>
+                    
+                    <div>
+                        <img src="../../Icons/foto_check.png">
+                        <span>HTML & CSS</span>
+                    </div>
+                    
+                    <div>
+                        <img src="../../Icons/foto_check.png">
+                        <span>SQL</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div id="tela_cadastro">
+                <div id="caixa_cadastro">
+                    <h1 id="titulo">FAÇA SEU CADASTRO</h1>
+                    
+                    <input placeholder="Nome" autocomplete="off" type="text" id="input_nome">
+                    
+                    <input placeholder="Sobrenome" autocomplete="off" type="text" id="input_sobrenome">
+                    
+                    <input placeholder="Email" autocomplete="off" type="email" id="input_email">
+                    
+                    <input placeholder="Senha" autocomplete="off" type="text" id="input_senha">
+                    
+                    <input placeholder="Confirme a senha" autocomplete="off" type="text" id="input_senha">
+                    
+                    <div id="cadastrar">
+                        <button onclick="cadastrar()">CRIAR CONTA</button>
+                    </div>
+                </div>
+                <div id="login">
+                    <span>Já tem conta?</span>
+                    <button onclick="login()">LOGIN</button>
+                </div>
+            </div>
+
+    </div>
+</body>
+
+</html>
+<script src="cadastro.js"></script>

@@ -1,5 +1,5 @@
-function objetivos() {
-    window.location.href = "../Objetivos/objetivos.html";
+function mundo_moderno() {
+    window.location.href = "../MundoModerno/mundomoderno.html";
 }
 
 function sobre_mim() {
