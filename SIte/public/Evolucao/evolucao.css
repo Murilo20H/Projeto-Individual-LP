@@ -1,0 +1,552 @@
+/* ADICIONANDO FONTE */
+@font-face {
+    font-family: 'Lato';
+    src:  url('../../Font/Lato-Black.ttf');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Thin.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* VARIAVEIS */
+:root {
+    --cor-taupe: #B2A59F;
+    --cor-space-blue: #023459;
+    --cor-caribbean: #1E646E;
+    --cor-peacock: #002C2F;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: var(--cor-peacock);
+    background: linear-gradient(180deg, var(--cor-peacock) 0%, var(--cor-space-blue) 100%);
+}
+
+
+
+/* NAVBAR */
+
+#div_navbar {
+    height: 8vh;
+    width: 100vw;
+    border-bottom: 0.25vw solid var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* LOGO */
+#div_logo {
+    width: 4vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+    margin-left: 1%;
+}
+
+#img_logo {
+    width: 4vw;
+    height: 4vw;
+}
+
+
+/* ITENS NAVBAR */
+#ul_navbar {
+    width: 80%;
+    height: 100%;
+    list-style: none;
+    color: var(--cor-taupe);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    flex-direction: row;
+    margin-right: 2.1vw;
+    margin-left: 1.2vw;
+}
+
+#ul_navbar a {
+    color: var(--cor-taupe);
+    text-decoration: none;
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+
+#div_selecionado a {
+    margin-bottom: 1vw;
+}
+
+
+/* BOTAO LOGIN */
+#button_login {
+    cursor: pointer;
+    font-size: 1.4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw; 
+    height: 5vh;
+    background-color: var(--cor-taupe);
+    font-weight: 900;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+
+#selecionado_navbar li {
+    margin-top: -1%;
+}
+
+#barra_selecionado {
+    margin-top: 5%;
+    width: 7vw;
+    border-radius: 3vw;
+    background-color: var(--cor-taupe);
+    height: 1.2vh;
+}
+
+
+
+
+
+
+
+/* PARTE INICIAL */
+
+#parte_inicial {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 100vw;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+#texto_inicial {
+    color: var(--cor-taupe);
+    width: 70%;
+    font-size: 2vw;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+
+
+
+
+
+/* CARDS DE EVOLUÇÃO */
+
+#parte_explicacao {
+    width: 100vw;
+    height: 90%;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#linha {
+    width: 90vw;
+    height: 3vh;
+    display: flex;
+    background-color: var(--cor-taupe);
+    border-radius: 2vw;
+    align-items: center;
+}
+
+
+
+
+
+/* PONTOS EM CIMA */
+#pontos_cima {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+}
+
+#fortran_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 10%;
+    margin-bottom: 3vh;
+}
+
+#c_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 13.5%;
+    margin-bottom: 4vh;
+}
+
+#web_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 11%;
+    margin-bottom: 4vh;
+}
+
+
+
+
+
+/* PONTOS EM BAIXO */
+#pontos_baixo {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin-bottom: 27vh;
+}
+
+#cobol_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 23.5%;
+    margin-top: 2vh;
+    width: 15vw;
+}
+
+#poo_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 5%;
+    margin-top: 2vh;
+}
+
+#modernas_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: -2%;
+    margin-top: 2vh;
+}
+
+
+
+
+
+
+
+
+#fortran_bola, #cobol_bola, #c_bola, #poo_bola, #web_bola, #modernas_bola {
+    width: 2.5vw;
+    background-color: var(--cor-peacock);
+    border: 0.5vw solid var(--cor-taupe);
+    height: 2.5vw;
+    border-radius: 50%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+
+#fortran_bola {
+    margin-left: calc(100% / 8);
+}
+
+#fortran_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 12%;
+}
+
+#cobol_bola {
+    margin-left: calc(100% / 4);
+}
+
+#cobol_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 24.3%;
+}
+
+#c_bola {
+    margin-left: calc(100% / (8/3));
+}
+
+#c_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 36.8%;
+}
+
+#poo_bola {
+    margin-left: calc(100% / 2);
+}
+
+#poo_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 49.5%;
+}
+
+#web_bola {
+    margin-left: calc(100% / 1.6);
+}
+
+#web_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 62%;
+}
+
+#modernas_bola {
+    margin-left: calc(100% / (4/3));
+}
+
+#modernas_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 74.3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#div_fortran, #div_c, #div_web {
+    text-align: center;
+    width: 30vw;
+    height: 100%;
+    margin-right: 3vw;
+    margin-left: 17vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#div_fortran h1, #div_c h1, #div_web h1 {
+    font-size: 3vw;
+    font-weight: 900;
+    color: white;
+}
+
+#div_fortran div, #div_c div, #div_web div {
+    padding: 1vw;
+    margin-top: 5%;
+    width: 80%;
+    border-radius: 2vw;
+    border: 0.3vw solid var(--cor-taupe);
+    background: rgb(2,52,89);
+    background: linear-gradient(180deg, rgba(2,52,89,1) 0%, rgba(0,44,47,1) 100%);
+}
+
+#div_fortran span, #div_c span, #div_web span {
+    font-size: 1.6vw;
+    color: var(--cor-taupe);
+}
+
+
+
+
+
+#div_cobol, #div_poo, #div_modernas {
+    text-align: center;
+    width: 30vw;
+    height: 100%;
+    margin-right: 17vw;
+    margin-left: 3vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#div_cobol h1 {
+    font-size: 3vw;
+    font-weight: 900;
+    color: white;
+}
+
+#div_cobol div, #div_poo div, #div_modernas div {
+    margin-top: 5%;
+    width: 80%;
+    border-radius: 2vw;
+    padding: 1vw;
+    border: 0.3vw solid var(--cor-taupe);
+    background: rgb(2,52,89);
+    background: linear-gradient(180deg, rgba(2,52,89,1) 0%, rgba(0,44,47,1) 100%);
+}
+
+#div_cobol span, #div_poo span, #div_modernas span {
+    font-size: 1.6vw;
+    color: var(--cor-taupe);
+}
+
+
+#div_poo h1 {
+    font-size: 2.6vw;
+    font-weight: 900;
+    color: white;
+}
+
+#div_modernas h1 {
+    font-size: 2.4vw;
+    font-weight: 900;
+    color: white;
+}
+
+
+
+
+
+/* BOTAO PROXIMA PAGINA */
+#botao_proxima_pagina {
+    margin-bottom: 3%;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao_proxima_pagina button {
+    background-color: var(--cor-taupe);
+    border: 0.2vw solid white;
+    color: black;
+    cursor: pointer;
+    width: 21%;
+    height: 100%;
+    white-space: nowrap;
+    font-weight: 900;
+    font-size: 1.4vw;
+    border-radius: 0.7vw;
+    transition: 0.8s ease-in-out;
+}
+
+#botao_proxima_pagina button:hover {
+    font-size: 1.55vw;
+    width: 23%;
+}
+
+
+
+
+/* RODAPÉ */
+#rodape {
+    width: 100vw;
+    height: 10%;
+    background-color: var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* LOGO */
+#rodape #div_logo {
+    margin-left: 2%;
+}
+
+#texto_rodape {
+    color: var(--cor-space-blue);
+    font-weight: 700;
+    font-size: 1.6vw;
+    margin-left: 12%;
+    cursor: pointer;
+}

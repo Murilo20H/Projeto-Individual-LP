@@ -1,0 +1,571 @@
+/* ADICIONANDO FONTE */
+@font-face {
+    font-family: 'Lato';
+    src:  url('../../Font/Lato-Black.ttf');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Thin.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* VARIAVEIS */
+:root {
+    --cor-taupe: #B2A59F;
+    --cor-space-blue: #023459;
+    --cor-caribbean: #1E646E;
+    --cor-peacock: #002C2F;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+css, body {
+    height: 100%;
+    width: 100%;
+    background: var(--cor-peacock);
+    background: linear-gradient(180deg, var(--cor-peacock) 0%, var(--cor-space-blue) 100%);
+}
+
+
+
+/* NAVBAR */
+#div_navbar {
+    height: 8vh;
+    width: 100vw;
+    border-bottom: 0.25vw solid var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* LOGO */
+#div_logo {
+    width: 4vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+    margin-left: 1%;
+}
+
+#img_logo {
+    width: 4vw;
+    height: 4vw;
+}
+
+
+/* ITENS NAVBAR */
+#ul_navbar {
+    width: 80%;
+    height: 100%;
+    list-style: none;
+    color: var(--cor-taupe);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    flex-direction: row;
+    margin-right: 2.1vw;
+    margin-left: 1.2vw;
+}
+
+#ul_navbar a {
+    color: var(--cor-taupe);
+    text-decoration: none;
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+
+#div_selecionado a {
+    margin-bottom: 1vw;
+}
+
+
+/* BOTAO LOGIN */
+#button_sair {
+    cursor: pointer;
+    font-size: 1.4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw; 
+    height: 5vh;
+    background-color: var(--cor-taupe);
+    font-weight: 900;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    margin-right: 4%;
+    margin-left: 3%;
+}
+
+#selecionado_navbar li {
+    margin-top: -1%;
+}
+
+#barra_selecionado {
+    margin-top: 5%;
+    width: 2.7vw;
+    border-radius: 3vw;
+    background-color: var(--cor-taupe);
+    height: 1.2vh;
+}
+
+
+
+
+
+
+
+/* PARTE INICIAL */
+#parte_cima {
+    margin-bottom: 3%;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#parte_explicacao {
+    width: 100vw;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2.5%;
+    margin-left: 2.5%;
+}
+
+#logo_css {
+    width: 34vw;
+    height: 34vw;
+    border-radius: 50%;
+    background-color: white;
+    align-items: center;
+    border: 0.5vw solid var(--cor-taupe);
+    justify-content: center;
+    display: flex;
+    margin-right: 5%;
+}
+
+#logo_css img {
+    width: 60%;
+    height: auto;
+}
+
+
+
+
+
+
+
+/* PARTE EXPLICACAO */
+#texto_explicacao {
+    width: 50vw;
+    border-radius: 3vw;
+    padding: 1%;
+    height: 70%;
+    border: 0.4vw solid white;
+    background-color: var(--cor-taupe);
+    text-align: center;
+    overflow-y: hidden;
+}
+
+#texto_explicacao h1 {
+    padding: 1%;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 0.5vw;
+}
+
+#texto_explicacao span {
+    color: var(--cor-peacock);
+    font-size: 2vw;
+}
+
+
+
+
+
+
+
+/* BOTAO PARA DESCER A TELA */
+#botao_seta1 {
+    z-index: 2;
+    background-color: white;
+    border-radius: 2vw;
+    width: 17vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 60vw;
+    margin-top: -4vh;
+}
+
+#botao_seta1 img {
+    transform: rotate(90deg);
+    height: 2.8vw;
+    width: 3vw;
+}
+
+#botao_seta1 span {
+    font-size: 1.5vw;
+    margin-right: 1vw;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+#parte_detalhes {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow-y: hidden;
+    height: 50vh;
+    margin-bottom: 2vh;
+}
+
+#detalhe {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vh;
+    width: 20%;
+    font-size: 100%;
+    height: 60%;
+    transition: 0.7s;
+}
+
+#detalhe h1 {
+    color: white;
+    font-size: 2vw;
+    margin-bottom: 2vh;
+    height: 20%;
+    overflow-y: hidden;
+}
+
+#detalhe div {
+    padding: 2%;
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2.5vw;
+    border: 0.2vw solid white;
+    background-color: var(--cor-caribbean);
+    color: white;
+    font-size: 100%;
+    width: 90%;
+}
+
+#detalhe div span {
+    color: white;
+    font-size: 100%;
+}
+
+#detalhe:hover {
+    width: 25%;
+    height: 95%;
+    font-size: 140%;
+}
+
+
+
+
+
+
+
+#notas {
+    width: 100vw;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#parte_notas {
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#nota_aprecia, #nota_dificuldade {
+    width: 95%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 1vw;
+    border: 0.2vw solid white;
+    margin-bottom: 7vh;
+}
+
+#nota_aprecia span, #nota_dificuldade span {
+    width: calc(100% / 11);
+    font-weight: 900;
+    color: black;
+    transition: background-color 0.7s, color 0.7s, opacity 0.8s;
+}
+
+#notas h6 {
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5vh;
+    font-size: 1.8vw;
+}
+
+#gosta0, #dificil0 {
+    background-color: #ce0000;
+}
+
+#gosta1, #dificil1 {
+    background-color: #FF0000;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
+}
+
+#gosta2, #dificil2 {
+    background-color: #FF4500;
+}
+
+#gosta3, #dificil3 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
+    background-color: #FFA500;
+}
+
+#gosta4, #dificil4 {
+    background-color: #FFD700;
+}
+
+#gosta5, #dificil5 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
+    background-color: #FFFF00;
+}
+
+#gosta6, #dificil6 {
+    background-color: #ADFF2F;
+}
+
+#gosta7, #dificil7 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
+    background-color: #7FFF00;
+}
+
+#gosta8, #dificil8 {
+    background-color: rgb(39, 163, 39);
+}
+
+#gosta9, #dificil9 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
+    background-color: #008600;
+}
+
+#gosta10, #dificil10 {
+    background-color: #006400;
+}
+
+#nota_aprecia span:hover, #nota_dificuldade span:hover {
+    cursor: pointer;
+    border-left: 0.3vw solid white;
+    border-right: 0.3vw solid white;
+    opacity: 1;
+}
+
+
+:has(#nota_aprecia span:hover) #nota_aprecia span:not(:hover) {
+    transition: opacity 0.8s;
+    opacity: .2;
+}
+
+:has(#nota_dificuldade span:hover) #nota_dificuldade span:not(:hover) {
+    transition: opacity 0.8s;
+    opacity: .2;
+}
+
+
+
+
+
+
+
+
+
+
+/* BOTÃO GRAFICOS E ENVIAR */
+#graficos, #enviar {
+    width: 8%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#graficos {
+    margin-left: 1%;
+}
+
+#enviar {
+    margin-right: 1%;
+}
+
+#enviar button, #graficos button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%; 
+    height: 90%;
+    background-color: var(--cor-taupe);
+    font-weight: 900;
+    border-radius: 1vw;
+    border: 0.2vw solid white;
+    transition: 0.6s;
+}
+
+#enviar button {
+    font-size: 1.4vw;
+}
+
+#graficos button {
+    font-size: 1.2vw;
+}
+
+#enviar button:hover, #graficos button:hover {
+    width: 98%; 
+    height: 98%;
+    background-color: var(--cor-space-blue);
+    color: var(--cor-taupe);
+}
+
+#enviar button:hover {
+    font-size: 1.5vw;
+}
+
+#graficos button:hover {
+    font-size: 1.3vw;
+}
+
+
+
+
+
+
+
+
+
+
+/* RODAPÉ */
+#rodape {
+    width: 100vw;
+    height: 10%;
+    background-color: var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* LOGO */
+#rodape #div_logo {
+    margin-left: 2%;
+}
+
+#texto_rodape {
+    color: var(--cor-space-blue);
+    font-weight: 700;
+    font-size: 1.6vw;
+    margin-left: 12%;
+    cursor: pointer;
+}
+
+
+
+#tela_cobrir {
+    background-color: black;
+    position: absolute;
+    display: none;
+    z-index: 5; 
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}

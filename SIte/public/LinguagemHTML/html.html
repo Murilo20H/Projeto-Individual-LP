@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="html.css">
+    <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>HTML</title>
+</head>
+
+<body onload="validarSessao(), atualizacaoPeriodica()">
+
+    <div id="tela_cobrir"></div>
+
+    <div>
+        <!-- NAVBAR -->
+        <div id="div_navbar">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <ul id="ul_navbar">
+                <li id="li_inicio"><a href="../InicioLogado/inicio.html">INÍCIO</a></li>
+                <li id="li_csharp"><a href="../Csharp/csharp.html">CSHARP</a></li>
+                <li id="li_java"><a href="../Java/java.html">JAVA</a></li>
+                <li id="li_javascript"><a href="../Javascript/javascript.html">JAVASCRIPT</a></li>
+                <div id="selecionado_navbar">
+                    <li id="li_html"><a href="html.html">HTML</a></li>
+                    <div id="barra_selecionado"></div>
+                </div>
+                <li id="li_css"><a href="../LinguagemCSS/css.html">CSS</a></li>
+                <li id="li_sql"><a href="../SQL/sql.html">SQL</a></li>
+            </ul>
+            <button onclick="sair()" id="button_sair">SAIR</button>
+        </div>
+
+
+
+
+        <!-- PARTE INICIAL -->
+        <div id="parte_cima">
+
+            <div id="parte_explicacao">
+                <div id="logo_html">
+                    <img src="../assets/Icons/Logos-Linguagens/logo-html.png">
+                </div>
+
+                <div id="texto_explicacao">
+                    <h1>HTML</h1>
+                    <span>HTML, HyperText Markup Language, é a linguagem padrão para a criação e a estruturação de
+                        páginas web.<br><br>Foi desenvolvida por Tim Berners-Lee enquanto trabalhava no CERN nos anos 90
+                        e desde então se consolidou como a base essencial e indispensável da World Wide Web, sustentando
+                        sua estrutura e funcionalidade.</span>
+                </div>
+
+            </div>
+
+            <div onclick="abaixar()" id="botao_seta1">
+                <span>SAIBA MAIS</span>
+                <img src="../assets/Icons/seta.png">
+            </div>
+        </div>
+
+
+
+        <!-- ONDE TUDO COMEÇOU -->
+        <div id="parte_detalhes">
+            <div id="detalhe">
+                <h1>CARACTERÍSTICAS</h1>
+                <div>
+                    <span>HTML é uma linguagem de marcação que utiliza uma sintaxe simples baseada em tags para definir
+                        a estrutura e o conteúdo de uma página web. Ela permite a criação de elementos dentro de um
+                        documento.</span>
+                </div>
+            </div>
+
+            <div id="detalhe">
+                <h1>BIBLIOTECAS</h1>
+                <div>
+                    <span>Ao contrário de outras linguagens de programação, HTML não possui bibliotecas no sentido
+                        tradicional. No entanto, é frequentemente combinada com CSS para estilização e JavaScript para
+                        interatividade.</span>
+                </div>
+            </div>
+
+            <div id="detalhe">
+                <h1>UTILIDADE</h1>
+                <div>
+                    <span>É a base sobre a qual a maioria dos sites é construída e é compatível com uma ampla variedade
+                        de dispositivos e navegadores, fundamental para a criação de páginas web.</span>
+                </div>
+            </div>
+
+            <div id="detalhe">
+                <h1>EXEMPLOS</h1>
+                <div>
+                    <span>Praticamente todas as páginas da web que você encontra diariamente são construídas com HTML.
+                        Alguns exemplos de sites notáveis incluem o Google, Facebook, Wikipedia e Amazon.</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- NOTAS -->
+
+        <div id="notas">
+
+            <div id="graficos">
+                <button onclick="graficos()">GRÁFICOS</button>
+            </div>
+
+            <div id="parte_notas">
+                <h6>Classifique o seu gosto pessoal com a linguagem HTML:</h6>
+                <div id="nota_aprecia">
+                    <span onclick="aprecia0()" id="gosta0">NOTA<br>0</span>
+                    <span onclick="aprecia1()" id="gosta1">NOTA<br>1</span>
+                    <span onclick="aprecia2()" id="gosta2">NOTA<br>2</span>
+                    <span onclick="aprecia3()" id="gosta3">NOTA<br>3</span>
+                    <span onclick="aprecia4()" id="gosta4">NOTA<br>4</span>
+                    <span onclick="aprecia5()" id="gosta5">NOTA<br>5</span>
+                    <span onclick="aprecia6()" id="gosta6">NOTA<br>6</span>
+                    <span onclick="aprecia7()" id="gosta7">NOTA<br>7</span>
+                    <span onclick="aprecia8()" id="gosta8">NOTA<br>8</span>
+                    <span onclick="aprecia9()" id="gosta9">NOTA<br>9</span>
+                    <span onclick="aprecia10()" id="gosta10">NOTA<br>10</span>
+                </div>
+
+                <h6>Classifique seu nível de dificuldade com a linguagem HTML:</h6>
+                <div id="nota_dificuldade">
+                    <span onclick="dificuldade0()" id="dificil0">NOTA<br>0</span>
+                    <span onclick="dificuldade1()" id="dificil1">NOTA<br>1</span>
+                    <span onclick="dificuldade2()" id="dificil2">NOTA<br>2</span>
+                    <span onclick="dificuldade3()" id="dificil3">NOTA<br>3</span>
+                    <span onclick="dificuldade4()" id="dificil4">NOTA<br>4</span>
+                    <span onclick="dificuldade5()" id="dificil5">NOTA<br>5</span>
+                    <span onclick="dificuldade6()" id="dificil6">NOTA<br>6</span>
+                    <span onclick="dificuldade7()" id="dificil7">NOTA<br>7</span>
+                    <span onclick="dificuldade8()" id="dificil8">NOTA<br>8</span>
+                    <span onclick="dificuldade9()" id="dificil9">NOTA<br>9</span>
+                    <span onclick="dificuldade10()" id="dificil10">NOTA<br>10</span>
+                </div>
+            </div>
+
+            <div id="enviar">
+                <button onclick="enviar()">ENVIAR</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- RODAPÉ -->
+        <div id="rodape">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a
+                criação deste projeto!</span>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="html.js"></script>

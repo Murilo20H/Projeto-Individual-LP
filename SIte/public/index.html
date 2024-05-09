@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="InicioDeslogado/inicio.css">
+    <link rel="icon" href="assets/Icons/logo-sem-fundo.png">
+    <title>Início</title>
+</head>
+
+<body>
+
+
+
+    <div>
+        <!-- NAVBAR -->
+        <div id="div_navbar">
+            <div id="div_logo">
+                <img id="img_logo" src="assets/Icons/logo-sem-fundo.png">
+            </div>
+            <ul id="ul_navbar">
+                <div id="selecionado_navbar">
+                    <li id="li_inicio"><a href="index.html">INÍCIO</a></li>
+                    <div id="barra_selecionado"></div>
+                </div>
+                <li id="li_evolucao"><a href="Evolucao/evolucao.html">EVOLUÇÃO</a></li>
+                <li id="li_objetivos"><a href="Objetivos/objetivos.html">OBJETIVOS</a></li>
+                <li id="li_automacao"><a href="Automacao/automacao.html">AUTOMAÇÃO</a></li>
+                <li id="li_mundo_moderno"><a href="MundoModerno/mundomoderno.html">MUNDO MODERNO</a></li>
+                <li id="li_linguagens"><a href="Linguagens/linguagens.html">LINGUAGENS</a></li>
+            </ul>
+            <button onclick="login()" id="button_login">LOGIN</button>
+        </div>
+
+
+
+
+        <!-- PARTE INICIAL -->
+        <div id="parte_inicial">
+            <div style="z-index: 1;" id="div_texto_inicial">
+                <h1>BEM VINDO!</h1>
+                <span id="texto_inicial">Aqui você descobrirá a fascinante jornada da <span
+                        style="color: var(--cor-taupe); text-decoration: underline;">programação</span>, desde os
+                    primórdios até os avanços tecnológicos que definem nossa era digital</span>
+            </div>
+        </div>
+
+
+
+        <!-- ONDE TUDO COMEÇOU -->
+        <div id="parte_explicacao">
+            <h1>Onde tudo começou?</h1>
+            <div id="div_caixas">
+                <div id="div_abaco">
+                    <div id="div_imagem_abaco">
+                        <img src="assets/Icons/abaco.jpg">
+                    </div>
+                    <div id="texto_abaco">
+                        <span>O ábaco é um dos primeiros aparelhos de contas que se conhece, servia para fazer contas matemáticas simples, como somar, subtrair, multiplicar e dividir, usando contas móveis em hastes fixas.</span>
+                    </div>
+                </div>
+
+                <div id="div_tear">
+                    <div id="div_imagem_tear">
+                        <img src="assets/Icons/tear.jpg">
+                    </div>
+                    <div id="texto_tear">
+                        <span>O tear é uma ferramenta antiga de tecelagem. Ele usa fios para criar tecidos, movendo uma lançadeira entre eles para formar padrões. Apesar de não ser eletrônico, foi uma das primeiras máquinas a automatizar a tecelagem manual, marcando um avanço na indústria têxtil.</span>
+                    </div>
+                </div>
+
+                <div id="div_diferencial">
+                    <div id="div_imagem_diferencial">
+                        <img src="assets/Icons/Difference_engine.jpg">
+                    </div>
+                    <div id="texto_diferencial">
+                        <span>A máquina diferencial foi uma invenção do século XIX, projetada para cálculos automáticos, utilizava engrenagens e mecanismos. Apesar de nunca ter sido completamente construída, é vista como precursora dos computadores modernos.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="botao_proxima_pagina">
+                <button onclick="evolucao()">PRÓXIMA ETAPA: EVOLUÇÃO</button>
+            </div>
+
+
+            <!-- RODAPÉ -->
+            <div id="rodape">
+                <div id="div_logo">
+                    <img id="img_logo" src="assets/Icons/logo-sem-fundo.png">
+                </div>
+                <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a criação deste
+                    projeto!</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="InicioDeslogado/inicio.js"></script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="automacao.css">
+    <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
+    <title>Automação</title>
+</head>
+
+<body>
+
+
+
+    <div>
+        <!-- NAVBAR -->
+        <div id="div_navbar">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <ul id="ul_navbar">
+                <li id="li_inicio"><a href="../index.html">INÍCIO</a></li>
+                <li id="li_evolucao"><a href="../Evolucao/evolucao.html">EVOLUÇÃO</a></li>
+                <li id="li_objetivos"><a href="../Objetivos/objetivos.html">OBJETIVOS</a></li>
+                <div id="selecionado_navbar">
+                    <li id="li_automacao"><a href="../Automacao/automacao.html">AUTOMAÇÃO</a></li>
+                    <div id="barra_selecionado"></div>
+                </div>
+                <li id="li_mundo_moderno"><a href="../MundoModerno/mundomoderno.html">MUNDO MODERNO</a></li>
+                <li id="li_linguagens"><a href="../Linguagens/linguagens.html">LINGUAGENS</a></li>
+            </ul>
+            <button onclick="login()" id="button_login">LOGIN</button>
+        </div>
+
+
+
+
+        <!-- PARTE INICIAL -->
+        <div id="parte_inicial">
+            <div id="div_texto_inicial">
+                <span>FACILIDADE</span><br>
+                <span style="margin-left: 30%;">EM</span><br>
+                <span style="margin-left: 40%;">RESOLVER</span><br>
+                <span style="margin-left: 67%;">PROBLEMAS</span>
+            </div>
+        </div>
+
+
+
+        <!-- ONDE TUDO COMEÇOU -->
+        <div id="parte_resolve">
+            <h1>Como a programação resolve os problemas?</h1>
+            <div id="texto_resolve">
+                <span>A programação oferece métodos estruturados para abordar problemas, permitindo que os desenvolvedores <u>quebrem desafios complexos em etapas menores</u> e mais gerenciáveis. Isso facilita a identificação de soluções eficazes, aumenta a eficiência na resolução de problemas e possibilita a criação de soluções escaláveis para uma variedade de cenários.<br><br>A automação é alcançada através da escrita de scripts, programas ou sistemas que instruem computadores a <u>executar tarefas automaticamente</u>, reduzindo a necessidade de intervenção humana repetitiva e propensa a erros.</span>
+            </div>
+        </div>
+
+
+
+
+        <div id="botao_proxima_pagina">
+            <button onclick="mundo_moderno()">PRÓXIMA ETAPA: MUNDO MODERNO</button>
+        </div>
+
+
+        <!-- RODAPÉ -->
+        <div id="rodape">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração
+                para a criação deste
+                projeto!</span>
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+<script src="automacao.js"></script>

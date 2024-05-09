@@ -1,0 +1,357 @@
+/* ADICIONANDO FONTE */
+@font-face {
+    font-family: 'Lato';
+    src:  url('../../Font/Lato-Black.ttf');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-Thin.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../../Font/Lato-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* VARIAVEIS */
+:root {
+    --cor-taupe: #B2A59F;
+    --cor-space-blue: #023459;
+    --cor-caribbean: #1E646E;
+    --cor-peacock: #002C2F;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: var(--cor-peacock);
+    background: linear-gradient(180deg, var(--cor-peacock) 0%, var(--cor-space-blue) 100%);
+}
+
+
+
+/* NAVBAR */
+
+#div_navbar {
+    height: 8vh;
+    width: 100vw;
+    border-bottom: 0.25vw solid var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* LOGO */
+#div_logo {
+    width: 4vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3%;
+    margin-left: 1%;
+}
+
+#img_logo {
+    width: 4vw;
+    height: 4vw;
+}
+
+
+/* ITENS NAVBAR */
+#ul_navbar {
+    width: 80%;
+    height: 100%;
+    list-style: none;
+    color: var(--cor-taupe);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    flex-direction: row;
+    margin-right: 2.1vw;
+    margin-left: 1.2vw;
+}
+
+#ul_navbar a {
+    color: var(--cor-taupe);
+    text-decoration: none;
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+
+#div_selecionado a {
+    margin-bottom: 1vw;
+}
+
+
+/* BOTAO LOGIN */
+#button_login {
+    cursor: pointer;
+    font-size: 1.4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw; 
+    height: 5vh;
+    background-color: var(--cor-taupe);
+    font-weight: 900;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+#selecionado_navbar li {
+    margin-top: -1%;
+}
+
+#barra_selecionado {
+    margin-top: 5%;
+    width: 4.1vw;
+    border-radius: 3vw;
+    background-color: var(--cor-taupe);
+    height: 1.2vh;
+}
+
+
+
+
+
+
+
+/* PARTE INICIAL */
+
+#parte_inicial {
+    margin-bottom: 3%;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    justify-content: start;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Icons/tela_programacao_01.png);
+    align-items: center;
+    background-position: center center;
+}
+
+#div_texto_inicial {
+    margin-left: 4%;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: start;
+}
+
+#div_texto_inicial h1 {
+    color: white;
+    font-size: 5vw;
+    font-weight: 900;
+}
+
+#texto_inicial {
+    color: white;
+    font-size: 1.8vw;
+    font-weight: 400;
+}
+
+
+
+
+
+
+/* ONDE TUDO COMEÇOU */
+
+#parte_explicacao {
+    width: 100vw;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#parte_explicacao h1 {
+    color: var(--cor-taupe);
+    font-weight: 700;
+    font-size: 4.6vw;
+}
+
+#div_caixas {
+    margin-top: 2%;
+    width: 100vw;
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#div_abaco, #div_tear, #div_diferencial {
+    width: 33.3%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+/* ABACO, TEAR E DIFERENCIAL */
+#div_abaco, #div_tear, #div_diferencial {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+#div_imagem_abaco, #div_imagem_tear, #div_imagem_diferencial {
+    margin-bottom: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_imagem_abaco img, #div_imagem_tear img, #div_imagem_diferencial img {
+    width: 70%;
+    height: auto;
+    border-radius: 1vw;
+    border: 0.2vw solid white;
+}
+
+#texto_abaco, #texto_tear, #texto_diferencial {
+    width: 70%;
+    height: 100%;
+}
+
+#div_abaco span, #div_tear span, #div_diferencial span {
+    font-size: 1.24vw;
+    color: var(--cor-taupe);
+    line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+/* BOTAO PROXIMA PAGINA */
+#botao_proxima_pagina {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botao_proxima_pagina button {
+    background-color: var(--cor-taupe);
+    border: 0.2vw solid white;
+    color: black;
+    cursor: pointer;
+    width: 21%;
+    height: 100%;
+    white-space: nowrap;
+    font-weight: 900;
+    font-size: 1.4vw;
+    border-radius: 0.7vw;
+    transition: 0.8s ease-in-out;
+}
+
+#botao_proxima_pagina button:hover {
+    font-size: 1.55vw;
+    width: 22%;
+}
+
+
+
+
+/* RODAPÉ */
+#rodape {
+    width: 100vw;
+    height: 10%;
+    background-color: var(--cor-taupe);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* LOGO */
+#rodape #div_logo {
+    margin-left: 2%;
+}
+
+#texto_rodape {
+    color: var(--cor-space-blue);
+    font-weight: 700;
+    font-size: 1.6vw;
+    margin-left: 12%;
+    cursor: pointer;
+}

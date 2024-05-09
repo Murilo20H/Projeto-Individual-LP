@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login/login.css">
+    <link rel="icon" href="assets/Icons/logo-sem-fundo.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div id="tela_cobrir"></div>
+
+    <!-- BOTAO HOME -->
+    <div id="home" onclick="home()">VOLTAR</div>
+
+    <div id="tela_toda">
+
+
+        <div id="parte_imagem">
+            <img src="assets/Icons/desenho_programacao_sem_fundo.png">
+        </div>
+
+
+
+        <div id="tela_login">
+            <div id="caixa_login">
+                <h1 id="titulo">FAÇA SEU LOGIN</h1>
+
+                <input placeholder="Email" autocomplete="off" type="email" id="input_email">
+
+                <input placeholder="Senha" autocomplete="off" type="password" id="input_senha">
+
+                <div id="entrar">
+                    <button onclick="entrar()">ENTRAR</button>
+                </div>
+            </div>
+            <div id="cadastro">
+                <span>Ainda não tem conta?</span>
+                <button onclick="cadastro()">CADASTRO</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="Login/login.js"></script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="evolucao.css">
+    <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
+    <title>Evolução</title>
+</head>
+
+<body>
+    <div>
+        <!-- NAVBAR -->
+        <div id="div_navbar">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <ul id="ul_navbar">
+                <li id="li_inicio"><a href="../index.html">INÍCIO</a></li>
+                <div id="selecionado_navbar">
+                    <li id="li_evolucao"><a href="../Evolucao/evolucao.html">EVOLUÇÃO</a></li>
+                    <div id="barra_selecionado"></div>
+                </div>
+                <li id="li_objetivos"><a href="../Objetivos/objetivos.html">OBJETIVOS</a></li>
+                <li id="li_automacao"><a href="../Automacao/automacao.html">AUTOMAÇÃO</a></li>
+                <li id="li_mundo_moderno"><a href="../MundoModerno/mundomoderno.html">MUNDO MODERNO</a></li>
+                <li id="li_linguagens"><a href="../Linguagens/linguagens.html">LINGUAGENS</a></li>
+            </ul>
+            <button onclick="login()" id="button_login">LOGIN</button>
+        </div>
+
+
+
+        <!-- PARTE INICIAL -->
+        <div id="parte_inicial">
+            <span id="texto_inicial">A programação surgiu com o desenvolvimento dos primeiros computadores, onde a
+                programação era feita diretamente em linguagem de máquina.<br>Então em 1957 surge a 1º linguagem de
+                programação, o <span style="text-decoration: underline;">FORTRAN</span>.</span>
+        </div>
+
+
+
+        <!-- ONDE TUDO COMEÇOU -->
+        <div id="parte_explicacao">
+            <div id="div_caixas">
+                <div id="div_fortran">
+                    <h1>FORTRAN</h1>
+                    <div>
+                        <span>Desenvolvida pela IBM, foi a primeira linguagem de programação de alto nível, facilitando a escrita de códigos complexos para cálculos científicos e técnicos.</span>
+                    </div>
+                </div>
+                
+                <div id="div_cobol">
+                    <h1>COBOL</h1>
+                    <div>
+                        <span>Criada para aplicações comerciais, permitiu uma linguagem mais próxima do inglês, simplificando o desenvolvimento de sistemas empresariais.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="div_caixas">
+
+                
+                <div id="div_c">
+                    <h1>LINGUAGEM C</h1>
+                    <div>
+                        <span>Foi amplamente adotada devido à sua capacidade de escrever sistemas operacionais, compiladores e aplicativos de sistemas de forma eficaz.</span>
+                    </div>
+                </div>
+                
+                <div id="div_poo">
+                    <h1>ORIENTADA A OBJETOS</h1>
+                    <div>
+                        <span>Na década de 1980 surgiram linguagens que introduziram conceitos de programação orientada a objetos, permitindo uma modelagem mais eficaz de sistemas complexos.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="div_caixas">
+
+                
+                <div id="div_web">
+                    <h1>WEB E SCRIPT</h1>
+                    <div>
+                        <span>O surgimento da internet impulsionou linguagens como JavaScript e PHP. Essas linguagens de script permitiram o desenvolvimento de páginas web dinâmicas e interativas.</span>
+                    </div>
+                </div>
+                
+                <div id="div_modernas">
+                    <h1>LINGUAGENS MODERNAS</h1>
+                    <div>
+                        <span>Linguagens como Python e Ruby ganharam popularidade devido à sua simplicidade e versatilidade. Além disso, paradigmas de programação têm sido explorados e implementados em linguagens modernas.</span>
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <div id="botao_proxima_pagina">
+                <button onclick="objetivos()">PRÓXIMA ETAPA: OBJETIVOS</button>
+            </div>
+                
+                
+                <!-- RODAPÉ -->
+                <div id="rodape">
+                <div id="div_logo">
+                    <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+                </div>
+                <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a criação deste
+                    projeto!</span>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="evolucao.js"></script>
