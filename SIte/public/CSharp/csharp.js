@@ -18,7 +18,10 @@ function atualizacaoPeriodica() {
 }
 
 function validarSessao() {
-    // if(sessionStorage.ID_USUARIO == undefined) {
+    // var email = sessionStorage.EMAIL_USUARIO;
+    // var nome = sessionStorage.NOME_USUARIO;
+
+    // if (email == null && nome == null) {
     //     Swal.fire({
     //         imageUrl: "../assets/Icons/icon_error.png",
     //         imageHeight: 130,
@@ -43,7 +46,7 @@ function validarSessao() {
 
 
 function enviar() {
-    if (nota_aprecia == 100 && nota_dificuldade == 100) {
+    if (nota_aprecia == 0 && nota_dificuldade == 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -58,7 +61,7 @@ function enviar() {
                 tela_cobrir.style = "display: none";
             }
           });
-    } else if (nota_aprecia != 100 && nota_dificuldade != 100) {
+    } else if (nota_aprecia != 0 && nota_dificuldade != 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/foto_check.png",
             imageHeight: 130,
@@ -73,7 +76,7 @@ function enviar() {
                 tela_cobrir.style = "display: none";
             }
           });
-    } else if (nota_aprecia != 100 || nota_dificuldade != 100) {
+    } else if (nota_aprecia != 0 || nota_dificuldade != 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/foto_check.png",
             imageHeight: 130,
@@ -107,27 +110,24 @@ function enviar() {
 }
 
 function graficos() {
-        let timerInterval;
+    if (nota_aprecia == 0 || nota_dificuldade == 0) {
         Swal.fire({
-            title: "Auto close alert!",
-            html: "I will close in <b></b> milliseconds.",
-            timer: 5000,
-            timerProgressBar: true,
+            imageUrl: "../assets/Icons/icon_error.png",
+            imageHeight: 130,
+            title: "Vote nas duas classificações",
+            width: 400,
+            color: "black",
             didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
+                tela_cobrir.style = "display: flex;";
             },
             willClose: () => {
-                clearInterval(timerInterval);
+                tela_cobrir.style = "display: none";
             }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
-        });
+          });
+    } else {
+        window.location.href = "GraficoCsharp/grafico_csharp.html";
+    }
+            
 }
 
 
@@ -142,26 +142,11 @@ function graficos() {
 
 
 
-var nota_aprecia = 100;
+var nota_aprecia = 0;
 // FUNCÕES APRECIA
-function aprecia0() {
-    nota_aprecia = 0;
-    gosta1.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta2.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta3.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta4.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta5.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta6.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta7.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta8.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta9.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta10.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta0.style = "transition: opacity 0.8s; opacity: 1;";
-}
 
 function aprecia1() {
     nota_aprecia = 1;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -176,7 +161,6 @@ function aprecia1() {
 
 function aprecia2() {
     nota_aprecia = 2;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -191,7 +175,6 @@ function aprecia2() {
 
 function aprecia3() {
     nota_aprecia = 3;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -206,7 +189,6 @@ function aprecia3() {
 
 function aprecia4() {
     nota_aprecia = 4;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -221,7 +203,6 @@ function aprecia4() {
 
 function aprecia5() {
     nota_aprecia = 5;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -236,7 +217,6 @@ function aprecia5() {
 
 function aprecia6() {
     nota_aprecia = 6;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -251,7 +231,6 @@ function aprecia6() {
 
 function aprecia7() {
     nota_aprecia = 7;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -266,7 +245,6 @@ function aprecia7() {
 
 function aprecia8() {
     nota_aprecia = 8;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -281,7 +259,6 @@ function aprecia8() {
 
 function aprecia9() {
     nota_aprecia = 9;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -296,7 +273,6 @@ function aprecia9() {
 
 function aprecia10() {
     nota_aprecia = 10;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -310,26 +286,10 @@ function aprecia10() {
 }
 
 
-var nota_dificuldade = 100;
+var nota_dificuldade = 0;
 // FUNÇÕES DIFICULDADE
-function dificuldade0() {
-    nota_dificuldade = 0;
-    dificil1.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil2.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil3.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil4.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil5.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil6.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil7.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil8.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil9.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil10.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil0.style = "transition: opacity 0.8s; opacity: 1;";
-}
-
 function dificuldade1() {
     nota_dificuldade = 1;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil10.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -344,7 +304,6 @@ function dificuldade1() {
 
 function dificuldade2() {
     nota_dificuldade = 2;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
     dificil4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -359,7 +318,6 @@ function dificuldade2() {
 
 function dificuldade3() {
     nota_dificuldade = 3;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -374,7 +332,6 @@ function dificuldade3() {
 
 function dificuldade4() {
     nota_dificuldade = 4;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -389,7 +346,6 @@ function dificuldade4() {
 
 function dificuldade5() {
     nota_dificuldade = 5;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -404,7 +360,6 @@ function dificuldade5() {
 
 function dificuldade6() {
     nota_dificuldade = 6;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -419,7 +374,6 @@ function dificuldade6() {
 
 function dificuldade7() {
     nota_dificuldade = 7;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -434,7 +388,6 @@ function dificuldade7() {
 
 function dificuldade8() {
     nota_dificuldade = 8;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -449,7 +402,6 @@ function dificuldade8() {
 
 function dificuldade9() {
     nota_dificuldade = 9;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -464,7 +416,6 @@ function dificuldade9() {
 
 function dificuldade10() {
     nota_dificuldade = 10;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";

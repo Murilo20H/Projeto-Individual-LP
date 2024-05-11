@@ -1,24 +1,24 @@
 /* ADICIONANDO FONTE */
 @font-face {
     font-family: 'Lato';
-    src:  url('../../Font/Lato-Black.ttf');
+    src:  url('../assets/Font/Lato-Black.ttf');
     font-weight: 900;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-BlackItalic.ttf');
+    src: url('../assets/Font/Lato-BlackItalic.ttf');
     font-weight: 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Bold.ttf');
+    src: url('../assets/Font/Lato-Bold.ttf');
     font-weight: 700;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-BoldItalic.ttf');
+    src: url('../assets/Font/Lato-BoldItalic.ttf');
     font-weight: 700;
     font-style: italic;
 }
@@ -26,12 +26,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Regular.ttf');
+    src: url('../assets/Font/Lato-Regular.ttf');
     font-weight: 400;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Italic.ttf');
+    src: url('../assets/Font/Lato-Italic.ttf');
     font-weight: 400;
     font-style: italic;
 }
@@ -39,12 +39,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Light.ttf');
+    src: url('../assets/Font/Lato-Light.ttf');
     font-weight: 300;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-LightItalic.ttf');
+    src: url('../assets/Font/Lato-LightItalic.ttf');
     font-weight: 300;
     font-style: italic;
 }
@@ -52,12 +52,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Thin.ttf');
+    src: url('../assets/Font/Lato-Thin.ttf');
     font-weight: 100;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-ThinItalic.ttf');
+    src: url('../assets/Font/Lato-ThinItalic.ttf');
     font-weight: 100;
     font-style: italic;
 }
@@ -212,22 +212,65 @@ html, body {
 
 #parte_explicacao {
     width: 100vw;
-    height: 90%;
+    height: 120vh;
     margin-top: 3vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     text-align: center;
+    flex-direction: column;
 }
 
-#linha {
-    width: 90vw;
-    height: 3vh;
+#setas1 {
     display: flex;
-    background-color: var(--cor-taupe);
-    border-radius: 2vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
+
+
+#fortran_seta span {
+    display: flex;
+}
+
+
+#fortran_seta {
+    display: flex;
     align-items: center;
 }
+
+#ponta {
+    width: 0;
+    height: 0;
+    border-top: 10vh solid transparent;
+    border-bottom: 10vh solid transparent;
+    border-left: 5vw solid var(--cor-taupe);
+}
+
+#retangulo {
+    width: 25vw;
+    height: 6vh;
+    background-color: var(--cor-taupe);
+    border-top: 10vh solid transparent;
+    border-bottom: 10vh solid transparent;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#ponta_retangulo {
+    width: 0;
+    height: 0;
+    border-top: 10vh solid transparent;
+    border-bottom: 10vh solid transparent;
+    border-left: 5vw solid transparent;
+}
+
+
+
+
+
 
 
 

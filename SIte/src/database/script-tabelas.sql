@@ -19,3 +19,6 @@ CREATE TABLE dados_linguagem (
  	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+SELECT * from usuario;
+SELECT * from dados_linguagem;

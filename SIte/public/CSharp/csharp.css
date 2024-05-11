@@ -1,24 +1,24 @@
 /* ADICIONANDO FONTE */
 @font-face {
     font-family: 'Lato';
-    src:  url('../../Font/Lato-Black.ttf');
+    src:  url('../assets/Font/Lato-Black.ttf');
     font-weight: 900;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-BlackItalic.ttf');
+    src: url('../assets/Font/Lato-BlackItalic.ttf');
     font-weight: 900;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Bold.ttf');
+    src: url('../assets/Font/Lato-Bold.ttf');
     font-weight: 700;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-BoldItalic.ttf');
+    src: url('../assets/Font/Lato-BoldItalic.ttf');
     font-weight: 700;
     font-style: italic;
 }
@@ -26,12 +26,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Regular.ttf');
+    src: url('../assets/Font/Lato-Regular.ttf');
     font-weight: 400;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Italic.ttf');
+    src: url('../assets/Font/Lato-Italic.ttf');
     font-weight: 400;
     font-style: italic;
 }
@@ -39,12 +39,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Light.ttf');
+    src: url('../assets/Font/Lato-Light.ttf');
     font-weight: 300;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-LightItalic.ttf');
+    src: url('../assets/Font/Lato-LightItalic.ttf');
     font-weight: 300;
     font-style: italic;
 }
@@ -52,12 +52,12 @@
 
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-Thin.ttf');
+    src: url('../assets/Font/Lato-Thin.ttf');
     font-weight: 100;
 }
 @font-face {
     font-family: 'Lato';
-    src: url('../../Font/Lato-ThinItalic.ttf');
+    src: url('../assets/Font/Lato-ThinItalic.ttf');
     font-weight: 100;
     font-style: italic;
 }
@@ -378,7 +378,7 @@ html, body {
 }
 
 #nota_aprecia span, #nota_dificuldade span {
-    width: calc(100% / 11);
+    width: calc(100% / 10);
     font-weight: 900;
     color: black;
     transition: background-color 0.7s, color 0.7s, opacity 0.8s;
@@ -391,18 +391,15 @@ html, body {
     font-size: 1.8vw;
 }
 
-#gosta0, #dificil0 {
-    background-color: #ce0000;
-}
-
 #gosta1, #dificil1 {
-    background-color: #FF0000;
-    border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
+    background-color: #FF0000;
 }
 
 #gosta2, #dificil2 {
     background-color: #FF4500;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta3, #dificil3 {
@@ -413,6 +410,8 @@ html, body {
 
 #gosta4, #dificil4 {
     background-color: #FFD700;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta5, #dificil5 {
@@ -423,6 +422,8 @@ html, body {
 
 #gosta6, #dificil6 {
     background-color: #ADFF2F;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta7, #dificil7 {
@@ -432,6 +433,8 @@ html, body {
 }
 
 #gosta8, #dificil8 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
     background-color: rgb(39, 163, 39);
 }
 
@@ -443,6 +446,7 @@ html, body {
 
 #gosta10, #dificil10 {
     background-color: #006400;
+    border-left: 0.01vw solid white;
 }
 
 #nota_aprecia span:hover, #nota_dificuldade span:hover {

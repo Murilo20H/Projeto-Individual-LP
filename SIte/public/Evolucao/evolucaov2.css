@@ -213,18 +213,201 @@ html, body {
 #parte_explicacao {
     width: 100vw;
     height: 90%;
+    margin-top: 3vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-#div_caixas {
-    width: 100vw;
-    height: 33.33%;
+#linha {
+    width: 90vw;
+    height: 3vh;
     display: flex;
-    position: relative;
-    margin-bottom: 5%;
+    background-color: var(--cor-taupe);
+    border-radius: 2vw;
+    align-items: center;
 }
+
+
+
+
+
+/* PONTOS EM CIMA */
+#pontos_cima {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+}
+
+#fortran_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 10%;
+    margin-bottom: 3vh;
+}
+
+#c_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 13.5%;
+    margin-bottom: 4vh;
+}
+
+#web_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 11%;
+    margin-bottom: 4vh;
+}
+
+
+
+
+
+/* PONTOS EM BAIXO */
+#pontos_baixo {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin-bottom: 27vh;
+}
+
+#cobol_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 23.5%;
+    margin-top: 2vh;
+    width: 15vw;
+}
+
+#poo_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: 5%;
+    margin-top: 2vh;
+}
+
+#modernas_texto {
+    font-size: 2.2vw;
+    font-weight: 700;
+    color: white;
+    margin-left: -2%;
+    margin-top: 2vh;
+}
+
+
+
+
+
+
+
+
+#fortran_bola, #cobol_bola, #c_bola, #poo_bola, #web_bola, #modernas_bola {
+    width: 2.5vw;
+    background-color: var(--cor-peacock);
+    border: 0.5vw solid var(--cor-taupe);
+    height: 2.5vw;
+    border-radius: 50%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+
+#fortran_bola {
+    margin-left: calc(100% / 8);
+}
+
+#fortran_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 12%;
+}
+
+#cobol_bola {
+    margin-left: calc(100% / 4);
+}
+
+#cobol_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 24.3%;
+}
+
+#c_bola {
+    margin-left: calc(100% / (8/3));
+}
+
+#c_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 36.8%;
+}
+
+#poo_bola {
+    margin-left: calc(100% / 2);
+}
+
+#poo_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 49.5%;
+}
+
+#web_bola {
+    margin-left: calc(100% / 1.6);
+}
+
+#web_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 62%;
+}
+
+#modernas_bola {
+    margin-left: calc(100% / (4/3));
+}
+
+#modernas_bola:hover {
+    width: 4vw;
+    background-color: var(--cor-peacock);
+    height: 4vw;
+    cursor: pointer;
+    border: 0.4vw solid var(--cor-taupe);
+    margin-left: 74.3%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

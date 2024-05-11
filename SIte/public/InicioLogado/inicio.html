@@ -9,7 +9,7 @@
     <title>Início</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
 
 
 
@@ -40,7 +40,7 @@
         <!-- PARTE INICIAL -->
         <div id="parte_inicial">
             <div style="z-index: 1;" id="div_texto_inicial">
-                <h1>BEM VINDO!</h1>
+                <h1>BEM VINDO<span id="nome_usuario">usuário</span>!</h1>
                 <span id="texto_inicial">Aqui você descobrirá a fascinante jornada da <span
                         style="color: var(--cor-taupe); text-decoration: underline;">programação</span>, desde os
                     primórdios até os avanços tecnológicos que definem nossa era digital</span>

@@ -16,7 +16,7 @@ var HOST_APP = process.env.APP_HOST;
 var app = express();
 
 var indexRouter = require("./src/routes/index");
-// var indexRouter = require("./src/routes/dadosLinguagem");
+var indexRouter = require("./src/routes/dadosLinguagem");
 var usuarioRouter = require("./src/routes/usuarios");
 
 app.use(express.json());

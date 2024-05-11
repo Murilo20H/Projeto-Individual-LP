@@ -7,7 +7,7 @@ function sobre_mim() {
 }
 
 function login() {
-    window.location.href = "../../Login e Cadastro/Login/login.html";
+    window.location.href = "../login.html";
 }
 
 
