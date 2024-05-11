@@ -15,7 +15,7 @@ function buscarUltimosDados(idUsuario, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarDadosDeUsuarios(idUsuario) {
+function buscarDadosDoUsuarios(idUsuario) {
 
     var instrucaoSql = `SELECT 
         nota_aprecia as 'O quanto a pessoa gosta',
@@ -32,5 +32,5 @@ function buscarDadosDeUsuarios(idUsuario) {
 
 module.exports = {
     buscarUltimosDados,
-    buscarDadosDeUsuarios
+    buscarDadosDoUsuarios
 }

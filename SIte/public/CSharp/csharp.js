@@ -10,16 +10,11 @@ function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
 }
 
-function atualizacaoPeriodica() {
-    JSON.parse(sessionStorage.EMAIL_USUARIO).forEach(item => {
-        obterdados(item.id)
-    });
-    setTimeout(atualizacaoPeriodica, 5000);
-}
+const linguagem_atual = 'csharp';
 
 function validarSessao() {
-    // var email = sessionStorage.EMAIL_USUARIO;
-    // var nome = sessionStorage.NOME_USUARIO;
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
 
     // if (email == null && nome == null) {
     //     Swal.fire({
@@ -60,7 +55,7 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     } else if (nota_aprecia != 0 && nota_dificuldade != 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/foto_check.png",
@@ -74,13 +69,14 @@ function enviar() {
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
+                verificarVotos();
             }
-          });
+        });
     } else if (nota_aprecia != 0 || nota_dificuldade != 0) {
         Swal.fire({
-            imageUrl: "../assets/Icons/foto_check.png",
+            imageUrl: "../assets/Icons/icon_alert.png",
             imageHeight: 130,
-            title: "Uma nota enviada",
+            title: "Nota não enviada",
             text: "Por favor, vote nas duas classificações",
             width: 400,
             color: "black",
@@ -90,7 +86,7 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     } else {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
@@ -105,9 +101,91 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     }
 }
+
+
+
+function verificarVotos() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    
+    fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+                console.log("ENTROU")
+                apagar();
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+            votar();
+        }
+    }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+
+
+
+function votar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+            });
+        } else {
+            throw "Houve um erro ao tentar adicionar as notas!";
+        }
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+
+
+
+function apagar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/dados/apagarNotas/${idUsuario}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        console.log(resposta)
+        if (!resposta.ok) {
+            console.log(`Dados apagados: ${JSON.stringify(resposta)}`);
+            console.log("APAGOU")
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar apagar as notas antigas! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
+
+
+
 
 function graficos() {
     if (nota_aprecia == 0 || nota_dificuldade == 0) {
@@ -123,16 +201,12 @@ function graficos() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     } else {
         window.location.href = "GraficoCsharp/grafico_csharp.html";
     }
-            
+
 }
-
-
-
-
 
 
 

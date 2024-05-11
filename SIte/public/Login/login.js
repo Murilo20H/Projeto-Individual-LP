@@ -37,11 +37,10 @@ function entrar() {
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-
     let timerInterval;
     Swal.fire({
         title: "Verificando campos!",
-        timer: 2000,
+        timer: 1400,
         timerProgressBar: true,
         didOpen: () => {
             tela_cobrir.style = "display: flex;";
@@ -57,7 +56,6 @@ function entrar() {
         }
     }).then((result) => {
         tela_cobrir.style = "display: none;";
-
 
         fetch("/usuarios/autenticar", {
             method: "POST",

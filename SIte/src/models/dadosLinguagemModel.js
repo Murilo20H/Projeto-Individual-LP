@@ -1,36 +1,79 @@
 var database = require("../database/config");
 
-function buscarUltimosDados(idUsuario, limite_linhas) {
+// SELECT
+function buscarUltimosDados(idUsuario, linguagem, limite_linhas) {
 
     var instrucaoSql = `SELECT 
-        nota_aprecia as 'O quanto a pessoa gosta',
-        nota_dificuldade as 'O quanto a pessoa acha difícil', 
+        nota_aprecia,
+        nota_dificuldade, 
         momento, 
         DATE_FORMAT(momento,'%d/%m/%Y - %H:%i:%s') as 'Data da gravação'
         FROM dados_linguagem 
         JOIN usuario ON usuario.id = dados_linguagem.fk_usuario
-        WHERE usuario.id = ${idUsuario} ORDER BY usuario.id DESC LIMIT ${limite_linhas}`;
+        WHERE usuario.id != ${idUsuario} AND linguagem = '${linguagem}' ORDER BY momento DESC LIMIT ${limite_linhas}`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarDadosDoUsuarios(idUsuario) {
+function buscarDadosDoUsuario(idUsuario, linguagem) {
 
     var instrucaoSql = `SELECT 
-        nota_aprecia as 'O quanto a pessoa gosta',
-        nota_dificuldade as 'O quanto a pessoa acha difícil', 
+        nota_aprecia,
+        nota_dificuldade, 
         momento, 
         DATE_FORMAT(momento,'%d/%m/%Y - %H:%i:%s') as 'Data da gravação'
         FROM dados_linguagem 
         JOIN usuario ON usuario.id = dados_linguagem.fk_usuario
-        WHERE usuario.id = ${id_usuario}`;
+        WHERE usuario.id = ${idUsuario} AND linguagem = '${linguagem}'`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+function buscarMediaDados(linguagem) {
+
+    var instrucaoSql = `SELECT 
+        AVG(nota_aprecia),
+        AVG(nota_dificuldade)
+        FROM dados_linguagem 
+        WHERE linguagem = '${linguagem}'`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
+
+
+// INSERT E DELETE
+function darNotas(idUsuario, nota_aprecia, nota_dificuldade, linguagem) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function darNotas():", idUsuario, nota_aprecia, nota_dificuldade, linguagem);
+    
+    var instrucaoSql = `
+        INSERT INTO dados_linguagem (nota_aprecia, nota_dificuldade, linguagem, fk_usuario) VALUES ('${nota_aprecia}', '${nota_dificuldade}', '${linguagem}', '${idUsuario}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function apagarNotas(idUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function apagarNotas():", idUsuario);
+    
+    var instrucaoSql = `
+        DELETE FROM dados_linguagem WHERE fk_usuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     buscarUltimosDados,
-    buscarDadosDoUsuarios
+    buscarDadosDoUsuario,
+    buscarMediaDados,
+    darNotas,
+    apagarNotas
 }

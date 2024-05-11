@@ -22,13 +22,13 @@ function buscarUltimosDados(req, res) {
 }
 
 
-function buscarDadosDeUsuarios(req, res) {
+function buscarDadosDoUsuarios(req, res) {
 
     var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    dadosLinguagemModel.buscarDadosDeUsuarios(idUsuario).then(function (resultado) {
+    dadosLinguagemModel.buscarDadosDoUsuario(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -43,5 +43,5 @@ function buscarDadosDeUsuarios(req, res) {
 
 module.exports = {
     buscarUltimosDados,
-    buscarDadosDeUsuarios
+    buscarDadosDoUsuarios
 }
