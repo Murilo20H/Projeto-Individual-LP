@@ -84,7 +84,7 @@ function darNotas(req, res) {
         res.status(400).send("Linguagem está undefined!");
     } else {
 
-        dadosLinguagemModel.darNotas(id)
+        dadosLinguagemModel.darNotas(id, nota_aprecia, nota_dificuldade, linguagem)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -103,28 +103,47 @@ function darNotas(req, res) {
 }
 
 function apagarNotas(req, res) {
-    var id = req.params.idUsuarioServer;
+    // var id = req.params.idUsuarioServer;
+    
+    // if (id == undefined) {
+        //     res.status(400).send("Seu id está undefined!");
+        // } else {
+            
+            //     dadosLinguagemModel.apagarNotas(id)
+            //         .then(
+                //             function (resultado) {
+                    //                 res.json(resultado);
+    //             }
+    //         ).catch(
+        //             function (erro) {
+            //                 console.log(erro);
+            //                 console.log(
+                //                     "\nHouve um erro ao apagar notas! Erro: ",
+                //                     erro.sqlMessage
+                //                 );
+                //                 res.status(500).json(erro.sqlMessage);
+                //             }
+                //         );
+                // }
+                
+                var id = req.params.idUsuario;
+                console.log("CONTROLLER-------------------------")
+                console.log(id)
+                console.log("TERMINOU----------------------------")
 
-    if (id == undefined) {
-        res.status(400).send("Seu id está undefined!");
-    } else {
-
-        dadosLinguagemModel.apagarNotas(id)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao apagar notas! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
+    dadosLinguagemModel.apagarNotas(id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 module.exports = {

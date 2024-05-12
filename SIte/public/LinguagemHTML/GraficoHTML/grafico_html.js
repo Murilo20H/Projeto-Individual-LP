@@ -1,12 +1,12 @@
 function voltar() {
-    window.location.href = "../csharp.html";
+    window.location.href = "../html.html";
 }
 
 function graficos_gerais() {
     window.location.href = "../../GraficosGerais/graficos_gerais.css"
 }
 
-const linguagem_atual = 'csharp';
+const linguagem_atual = 'html';
 
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;

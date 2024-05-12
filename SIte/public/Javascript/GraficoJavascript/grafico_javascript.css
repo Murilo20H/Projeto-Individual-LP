@@ -1,0 +1,198 @@
+/* ADICIONANDO FONTE */
+@font-face {
+    font-family: 'Lato';
+    src:  url('../assets/Font/Lato-Black.ttf');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-Thin.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/Font/Lato-ThinItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* VARIAVEIS */
+:root {
+    --cor-taupe: #B2A59F;
+    --cor-space-blue: #023459;
+    --cor-caribbean: #1E646E;
+    --cor-peacock: #002C2F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: var(--cor-peacock);
+}
+
+
+
+
+/* BOTOES */
+#botoes {
+    width: 100vw;
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
+#button_voltar, #button_graficos_gerais {
+    cursor: pointer;
+    font-size: 1.4vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    background-color: var(--cor-taupe);
+    font-weight: 900;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+}
+
+#button_voltar {
+    width: 9vw; 
+}
+
+#button_graficos_gerais {
+    width: 18vw; 
+}
+
+#button_voltar:hover {
+    font-size: 1.6vw;
+    width: 10vw; 
+    font-weight: 700;
+    background-color: var(--cor-space-blue);
+    color: var(--cor-taupe);
+}
+
+#button_graficos_gerais:hover {
+    width: 19vw; 
+    font-size: 1.6vw;
+    font-weight: 700;
+    background-color: var(--cor-space-blue);
+    color: var(--cor-taupe);
+}
+
+
+
+
+
+
+/* PARTE INICIAL */
+
+#parte_inicial {
+    width: 100vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#parte_inicial h1 {
+    color: white;
+    font-size: 4.5vw;
+    font-weight: 900;
+}
+
+#parte_inicial h6 {
+    color: white;
+    font-size: 2vw;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
+
+
+
+/* GRAFICOS */
+#graficos {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 55vh;
+    justify-content: space-evenly;
+}
+
+#grafico_aprecia {
+    background-color: var(--cor-space-blue);
+    width: 48%;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5vw;
+    border: 0.03vw solid white;
+}
+
+#grafico_dificuldade {
+    border: 0.03vw solid white;
+    background-color: var(--cor-space-blue);
+    width: 48%;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    border-radius: 1.5vw;
+}

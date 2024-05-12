@@ -10,15 +10,14 @@ function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
 }
 
-function atualizacaoPeriodica() {
-    JSON.parse(sessionStorage.EMAIL_USUARIO).forEach(item => {
-        obterdados(item.id)
-    });
-    setTimeout(atualizacaoPeriodica, 5000);
-}
+const linguagem_atual = 'javascript';
+
 
 function validarSessao() {
-    // if(sessionStorage.ID_USUARIO == undefined) {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    // if (email == null && nome == null) {
     //     Swal.fire({
     //         imageUrl: "../assets/Icons/icon_error.png",
     //         imageHeight: 130,
@@ -43,7 +42,7 @@ function validarSessao() {
 
 
 function enviar() {
-    if (nota_aprecia == 100 && nota_dificuldade == 100) {
+    if (nota_aprecia == 0 && nota_dificuldade == 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -57,8 +56,8 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
-    } else if (nota_aprecia != 100 && nota_dificuldade != 100) {
+        });
+    } else if (nota_aprecia != 0 && nota_dificuldade != 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/foto_check.png",
             imageHeight: 130,
@@ -71,13 +70,14 @@ function enviar() {
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
+                verificarVotos();
             }
-          });
-    } else if (nota_aprecia != 100 || nota_dificuldade != 100) {
+        });
+    } else if (nota_aprecia != 0 || nota_dificuldade != 0) {
         Swal.fire({
-            imageUrl: "../assets/Icons/foto_check.png",
+            imageUrl: "../assets/Icons/icon_alert.png",
             imageHeight: 130,
-            title: "Uma nota enviada",
+            title: "Nota não enviada",
             text: "Por favor, vote nas duas classificações",
             width: 400,
             color: "black",
@@ -87,7 +87,7 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     } else {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
@@ -102,66 +102,136 @@ function enviar() {
             willClose: () => {
                 tela_cobrir.style = "display: none";
             }
-          });
+        });
     }
 }
 
-function graficos() {
-        let timerInterval;
-        Swal.fire({
-            title: "Auto close alert!",
-            html: "I will close in <b></b> milliseconds.",
-            timer: 5000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
-            }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
+
+
+function verificarVotos() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    
+    fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            // console.log(response)
+            // console.log("RESPOSTA")
+            // console.log(response.json())
+            response.json().then(function (resposta) {
+                // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+                // console.log("ENTROU")
+                apagar();
+            }).catch(function (error) {
+                console.error(`Erro ao analisar JSON: ${error.message}`);
+                votar();
+            });;
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+            votar();
+        }
+    }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+
+
+
+function votar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    console.log(`${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual} ----------------AQUI`)
+
+    console.log(`1`)
+    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }).then(function (response) {
+        console.log("resposta: ", response);
+
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+            });
+        } else {
+            throw "Houve um erro ao tentar adicionar as notas!";
+        }
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
         });
 }
 
 
 
 
+function apagar() {
+    var idUsuario = sessionStorage.ID_USUARIO;
 
+    fetch(`/dados/apagarNotas/${idUsuario}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
 
-
-
-
-
-
-
-
-var nota_aprecia = 100;
-// FUNCÕES APRECIA
-function aprecia0() {
-    nota_aprecia = 0;
-    gosta1.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta2.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta3.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta4.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta5.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta6.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta7.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta8.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta9.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta10.style = "transition: opacity 0.8s; opacity: .2;";
-    gosta0.style = "transition: opacity 0.8s; opacity: 1;";
+        console.log(resposta)
+        if (resposta.ok) {
+            console.log(`Dados apagados: ${JSON.stringify(resposta)}`);
+            console.log("APAGOU")
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar apagar as notas antigas! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }
+
+
+
+
+
+function graficos() {
+    if (nota_aprecia == 0 || nota_dificuldade == 0) {
+        Swal.fire({
+            imageUrl: "../assets/Icons/icon_error.png",
+            imageHeight: 130,
+            title: "Vote nas duas classificações",
+            width: 400,
+            color: "black",
+            didOpen: () => {
+                tela_cobrir.style = "display: flex;";
+            },
+            willClose: () => {
+                tela_cobrir.style = "display: none";
+            }
+        });
+    } else {
+        window.location.href = "GraficoCsharp/grafico_csharp.html";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+var nota_aprecia = 0;
+// FUNCÕES APRECIA
 
 function aprecia1() {
     nota_aprecia = 1;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -176,7 +246,6 @@ function aprecia1() {
 
 function aprecia2() {
     nota_aprecia = 2;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -191,7 +260,6 @@ function aprecia2() {
 
 function aprecia3() {
     nota_aprecia = 3;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -206,7 +274,6 @@ function aprecia3() {
 
 function aprecia4() {
     nota_aprecia = 4;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -221,7 +288,6 @@ function aprecia4() {
 
 function aprecia5() {
     nota_aprecia = 5;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -236,7 +302,6 @@ function aprecia5() {
 
 function aprecia6() {
     nota_aprecia = 6;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -251,7 +316,6 @@ function aprecia6() {
 
 function aprecia7() {
     nota_aprecia = 7;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -266,7 +330,6 @@ function aprecia7() {
 
 function aprecia8() {
     nota_aprecia = 8;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -281,7 +344,6 @@ function aprecia8() {
 
 function aprecia9() {
     nota_aprecia = 9;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -296,7 +358,6 @@ function aprecia9() {
 
 function aprecia10() {
     nota_aprecia = 10;
-    gosta0.style = "transition: opacity 0.8s; opacity: .2;";
     gosta1.style = "transition: opacity 0.8s; opacity: .2;";
     gosta2.style = "transition: opacity 0.8s; opacity: .2;";
     gosta3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -310,26 +371,10 @@ function aprecia10() {
 }
 
 
-var nota_dificuldade = 100;
+var nota_dificuldade = 0;
 // FUNÇÕES DIFICULDADE
-function dificuldade0() {
-    nota_dificuldade = 0;
-    dificil1.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil2.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil3.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil4.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil5.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil6.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil7.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil8.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil9.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil10.style = "transition: opacity 0.8s; opacity: .2;";
-    dificil0.style = "transition: opacity 0.8s; opacity: 1;";
-}
-
 function dificuldade1() {
     nota_dificuldade = 1;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil10.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -344,7 +389,6 @@ function dificuldade1() {
 
 function dificuldade2() {
     nota_dificuldade = 2;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
     dificil4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -359,7 +403,6 @@ function dificuldade2() {
 
 function dificuldade3() {
     nota_dificuldade = 3;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil4.style = "transition: opacity 0.8s; opacity: .2;";
@@ -374,7 +417,6 @@ function dificuldade3() {
 
 function dificuldade4() {
     nota_dificuldade = 4;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -389,7 +431,6 @@ function dificuldade4() {
 
 function dificuldade5() {
     nota_dificuldade = 5;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -404,7 +445,6 @@ function dificuldade5() {
 
 function dificuldade6() {
     nota_dificuldade = 6;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -419,7 +459,6 @@ function dificuldade6() {
 
 function dificuldade7() {
     nota_dificuldade = 7;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -434,7 +473,6 @@ function dificuldade7() {
 
 function dificuldade8() {
     nota_dificuldade = 8;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -449,7 +487,6 @@ function dificuldade8() {
 
 function dificuldade9() {
     nota_dificuldade = 9;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";
@@ -464,7 +501,6 @@ function dificuldade9() {
 
 function dificuldade10() {
     nota_dificuldade = 10;
-    dificil0.style = "transition: opacity 0.8s; opacity: .2;";
     dificil1.style = "transition: opacity 0.8s; opacity: .2;";
     dificil2.style = "transition: opacity 0.8s; opacity: .2;";
     dificil3.style = "transition: opacity 0.8s; opacity: .2;";

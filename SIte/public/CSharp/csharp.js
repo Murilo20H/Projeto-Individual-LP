@@ -112,12 +112,18 @@ function verificarVotos() {
     
     fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
+            // console.log(response)
+            // console.log("RESPOSTA")
+            // console.log(response.json())
             response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
-                console.log("ENTROU")
+                // console.log("ENTROU")
                 apagar();
-            });
+            }).catch(function (error) {
+                console.error(`Erro ao analisar JSON: ${error.message}`);
+                votar();
+            });;
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
             votar();
@@ -133,15 +139,19 @@ function verificarVotos() {
 function votar() {
     var idUsuario = sessionStorage.ID_USUARIO;
 
+    console.log(`${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual} ----------------AQUI`)
+
+    console.log(`1`)
     fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         }
-    }).then(function (resposta) {
-        console.log("resposta: ", resposta);
+    }).then(function (response) {
+        console.log("resposta: ", response);
 
-        if (resposta.ok) {
+        if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
@@ -170,7 +180,7 @@ function apagar() {
     }).then(function (resposta) {
 
         console.log(resposta)
-        if (!resposta.ok) {
+        if (resposta.ok) {
             console.log(`Dados apagados: ${JSON.stringify(resposta)}`);
             console.log("APAGOU")
         } else if (resposta.status == 404) {

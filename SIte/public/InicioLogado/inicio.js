@@ -11,7 +11,7 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var nome_usuario = document.getElementnomeyId("nome_usuario");
+    var nome_usuario = document.getElementnomeById("nome_usuario");
 
     if (email != null && nome != null) {
         nome_usuario.innerHTML = nome;
