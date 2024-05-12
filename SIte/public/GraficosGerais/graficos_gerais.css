@@ -89,7 +89,7 @@ html, body {
 /* BOTOES */
 #botoes {
     width: 100vw;
-    height: 7vh;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -113,16 +113,12 @@ html, body {
     width: 9vw; 
 }
 
-#button_graficos_csharp, #button_graficos_java, #button_graficos_html {
-    width: 18vw; 
+#button_graficos_csharp, #button_graficos_java, #button_graficos_html, #button_graficos_css, #button_graficos_sql {
+    width: 10vw; 
 }
 
 #button_graficos_javascript {
-    width: 22vw; 
-}
-
-#button_graficos_css, #button_graficos_sql {
-    width: 15vw; 
+    width: 11vw; 
 }
 
 #button_voltar:hover {
@@ -133,8 +129,8 @@ html, body {
     color: var(--cor-taupe);
 }
 
-#button_graficos_csharp:hover, #button_graficos_java:hover, #button_graficos_html:hover {
-    width: 19vw; 
+#button_graficos_csharp:hover, #button_graficos_java:hover, #button_graficos_html:hover, #button_graficos_css:hover, #button_graficos_sql:hover {
+    width: 11vw; 
     font-size: 1.6vw;
     font-weight: 700;
     background-color: var(--cor-space-blue);
@@ -142,15 +138,7 @@ html, body {
 }
 
 #button_graficos_javascript:hover {
-    width: 23vw; 
-    font-size: 1.6vw;
-    font-weight: 700;
-    background-color: var(--cor-space-blue);
-    color: var(--cor-taupe);
-}
-
-#button_graficos_css:hover, #button_graficos_sql:hover {
-    width: 16vw; 
+    width: 12vw; 
     font-size: 1.6vw;
     font-weight: 700;
     background-color: var(--cor-space-blue);

@@ -118,13 +118,15 @@ function verificarVotos() {
             response.json().then(function (resposta) {
                 // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
-                // console.log("ENTROU")
+                console.log("EXISTE VAI APAGAR")
                 apagar();
             }).catch(function (error) {
                 console.error(`Erro ao analisar JSON: ${error.message}`);
+                console.log("NAO EXISTE")
                 votar();
             });;
         } else {
+            console.log("ERRO")
             console.error('Nenhum dado encontrado ou erro na API');
             votar();
         }
@@ -137,33 +139,63 @@ function verificarVotos() {
 
 
 function votar() {
+    
+    
     var idUsuario = sessionStorage.ID_USUARIO;
 
-    console.log(`${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual} ----------------AQUI`)
-
-    console.log(`1`)
-    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
-        
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    }).then(function (response) {
-        console.log("resposta: ", response);
-
+    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
+        console.log(response);
+        console.log(response.json());
+        console.log(`5 ${JSON.stringify(response)}`);
         if (response.ok) {
             response.json().then(function (resposta) {
-                console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                console.log(`8`);
                 resposta.reverse();
-
+                
             });
         } else {
-            throw "Houve um erro ao tentar adicionar as notas!";
+            console.log(`6`);
+            console.error('Nenhum dado encontrado ou erro na API');
         }
-    })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+    }).catch(function (error) {
+        console.log(`7`);
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+
+
+
+
+
+
+
+    // console.log(`${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual} ----------------AQUI`)
+
+    // console.log(`1`)
+    // fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     }
+    // }).then(function (response) {
+    //     console.log(`1`)
+    //     console.log("resposta: ", response);
+
+    //     if (response.ok) {
+    //         response.json().then(function (resposta) {
+    //             console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
+    //             resposta.reverse();
+
+    //         });
+    //     } else {
+    //         throw "Houve um erro ao tentar adicionar as notas!";
+    //     }
+    // })
+    //     .catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //     });
 }
 
 
@@ -171,13 +203,15 @@ function votar() {
 
 function apagar() {
     var idUsuario = sessionStorage.ID_USUARIO;
-
+    
+    console.log("3")
     fetch(`/dados/apagarNotas/${idUsuario}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     }).then(function (resposta) {
+        console.log("3")
 
         console.log(resposta)
         if (resposta.ok) {

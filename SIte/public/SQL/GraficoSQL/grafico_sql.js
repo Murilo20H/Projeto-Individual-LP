@@ -3,7 +3,7 @@ function voltar() {
 }
 
 function graficos_gerais() {
-    window.location.href = "../../GraficosGerais/graficos_gerais.css"
+    window.location.href = "../../GraficosGerais/graficos_gerais.html"
 }
 
 const linguagem_atual = 'sql';

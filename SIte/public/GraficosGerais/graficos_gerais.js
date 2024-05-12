@@ -5,6 +5,12 @@ var html_gosta;
 var css_gosta;
 var sql_gosta;
 
+var csharp_dificil;
+var java_dificil;
+var javascript_dificil;
+var html_dificil;
+var css_dificil;
+var sql_dificil;
 
 
 function buscarMediaDados(linguagem) {

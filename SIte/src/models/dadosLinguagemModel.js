@@ -52,7 +52,7 @@ function darNotas(idUsuario, nota_aprecia, nota_dificuldade, linguagem) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function darNotas():", idUsuario, nota_aprecia, nota_dificuldade, linguagem);
     
     var instrucaoSql = `
-        INSERT INTO dados_linguagem (nota_aprecia, nota_dificuldade, linguagem, fk_usuario) VALUES ('${nota_aprecia}', '${nota_dificuldade}', '${linguagem}', '${idUsuario}');
+        INSERT INTO dados_linguagem (nota_aprecia, nota_dificuldade, linguagem, fk_usuario) VALUES (${nota_aprecia}, ${nota_dificuldade}, '${linguagem}', ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
