@@ -155,12 +155,24 @@ html, body {
     justify-content: center;
     width: 9vw; 
     height: 5vh;
-    background-color: var(--cor-taupe);
+    color: var(--cor-taupe);
+    background-color: var(--cor-space-blue);
     font-weight: 900;
     border-radius: 1vw;
-    border: 0.3vw solid white;
+    border: 0.2vw solid white;
     margin-right: 3%;
     margin-left: 3%;
+    transition: 0.6s;
+}
+
+#button_login:hover {
+    border: 0.3vw solid white;
+    color: var(--cor-peacock);
+    background-color: var(--cor-taupe);
+    font-size: 1.7vw;
+    width: 9.5vw;
+    height: 5.5vh;
+    font-weight: 900;
 }
 
 #selecionado_navbar li {

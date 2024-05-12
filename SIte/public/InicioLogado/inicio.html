@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="inicio.css">
-    <link rel="icon" href="../asstes/Icons/logo-sem-fundo.png">
+    <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
     <title>Início</title>
 </head>
 
-<body onload="validarSessao()">
+<body>
 
 
 
@@ -21,80 +21,89 @@
             </div>
             <ul id="ul_navbar">
                 <div id="selecionado_navbar">
-                    <li id="li_inicio"><a href="../Inicio/inicio.html">INÍCIO</a></li>
+                    <li id="li_inicio"><a href="../InicioLogado/inicio.html">INÍCIO</a></li>
                     <div id="barra_selecionado"></div>
                 </div>
                 <li id="li_csharp"><a href="../Csharp/csharp.html">CSHARP</a></li>
                 <li id="li_java"><a href="../Java/java.html">JAVA</a></li>
-                <li id="li_javascript"><a href="../Javascript/javascript.html">JAVASCRIPT</a></li>
-                <li id="li_html_css"><a href="../LinguagemHTML/html.html">HTML</a></li>
-                <li id="li_html_css"><a href="../LinguagemCSS/css.html">CSS</a></li>
+                    <li id="li_javascript"><a href="javascript.html">JAVASCRIPT</a></li>
+                <li id="li_html"><a href="../LinguagemHTML/html.html">HTML</a></li>
+                <li id="li_css"><a href="../LinguagemCSS/css.html">CSS</a></li>
                 <li id="li_sql"><a href="../SQL/sql.html">SQL</a></li>
             </ul>
-            <button onclick="login()" id="button_login">LOGIN</button>
+            <button onclick="sair()" id="button_sair">SAIR</button>
         </div>
 
-
-
-
-        <!-- PARTE INICIAL -->
-        <div id="parte_inicial">
-            <div style="z-index: 1;" id="div_texto_inicial">
-                <h1>BEM VINDO<span id="nome_usuario">usuário</span>!</h1>
-                <span id="texto_inicial">Aqui você descobrirá a fascinante jornada da <span
-                        style="color: var(--cor-taupe); text-decoration: underline;">programação</span>, desde os
-                    primórdios até os avanços tecnológicos que definem nossa era digital</span>
-            </div>
-        </div>
 
 
 
         <!-- ONDE TUDO COMEÇOU -->
         <div id="parte_explicacao">
-            <h1>Onde tudo começou?</h1>
-            <div id="div_caixas">
-                <div id="div_abaco">
-                    <div id="div_imagem_abaco">
-                        <img src="../../Icons/abaco.jpg">
-                    </div>
-                    <div id="texto_abaco">
-                        <span>O ábaco é um dos primeiros aparelhos de contas que se conhece, servia para fazer contas matemáticas simples, como somar, subtrair, multiplicar e dividir, usando contas móveis em hastes fixas.</span>
-                    </div>
-                </div>
-
-                <div id="div_tear">
-                    <div id="div_imagem_tear">
-                        <img src="../../Icons/tear.jpg">
-                    </div>
-                    <div id="texto_tear">
-                        <span>O tear é uma ferramenta antiga de tecelagem. Ele usa fios para criar tecidos, movendo uma lançadeira entre eles para formar padrões. Apesar de não ser eletrônico, foi uma das primeiras máquinas a automatizar a tecelagem manual, marcando um avanço na indústria têxtil.</span>
-                    </div>
-                </div>
-
-                <div id="div_diferencial">
-                    <div id="div_imagem_diferencial">
-                        <img src="../../Icons/Difference_engine.jpg">
-                    </div>
-                    <div id="texto_diferencial">
-                        <span>A máquina diferencial foi uma invenção do século XIX, projetada para cálculos automáticos, utilizava engrenagens e mecanismos. Apesar de nunca ter sido completamente construída, é vista como precursora dos computadores modernos.</span>
-                    </div>
-                </div>
+            <div id="parte_inicial">
+                <h1>Bem vindo <span id="nome_usuario">usuário</span>, agora você pode <u>explorar o mundo das linguagens de programação!</u></h1>
             </div>
-
-            <div id="botao_proxima_pagina">
-                <button onclick="evolucao()">PRÓXIMA ETAPA: EVOLUÇÃO</button>
+            <div id="botoes">
+                <button onclick="csharp()">CSHARP</button>
+                <button onclick="java()">JAVA</button>
+                <button onclick="javascript()">JAVASCRIPT</button>
+                <button onclick="html()">HTML</button>
+                <button onclick="css()">CSS</button>
+                <button onclick="sql()">SQL</button>
             </div>
+            <div id="texto_explicacao">
+                <div id="usos">
+                    <h1>Linguagens de Programação Populares</h1>
 
-
-            <!-- RODAPÉ -->
-            <div id="rodape">
-                <div id="div_logo">
-                    <img id="img_logo" src="../../Icons/logo-sem-fundo.png">
+                    <span><u>Python:</u> usada em inteligência artificial, desenvolvimento web e análise de dados.
+                    <br>
+                    <u>Java:</u> usada em desenvolvimento de aplicativos Android, sistemas corporativos e aplicações de servidor.
+                    <br>
+                    <u>JavaScript:</u> usada em desenvolvimento web e aplicativos da web.
+                    <br>
+                    <u>C++:</u> usada em desenvolvimento de jogos, sistemas operacionais e software de alto desempenho.
+                    <br>
+                    <u>SQL:</u> usada em bancos de dados e consultas de dados.
+                    </span>
                 </div>
-                <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração para a criação deste
-                    projeto!</span>
+                
+                <div id="nivel">
+                    <h1>Linguagens de Alto e Baixo Nível</h1>
+
+                    <span>
+                        <u>Linguagens de alto nível:</u> como Python e Java, são mais fáceis de entender e usar, pois se aproximam da linguagem humana. Elas simplificam a programação, mas podem ter menos desempenho.
+                        <br><br>
+                        <u>Linguagens de baixo nível:</u> como C e Assembly, são mais próximas da linguagem de máquina e oferecem mais controle sobre o hardware do computador, mas exigem um maior conhecimento técnico.
+                    </span>
+                </div>
+                
+                <div id="paradigma">
+                    <h1>Paradigmas de Programação</h1>
+                    <span>
+                        <u>Programação Imperativa:</u> Centrada em "como" uma tarefa deve ser realizada, dividindo-a em uma sequência de instruções.
+                        <br><br>
+                        <u>Programação Orientada a Objetos:</u> Organiza o código em objetos que contêm dados e comportamentos relacionados.
+                        <br><br>
+                        <u>Programação Funcional:</u> Trata a computação como uma avaliação de funções matemáticas e evita estados mutáveis e efeitos colaterais.
+
+                    </span>
+                </div>
             </div>
         </div>
+
+
+        <!-- RODAPÉ -->
+        <div id="rodape">
+            <div id="div_logo">
+                <img id="img_logo" src="../assets/Icons/logo-sem-fundo.png">
+            </div>
+            <span id="texto_rodape" onclick="sobre_mim()">Clique aqui e saiba mais sobre o criador e a inspiração
+                para a criação deste
+                projeto!</span>
+        </div>
+
+
+
+
     </div>
 </body>
 

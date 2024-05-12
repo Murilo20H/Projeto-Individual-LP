@@ -147,7 +147,7 @@ html, body {
 
 
 /* BOTAO LOGIN */
-#button_login {
+#button_sair {
     cursor: pointer;
     font-size: 1.4vw;
     display: flex;
@@ -161,6 +161,15 @@ html, body {
     border: 0.3vw solid white;
     margin-right: 3%;
     margin-left: 3%;
+    transition: 0.6s;
+}
+
+#button_sair:hover {
+    font-size: 1.5vw;
+    width: 9.5vw;
+    height: 5.5vh;
+    color: var(--cor-taupe);
+    background-color: var(--cor-space-blue);
 }
 
 #selecionado_navbar li {
@@ -181,154 +190,136 @@ html, body {
 
 
 
-/* PARTE INICIAL */
-
-#parte_inicial {
-    margin-bottom: 3%;
-    width: 100vw;
-    height: 60vh;
-    display: flex;
-    justify-content: start;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(../../Icons/tela_programacao_01.png);
-    align-items: center;
-    background-position: center center;
-}
-
-#div_texto_inicial {
-    margin-left: 4%;
-    width: 40%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: start;
-}
-
-#div_texto_inicial h1 {
-    color: white;
-    font-size: 5vw;
-    font-weight: 900;
-}
-
-#texto_inicial {
-    color: white;
-    font-size: 1.8vw;
-    font-weight: 400;
-}
-
-
-
-
-
-
-/* ONDE TUDO COMEÇOU */
-
+/* PARTE DA EXPLICACAO */
 #parte_explicacao {
     width: 100vw;
-    height: 40%;
+    height: 110vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/Icons/tela_programacao_03.jpg);
+    background-position: center top;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-#parte_explicacao h1 {
-    color: var(--cor-taupe);
-    font-weight: 700;
-    font-size: 4.6vw;
-}
-
-#div_caixas {
-    margin-top: 2%;
-    width: 100vw;
-    height: 35%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
 }
 
-#div_abaco, #div_tear, #div_diferencial {
-    width: 33.3%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-
-
-
-/* ABACO, TEAR E DIFERENCIAL */
-#div_abaco, #div_tear, #div_diferencial {
+#parte_inicial {
+    width: 100%;
+    height: 7%;
+    margin-top: 5%;
     display: flex;
     text-align: center;
-    align-items: center;
-}
-
-#div_imagem_abaco, #div_imagem_tear, #div_imagem_diferencial {
-    margin-bottom: 5vh;
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-#div_imagem_abaco img, #div_imagem_tear img, #div_imagem_diferencial img {
-    width: 70%;
-    height: auto;
+#parte_inicial h1 {
+    font-size: 2.3vw;
+    color: white;
+    background-color: rgba(0, 44, 47, 1);
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
     border-radius: 1vw;
-    border: 0.2vw solid white;
+    border: 0.3vw solid var(--cor-space-blue);
 }
 
-#texto_abaco, #texto_tear, #texto_diferencial {
-    width: 70%;
-    height: 100%;
-}
-
-#div_abaco span, #div_tear span, #div_diferencial span {
-    font-size: 1.24vw;
-    color: var(--cor-taupe);
-    line-height: 1.4;
-}
-
-
-
-
-
-
-
-
-
-/* BOTAO PROXIMA PAGINA */
-#botao_proxima_pagina {
-    margin-top: 3%;
-    margin-bottom: 3%;
-    width: 100vw;
-    height: 5vh;
+#texto_explicacao {
+    width: 100%;
+    height: 65%;
+    margin-top: 2%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-#botao_proxima_pagina button {
+
+
+
+
+
+/* TEXTOS */
+#usos, #nivel, #paradigma {
+    width: 28%;
+    height: 75%;
+    border: 0.3vw solid var(--cor-peacock);
+    border-radius: 2vw;
+    padding: 1vw;
+    background-color: rgb(2, 52, 89, 0.9);
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    display: flex;
+}
+
+#usos h1, #nivel h1, #paradigma h1 {
+    color: white;
+    font-size: 1.6vw;
+    font-weight: 900;
+}
+
+#usos span, #nivel span, #paradigma span {
+    color: white;
+    font-size: 1.2vw;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* BOTAO DE CADASTRO */
+#botoes {
+    margin-top: 2%;
+    width: 100%;
+    height: 6%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#botoes button {
     background-color: var(--cor-taupe);
     border: 0.2vw solid white;
-    color: black;
     cursor: pointer;
-    width: 21%;
-    height: 100%;
+    width: 10%;
+    height: 90%;
     white-space: nowrap;
     font-weight: 900;
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     border-radius: 0.7vw;
-    transition: 0.8s ease-in-out;
+    transition: 0.5s;
 }
 
-#botao_proxima_pagina button:hover {
-    font-size: 1.55vw;
-    width: 22%;
+#botoes button:hover {
+    font-size: 1.65vw;
+    width: 12%;
+    height: 95%;
+    color: var(--cor-taupe);
+    background-color: var(--cor-space-blue);
 }
+
+#cadastro span {
+    color: white;
+    font-weight: 700;
+    font-size: 1.4vw;
+    background-color: rgb(2, 52, 89, 0.9);
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border: 0.3vw solid var(--cor-peacock);
+    border-radius: 2vw;
+}
+
+
+
 
 
 
