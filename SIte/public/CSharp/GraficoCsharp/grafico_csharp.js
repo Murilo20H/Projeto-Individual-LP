@@ -7,44 +7,45 @@ function graficos_gerais() {
 }
 
 const linguagem_atual = 'csharp';
+var idUsuario = sessionStorage.ID_USUARIO;
 
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var id = sessionStorage.ID_USUARIO;
-    
+
     var nome_usuario = document.getElementById("nome_usuario");
-    
+
     if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
         nome_usuario.innerHTML = nome;
+    } else {
+        Swal.fire({
+            imageUrl: "../../assets/Icons/icon_error.png",
+            imageHeight: 130,
+            title: "Erro no login",
+            text: "Por favor tente entrar novamente",
+            width: 400,
+            color: "black",
+            didOpen: () => {
+                tela_cobrir.style = "display: flex;";
+            },
+            willClose: () => {
+                tela_cobrir.style = "display: none";
+                window.location.href = "../../index.html";
+            }
+        });
     }
-    // else {
-        //     Swal.fire({
-            //         imageUrl: "../../assets/Icons/icon_error.png",
-            //         imageHeight: 130,
-            //         title: "Erro no login",
-            //         text: "Por favor tente entrar novamente",
-            //         width: 400,
-            //         color: "black",
-            //         didOpen: () => {
-                //             tela_cobrir.style = "display: flex;";
-                //         },
-                //         willClose: () => {
-                    //             tela_cobrir.style = "display: none";
-                    //             window.location.href = "../../index.html";
-                    //         }
-                    //     });
-                    // }
 
-    atualizarGraficos(id);
+    AtualizarGraficos();
 }
-                
-                
-                
-                
-function atualizarGraficos(id) {
-    buscarUltimosDados(id, linguagem_atual);
-    buscarDadosDoUsuario(id, linguagem_atual);
+
+
+
+
+async function AtualizarGraficos() {
+    await gravarUltimosDados(await buscarUltimosDados());
+    
+    await gravarDadosDoUsuario(await buscarDadosDoUsuario());
+ 
     criarGraficos();
 }
 
@@ -52,16 +53,15 @@ function atualizarGraficos(id) {
 
 
 
-function buscarUltimosDados(idUsuario, linguagem) {
-    
-    fetch(`/dados/ultimos/${idUsuario}/${linguagem}`, { cache: 'no-store' }).then(function (response) {
+
+function buscarUltimosDados() {
+
+    fetch(`/dados/ultimos/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
-                
-                gravarUltimosDados(resposta);
-                
+                return resposta;
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -69,19 +69,19 @@ function buscarUltimosDados(idUsuario, linguagem) {
     }).catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-    // ERRO ESTA PULANDO PARA ESTA LINHA SEM EXECUTAR O FETCH
+    
+    return;
 }
 
-function buscarDadosDoUsuario(idUsuario, linguagem) {
+function buscarDadosDoUsuario() {
 
-    fetch(`/dados/usuario/${idUsuario}/${linguagem}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
-
-                gravarDadosDoUsuario(resposta);
-
+                return resposta;
+                
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -89,7 +89,7 @@ function buscarDadosDoUsuario(idUsuario, linguagem) {
     }).catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-
+    return;
 }
 
 
@@ -109,7 +109,7 @@ function gravarUltimosDados(dados) {
     lista_gosta[4] = dados[4].nota_aprecia;
     lista_gosta[5] = dados[5].nota_aprecia;
     lista_gosta[6] = dados[6].nota_aprecia;
-
+    
     lista_dificil[0] = dados[0].nota_dificuldade;
     lista_dificil[1] = dados[1].nota_dificuldade;
     lista_dificil[2] = dados[2].nota_dificuldade;
@@ -137,11 +137,11 @@ function gravarDadosDoUsuario(dados) {
 
 
 // GRAFICO
-function criarGraficos() {   
-    
+function criarGraficos() {
+
     const ctxAprecia = document.getElementById('chart_aprecia');
     const ctxDificuldade = document.getElementById('chart_dificuldade');
-    
+
     new Chart(ctxAprecia, {
         type: 'bar',
         data: {

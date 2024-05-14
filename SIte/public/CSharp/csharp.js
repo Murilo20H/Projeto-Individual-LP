@@ -11,28 +11,106 @@ function sobre_mim() {
 }
 
 const linguagem_atual = 'csharp';
+var existe = false;
 
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
+    var id = sessionStorage.ID_USUARIO;
 
-    // if (email == null && nome == null) {
-    //     Swal.fire({
-    //         imageUrl: "../assets/Icons/icon_error.png",
-    //         imageHeight: 130,
-    //         title: "Erro no login",
-    //         text: "Por favor tente entrar novamente",
-    //         width: 400,
-    //         color: "black",
-    //         didOpen: () => {
-    //             tela_cobrir.style = "display: flex;";
-    //         },
-    //         willClose: () => {
-    //             tela_cobrir.style = "display: none";
-    //             window.location.href = "../index.html";
-    //         }
-    //     });
-    // }
+    if (email == null && nome == null) {
+        Swal.fire({
+            imageUrl: "../assets/Icons/icon_error.png",
+            imageHeight: 130,
+            title: "Erro no login",
+            text: "Por favor tente entrar novamente",
+            width: 400,
+            color: "black",
+            didOpen: () => {
+                tela_cobrir.style = "display: flex;";
+            },
+            willClose: () => {
+                tela_cobrir.style = "display: none";
+                window.location.href = "../index.html";
+            }
+        });
+    }
+
+    fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                resposta.reverse();
+                existe = true;
+                carregarNotas(resposta);
+            }).catch(function (error) {
+                console.error(`Erro ao analisar JSON: ${error.message}`);
+                existe = false;
+            });;
+        } else {
+            existe = false;
+            console.log("ERRO")
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    }).catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+
+
+
+
+function carregarNotas(resposta) {
+    var aprecia = resposta[0].nota_aprecia;
+    var dificuldade = resposta[0].nota_dificuldade;
+
+    if(aprecia == 1) {
+        aprecia1()
+    } else if(aprecia == 2) {
+        aprecia2()
+    } else if(aprecia == 3) {
+        aprecia3()
+    } else if(aprecia == 4) {
+        aprecia4()
+    } else if(aprecia == 5) {
+        aprecia5()
+    } else if(aprecia == 6) {
+        aprecia6()
+    } else if(aprecia == 7) {
+        aprecia7()
+    } else if(aprecia == 8) {
+        aprecia8()
+    } else if(aprecia == 9) {
+        aprecia9()
+    } else if(aprecia == 10) {
+        aprecia10()
+    } else {
+        console.error(`Erro ao tentar encontrar a nota de gosto pessoal`);
+    }
+
+    if(dificuldade == 1) {
+        dificuldade1()
+    } else if(dificuldade == 2) {
+        dificuldade2()
+    } else if(dificuldade == 3) {
+        dificuldade3()
+    } else if(dificuldade == 4) {
+        dificuldade4()
+    } else if(dificuldade == 5) {
+        dificuldade5()
+    } else if(dificuldade == 6) {
+        dificuldade6()
+    } else if(dificuldade == 7) {
+        dificuldade7()
+    } else if(dificuldade == 8) {
+        dificuldade8()
+    } else if(dificuldade == 9) {
+        dificuldade9()
+    } else if(dificuldade == 10) {
+        dificuldade10()
+    } else {
+        console.error(`Erro ao tentar encontrar a nota de dificuldade`);
+    }
 }
 
 
@@ -107,95 +185,39 @@ function enviar() {
 
 
 
-function verificarVotos() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-    
-    fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            // console.log(response)
-            // console.log("RESPOSTA")
-            // console.log(response.json())
-            response.json().then(function (resposta) {
-                // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-                console.log("EXISTE VAI APAGAR")
-                apagar();
-            }).catch(function (error) {
-                console.error(`Erro ao analisar JSON: ${error.message}`);
-                console.log("NAO EXISTE")
-                votar();
-            });;
-        } else {
-            console.log("ERRO")
-            console.error('Nenhum dado encontrado ou erro na API');
-            votar();
-        }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
+async function verificarVotos() {
+    if(existe) {
+        await apagar();
+        votar();
+    } else {
+        votar();
+    }
 }
 
 
 
 
 function votar() {
-    
-    
     var idUsuario = sessionStorage.ID_USUARIO;
-
-    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
-        console.log(response);
-        console.log(response.json());
-        console.log(`5 ${JSON.stringify(response)}`);
+    
+    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        cache: 'no-store',
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                console.log(`8`);
-                resposta.reverse();
                 
             });
         } else {
-            console.log(`6`);
             console.error('Nenhum dado encontrado ou erro na API');
         }
     }).catch(function (error) {
-        console.log(`7`);
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-
-
-
-
-
-
-
-
-    // console.log(`${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual} ----------------AQUI`)
-
-    // console.log(`1`)
-    // fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
-        
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     }
-    // }).then(function (response) {
-    //     console.log(`1`)
-    //     console.log("resposta: ", response);
-
-    //     if (response.ok) {
-    //         response.json().then(function (resposta) {
-    //             console.log(`Dados enviados: ${JSON.stringify(resposta)}`);
-    //             resposta.reverse();
-
-    //         });
-    //     } else {
-    //         throw "Houve um erro ao tentar adicionar as notas!";
-    //     }
-    // })
-    //     .catch(function (resposta) {
-    //         console.log(`#ERRO: ${resposta}`);
-    //     });
 }
 
 
@@ -204,19 +226,16 @@ function votar() {
 function apagar() {
     var idUsuario = sessionStorage.ID_USUARIO;
     
-    console.log("3")
     fetch(`/dados/apagarNotas/${idUsuario}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     }).then(function (resposta) {
-        console.log("3")
-
-        console.log(resposta)
+        
         if (resposta.ok) {
             console.log(`Dados apagados: ${JSON.stringify(resposta)}`);
-            console.log("APAGOU")
+            
         } else if (resposta.status == 404) {
             window.alert("Deu 404!");
         } else {

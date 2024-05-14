@@ -39,7 +39,7 @@ function buscarDadosDoUsuario(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os ultimos dados.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os dados do usuario.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -58,7 +58,7 @@ function buscarMediaDados(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os ultimos dados.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar a média dos dados.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -69,10 +69,10 @@ function buscarMediaDados(req, res) {
 
 // INSERT E DELETE
 function darNotas(req, res) {
-    var id = req.params.idUsuarioServer;
-    var nota_aprecia = req.params.notaApreciaServer;
-    var nota_dificuldade = req.params.notaDificuldadeServer;
-    var linguagem = req.params.linguagemServer;
+    var id = req.params.idUsuario;
+    var nota_aprecia = req.params.notaAprecia;
+    var nota_dificuldade = req.params.notaDificuldade;
+    var linguagem = req.params.linguagem;
 
     if (id == undefined) {
         res.status(400).send("Seu id está undefined!");
@@ -103,33 +103,7 @@ function darNotas(req, res) {
 }
 
 function apagarNotas(req, res) {
-    // var id = req.params.idUsuarioServer;
-    
-    // if (id == undefined) {
-        //     res.status(400).send("Seu id está undefined!");
-        // } else {
-            
-            //     dadosLinguagemModel.apagarNotas(id)
-            //         .then(
-                //             function (resultado) {
-                    //                 res.json(resultado);
-    //             }
-    //         ).catch(
-        //             function (erro) {
-            //                 console.log(erro);
-            //                 console.log(
-                //                     "\nHouve um erro ao apagar notas! Erro: ",
-                //                     erro.sqlMessage
-                //                 );
-                //                 res.status(500).json(erro.sqlMessage);
-                //             }
-                //         );
-                // }
-                
-                var id = req.params.idUsuario;
-                console.log("CONTROLLER-------------------------")
-                console.log(id)
-                console.log("TERMINOU----------------------------")
+    var id = req.params.idUsuario;
 
     dadosLinguagemModel.apagarNotas(id)
         .then(
