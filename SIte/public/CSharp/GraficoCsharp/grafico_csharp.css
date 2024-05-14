@@ -91,7 +91,8 @@ html, body {
     height: 7vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    gap: 65vw;
     align-items: end;
 }
 
@@ -141,8 +142,7 @@ html, body {
 
 #parte_inicial {
     width: 100vw;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-bottom: 6vh;
     height: 20vh;
     display: flex;
     justify-content: center;

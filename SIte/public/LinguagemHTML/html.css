@@ -177,7 +177,7 @@ html, body {
 
 #barra_selecionado {
     margin-top: 5%;
-    width: 3.9vw;
+    width: 5.2vw;
     border-radius: 3vw;
     background-color: var(--cor-taupe);
     height: 1.2vh;
@@ -221,7 +221,7 @@ html, body {
 }
 
 #logo_html img {
-    width: 80%;
+    width: 70%;
     height: auto;
 }
 
@@ -387,7 +387,7 @@ html, body {
 }
 
 #nota_aprecia span, #nota_dificuldade span {
-    width: calc(100% / 11);
+    width: calc(100% / 10);
     font-weight: 900;
     color: black;
     transition: background-color 0.7s, color 0.7s, opacity 0.8s;
@@ -400,18 +400,15 @@ html, body {
     font-size: 1.8vw;
 }
 
-#gosta0, #dificil0 {
-    background-color: #ce0000;
-}
-
 #gosta1, #dificil1 {
-    background-color: #FF0000;
-    border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
+    background-color: #FF0000;
 }
 
 #gosta2, #dificil2 {
     background-color: #FF4500;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta3, #dificil3 {
@@ -422,6 +419,8 @@ html, body {
 
 #gosta4, #dificil4 {
     background-color: #FFD700;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta5, #dificil5 {
@@ -432,6 +431,8 @@ html, body {
 
 #gosta6, #dificil6 {
     background-color: #ADFF2F;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta7, #dificil7 {
@@ -441,6 +442,8 @@ html, body {
 }
 
 #gosta8, #dificil8 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
     background-color: rgb(39, 163, 39);
 }
 
@@ -452,6 +455,7 @@ html, body {
 
 #gosta10, #dificil10 {
     background-color: #006400;
+    border-left: 0.01vw solid white;
 }
 
 #nota_aprecia span:hover, #nota_dificuldade span:hover {

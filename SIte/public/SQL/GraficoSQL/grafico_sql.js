@@ -7,44 +7,51 @@ function graficos_gerais() {
 }
 
 const linguagem_atual = 'sql';
+var idUsuario = sessionStorage.ID_USUARIO;
 
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var id = sessionStorage.ID_USUARIO;
-    
+
     var nome_usuario = document.getElementById("nome_usuario");
-    
+
     if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
         nome_usuario.innerHTML = nome;
+    } else {
+        Swal.fire({
+            imageUrl: "../../assets/Icons/icon_error.png",
+            imageHeight: 130,
+            title: "Erro no login",
+            text: "Por favor tente entrar novamente",
+            width: 400,
+            color: "black",
+            didOpen: () => {
+                tela_cobrir.style = "display: flex;";
+            },
+            willClose: () => {
+                tela_cobrir.style = "display: none";
+                window.location.href = "../../index.html";
+            }
+        });
     }
-    // else {
-        //     Swal.fire({
-            //         imageUrl: "../../assets/Icons/icon_error.png",
-            //         imageHeight: 130,
-            //         title: "Erro no login",
-            //         text: "Por favor tente entrar novamente",
-            //         width: 400,
-            //         color: "black",
-            //         didOpen: () => {
-                //             tela_cobrir.style = "display: flex;";
-                //         },
-                //         willClose: () => {
-                    //             tela_cobrir.style = "display: none";
-                    //             window.location.href = "../../index.html";
-                    //         }
-                    //     });
-                    // }
 
-    atualizarGraficos(id);
+    AtualizarGraficos();
 }
-                
-                
-                
-                
-function atualizarGraficos(id) {
-    buscarUltimosDados(id, linguagem_atual);
-    buscarDadosDoUsuario(id, linguagem_atual);
+
+
+
+
+async function AtualizarGraficos() {
+    console.log("1")
+    var dados1 = await buscarUltimosDados();
+    console.log("5")
+
+    await gravarUltimosDados(dados1);
+    console.log("8")
+    
+    var dados2 = await buscarDadosDoUsuario()
+    await gravarDadosDoUsuario(dados2);
+ 
     criarGraficos();
 }
 
@@ -52,44 +59,51 @@ function atualizarGraficos(id) {
 
 
 
-function buscarUltimosDados(idUsuario, linguagem) {
+
+async function buscarUltimosDados() {
+    var dados;
+    console.log("2")
+
+
+    try {
+        const response = await fetch(`/dados/ultimos/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
     
-    fetch(`/dados/ultimos/${idUsuario}/${linguagem}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-                
-                gravarUltimosDados(resposta);
-                
-            });
+            const data = await response.json();
+            console.log(`Dados recebidos: ${JSON.stringify(data)}`);
+    console.log("3")
+    data.reverse();
+            dados = data;
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-    // ERRO ESTA PULANDO PARA ESTA LINHA SEM EXECUTAR O FETCH
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
+    console.log("4")
+
+    return dados;
 }
 
-function buscarDadosDoUsuario(idUsuario, linguagem) {
+async function buscarDadosDoUsuario() {
+    var dados;
 
-    fetch(`/dados/usuario/${idUsuario}/${linguagem}`, { cache: 'no-store' }).then(function (response) {
+    try {
+        const response = await fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
+    
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-                gravarDadosDoUsuario(resposta);
-
-            });
+            const data = await response.json();
+            console.log(`Dados recebidos: ${JSON.stringify(data)}`);
+            data.reverse();
+            dados = data;
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
 
+    return dados;
 }
 
 
@@ -101,7 +115,10 @@ function buscarDadosDoUsuario(idUsuario, linguagem) {
 
 var lista_gosta = [];
 var lista_dificil = [];
-function gravarUltimosDados(dados) {
+async function gravarUltimosDados(dados) {
+    console.log("6")
+
+
     lista_gosta[0] = dados[0].nota_aprecia;
     lista_gosta[1] = dados[1].nota_aprecia;
     lista_gosta[2] = dados[2].nota_aprecia;
@@ -109,7 +126,7 @@ function gravarUltimosDados(dados) {
     lista_gosta[4] = dados[4].nota_aprecia;
     lista_gosta[5] = dados[5].nota_aprecia;
     lista_gosta[6] = dados[6].nota_aprecia;
-
+    
     lista_dificil[0] = dados[0].nota_dificuldade;
     lista_dificil[1] = dados[1].nota_dificuldade;
     lista_dificil[2] = dados[2].nota_dificuldade;
@@ -117,12 +134,17 @@ function gravarUltimosDados(dados) {
     lista_dificil[4] = dados[4].nota_dificuldade;
     lista_dificil[5] = dados[5].nota_dificuldade;
     lista_dificil[6] = dados[6].nota_dificuldade;
+    console.log("7")
+
 }
 
 
 var gosta = 0;
 var dificil = 0;
 function gravarDadosDoUsuario(dados) {
+    console.log("AQUI")
+    console.log(dados)
+    console.log(dados[0].nota_aprecia)
     gosta = dados[0].nota_aprecia;
     dificil = dados[0].nota_dificuldade;
 }
@@ -137,11 +159,11 @@ function gravarDadosDoUsuario(dados) {
 
 
 // GRAFICO
-function criarGraficos() {   
-    
+function criarGraficos() {
+
     const ctxAprecia = document.getElementById('chart_aprecia');
     const ctxDificuldade = document.getElementById('chart_dificuldade');
-    
+
     new Chart(ctxAprecia, {
         type: 'bar',
         data: {

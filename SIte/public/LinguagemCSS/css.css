@@ -1,7 +1,7 @@
 /* ADICIONANDO FONTE */
 @font-face {
     font-family: 'Lato';
-    src: url('../assets/Font/Lato-Black.ttf');
+    src:  url('../assets/Font/Lato-Black.ttf');
     font-weight: 900;
 }
 @font-face {
@@ -78,7 +78,7 @@
     overflow-x: hidden;
 }
 
-css, body {
+html, body {
     height: 100%;
     width: 100%;
     background: var(--cor-peacock);
@@ -177,7 +177,7 @@ css, body {
 
 #barra_selecionado {
     margin-top: 5%;
-    width: 2.7vw;
+    width: 5.2vw;
     border-radius: 3vw;
     background-color: var(--cor-taupe);
     height: 1.2vh;
@@ -221,7 +221,7 @@ css, body {
 }
 
 #logo_css img {
-    width: 60%;
+    width: 70%;
     height: auto;
 }
 
@@ -355,6 +355,7 @@ css, body {
 
 
 
+
 #notas {
     width: 100vw;
     height: 60%;
@@ -386,7 +387,7 @@ css, body {
 }
 
 #nota_aprecia span, #nota_dificuldade span {
-    width: calc(100% / 11);
+    width: calc(100% / 10);
     font-weight: 900;
     color: black;
     transition: background-color 0.7s, color 0.7s, opacity 0.8s;
@@ -399,18 +400,15 @@ css, body {
     font-size: 1.8vw;
 }
 
-#gosta0, #dificil0 {
-    background-color: #ce0000;
-}
-
 #gosta1, #dificil1 {
-    background-color: #FF0000;
-    border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
+    background-color: #FF0000;
 }
 
 #gosta2, #dificil2 {
     background-color: #FF4500;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta3, #dificil3 {
@@ -421,6 +419,8 @@ css, body {
 
 #gosta4, #dificil4 {
     background-color: #FFD700;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta5, #dificil5 {
@@ -431,6 +431,8 @@ css, body {
 
 #gosta6, #dificil6 {
     background-color: #ADFF2F;
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
 }
 
 #gosta7, #dificil7 {
@@ -440,6 +442,8 @@ css, body {
 }
 
 #gosta8, #dificil8 {
+    border-left: 0.01vw solid white;
+    border-right: 0.01vw solid white;
     background-color: rgb(39, 163, 39);
 }
 
@@ -451,6 +455,7 @@ css, body {
 
 #gosta10, #dificil10 {
     background-color: #006400;
+    border-left: 0.01vw solid white;
 }
 
 #nota_aprecia span:hover, #nota_dificuldade span:hover {

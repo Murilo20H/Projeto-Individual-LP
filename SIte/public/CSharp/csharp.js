@@ -11,12 +11,13 @@ function sobre_mim() {
 }
 
 const linguagem_atual = 'csharp';
-var existe = false;
+var id = sessionStorage.ID_USUARIO;
 
-function validarSessao() {
+async function validarSessao() {
+    var carregar = false
+    var dados;
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var id = sessionStorage.ID_USUARIO;
 
     if (email == null && nome == null) {
         Swal.fire({
@@ -36,78 +37,108 @@ function validarSessao() {
         });
     }
 
-    fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' }).then(function (response) {
+    try {
+        const response = await fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+        console.log(response)
+
         if (response.ok) {
-            response.json().then(function (resposta) {
-                resposta.reverse();
-                existe = true;
-                carregarNotas(resposta);
-            }).catch(function (error) {
-                console.error(`Erro ao analisar JSON: ${error.message}`);
-                existe = false;
-            });;
+            var resposta = await response.json();
+            resposta.reverse();
+            carregar = true;
+            dados = resposta;
         } else {
-            existe = false;
-            console.log("ERRO")
+            console.log(`Não encontrou dados na API: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
+
+    if (carregar) {
+        var aprecia_votada = dados[0].nota_aprecia;
+        var dificuldade_votada = dados[0].nota_dificuldade;
+        await carregarNotas(aprecia_votada, dificuldade_votada);
+    }
+}
+
+
+
+async function verSeJaVotou() {
+    var existe = false;
+    var dados;
+
+    try {
+        const response = await fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+
+        if (response.ok) {
+            var resposta = await response.json();
+            resposta.reverse();
+            existe = true;
+            dados = resposta;
+        } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
+    
+    if (existe) {
+        await apagar();
+        await carregarNotas(nota_aprecia, nota_dificuldade);
+        await votar();
+    } else {
+        votar()
+    }
 }
 
 
 
 
+async function carregarNotas(aprecia, dificuldade) {
 
-function carregarNotas(resposta) {
-    var aprecia = resposta[0].nota_aprecia;
-    var dificuldade = resposta[0].nota_dificuldade;
-
-    if(aprecia == 1) {
-        aprecia1()
-    } else if(aprecia == 2) {
-        aprecia2()
-    } else if(aprecia == 3) {
-        aprecia3()
-    } else if(aprecia == 4) {
-        aprecia4()
-    } else if(aprecia == 5) {
-        aprecia5()
-    } else if(aprecia == 6) {
-        aprecia6()
-    } else if(aprecia == 7) {
-        aprecia7()
-    } else if(aprecia == 8) {
-        aprecia8()
-    } else if(aprecia == 9) {
-        aprecia9()
-    } else if(aprecia == 10) {
-        aprecia10()
+    if (aprecia == 1) {
+        await aprecia1()
+    } else if (aprecia == 2) {
+        await aprecia2()
+    } else if (aprecia == 3) {
+        await aprecia3()
+    } else if (aprecia == 4) {
+        await aprecia4()
+    } else if (aprecia == 5) {
+        await aprecia5()
+    } else if (aprecia == 6) {
+        await aprecia6()
+    } else if (aprecia == 7) {
+        await aprecia7()
+    } else if (aprecia == 8) {
+        await aprecia8()
+    } else if (aprecia == 9) {
+        await aprecia9()
+    } else if (aprecia == 10) {
+        await aprecia10()
     } else {
         console.error(`Erro ao tentar encontrar a nota de gosto pessoal`);
     }
 
-    if(dificuldade == 1) {
-        dificuldade1()
-    } else if(dificuldade == 2) {
-        dificuldade2()
-    } else if(dificuldade == 3) {
-        dificuldade3()
-    } else if(dificuldade == 4) {
-        dificuldade4()
-    } else if(dificuldade == 5) {
-        dificuldade5()
-    } else if(dificuldade == 6) {
-        dificuldade6()
-    } else if(dificuldade == 7) {
-        dificuldade7()
-    } else if(dificuldade == 8) {
-        dificuldade8()
-    } else if(dificuldade == 9) {
-        dificuldade9()
-    } else if(dificuldade == 10) {
-        dificuldade10()
+    if (dificuldade == 1) {
+        await dificuldade1()
+    } else if (dificuldade == 2) {
+        await dificuldade2()
+    } else if (dificuldade == 3) {
+        await dificuldade3()
+    } else if (dificuldade == 4) {
+        await dificuldade4()
+    } else if (dificuldade == 5) {
+        await dificuldade5()
+    } else if (dificuldade == 6) {
+        await dificuldade6()
+    } else if (dificuldade == 7) {
+        await dificuldade7()
+    } else if (dificuldade == 8) {
+        await dificuldade8()
+    } else if (dificuldade == 9) {
+        await dificuldade9()
+    } else if (dificuldade == 10) {
+        await dificuldade10()
     } else {
         console.error(`Erro ao tentar encontrar a nota de dificuldade`);
     }
@@ -118,7 +149,8 @@ function carregarNotas(resposta) {
 
 
 
-function enviar() {
+async function enviar() {
+
     if (nota_aprecia == 0 && nota_dificuldade == 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
@@ -135,21 +167,8 @@ function enviar() {
             }
         });
     } else if (nota_aprecia != 0 && nota_dificuldade != 0) {
-        Swal.fire({
-            imageUrl: "../assets/Icons/foto_check.png",
-            imageHeight: 130,
-            title: "Duas notas enviadas",
-            text: "Ao alterar uma nota, envie novamente",
-            width: 400,
-            color: "green",
-            didOpen: () => {
-                tela_cobrir.style = "display: flex;";
-            },
-            willClose: () => {
-                tela_cobrir.style = "display: none";
-                verificarVotos();
-            }
-        });
+        await estaCerto();
+
     } else if (nota_aprecia != 0 || nota_dificuldade != 0) {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_alert.png",
@@ -184,90 +203,105 @@ function enviar() {
 }
 
 
+async function estaCerto() {
 
-async function verificarVotos() {
-    if(existe) {
-        await apagar();
-        votar();
-    } else {
-        votar();
-    }
-}
-
-
-
-
-function votar() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-    
-    fetch(`/dados/criarNotas/${idUsuario}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
-        cache: 'no-store',
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-}
-
-
-
-
-function apagar() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-    
-    fetch(`/dados/apagarNotas/${idUsuario}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (resposta) {
-        
-        if (resposta.ok) {
-            console.log(`Dados apagados: ${JSON.stringify(resposta)}`);
-            
-        } else if (resposta.status == 404) {
-            window.alert("Deu 404!");
-        } else {
-            throw ("Houve um erro ao tentar apagar as notas antigas! Código da resposta: " + resposta.status);
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-    });
-}
-
-
-
-
-
-function graficos() {
-    if (nota_aprecia == 0 || nota_dificuldade == 0) {
+    return new Promise(function (resolve, reject) {
         Swal.fire({
-            imageUrl: "../assets/Icons/icon_error.png",
+            imageUrl: "../assets/Icons/foto_check.png",
             imageHeight: 130,
-            title: "Vote nas duas classificações",
+            title: "Duas notas enviadas",
+            text: "Ao alterar uma nota, envie novamente",
             width: 400,
-            color: "black",
+            color: "green",
             didOpen: () => {
                 tela_cobrir.style = "display: flex;";
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
+                certo = true;
+                verSeJaVotou();
+                resolve()
             }
         });
-    } else {
-        window.location.href = "GraficoCsharp/grafico_csharp.html";
+    });
+}
+
+
+
+
+
+async function votar() {
+
+    try {
+        const response = await fetch(`/dados/criarNotas/${id}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+            cache: 'no-store',
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        console.log(response); 
+        if (response.ok) {
+            const data = await response.json();
+            console.log(`Dados recebidos: ${JSON.stringify(data)}`);
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
     }
+}
+
+
+
+
+async function apagar() {
+    try {
+        const response = await fetch(`/dados/apagarNotas/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            console.log(`Dados apagados: ${JSON.stringify(response)}`);
+        } else if (response.status === 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw new Error(`Houve um erro ao tentar apagar as notas antigas! Código da resposta: ${response.status}`);
+        }
+    } catch (error) {
+        console.error(`#ERRO: ${error.message}`);
+    }
+}
+
+
+
+
+
+async function graficos() {
+    return new Promise(function (resolve, reject) {
+        if (nota_aprecia == 0 || nota_dificuldade == 0) {
+            Swal.fire({
+                imageUrl: "../assets/Icons/icon_error.png",
+                imageHeight: 130,
+                title: "Vote nas duas classificações",
+                width: 400,
+                color: "black",
+                didOpen: () => {
+                    tela_cobrir.style = "display: flex;";
+                },
+                willClose: () => {
+                    tela_cobrir.style = "display: none";
+                }
+            });
+        } else {
+            window.location.href = "GraficoCsharp/grafico_csharp.html";
+        }
+        resolve()
+    });
 
 }
 
