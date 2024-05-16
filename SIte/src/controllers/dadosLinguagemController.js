@@ -50,7 +50,7 @@ function buscarMediaDados(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    dadosLinguagemModel.buscarDadosDoUsuario(linguagem).then(function (resultado) {
+    dadosLinguagemModel.buscarMediaDados(linguagem).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

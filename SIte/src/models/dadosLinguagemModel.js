@@ -34,8 +34,8 @@ function buscarDadosDoUsuario(idUsuario, linguagem) {
 function buscarMediaDados(linguagem) {
 
     var instrucaoSql = `SELECT 
-        ROUND(AVG(nota_aprecia), 2),
-        ROUND(AVG(nota_dificuldade), 2)
+        ROUND(AVG(nota_aprecia), 2) AS 'nota_aprecia',
+        ROUND(AVG(nota_dificuldade), 2) AS 'nota_dificuldade'
         FROM dados_linguagem 
         WHERE linguagem = '${linguagem}'`;
 

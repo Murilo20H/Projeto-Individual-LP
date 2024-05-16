@@ -39,7 +39,6 @@ async function validarSessao() {
 
     try {
         const response = await fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
-        console.log(response)
 
         if (response.ok) {
             var resposta = await response.json();
@@ -241,7 +240,6 @@ async function votar() {
             }
         });
 
-        console.log(response); 
         if (response.ok) {
             const data = await response.json();
             console.log(`Dados recebidos: ${JSON.stringify(data)}`);

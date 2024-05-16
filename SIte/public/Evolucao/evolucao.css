@@ -221,279 +221,147 @@ html, body {
 
 
 /* CARDS DE EVOLUÇÃO */
-
 #parte_explicacao {
     width: 100vw;
-    height: 120vh;
+    height: 100vh;
     margin-top: 3vh;
+    margin-bottom: 7vh;
+    display: flex;
+    align-items: end;
+}
+
+#setas {
+    width: 100%;
+    transition: 2.5s;
+    height: 100%;
     display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #setas1 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     flex-direction: row;
-    width: 100%;
-    height: 50%;
+    width: 85%;
+    height: 28%;
 }
 
-
-#fortran_seta span {
-    display: flex;
-}
-
-
-#fortran_seta {
+#setas2 {
     display: flex;
     align-items: center;
+    justify-content: end;
+    flex-direction: row;
+    width: 85%;
+    height: 28%;
 }
 
-#ponta {
-    width: 0;
-    height: 0;
-    border-top: 10vh solid transparent;
-    border-bottom: 10vh solid transparent;
-    border-left: 5vw solid var(--cor-taupe);
+.forma {
+    width: 50%;
+    margin-right: -11%;
+    margin-left: -11%;
+    height: 95%;
+    clip-path: polygon(0% 100%, 50% 100%, 60% 50%, 50% 0%, 0% 0%, 10% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
-#retangulo {
-    width: 25vw;
-    height: 6vh;
+.forma:hover {
+    color: #023459;
+    background-color: var(--cor-caribbean);
+    border-top: 0.3vw solid white;
+    border-bottom: 0.3vw solid white;
+}
+
+.fortran, .c, .web {
     background-color: var(--cor-taupe);
-    border-top: 10vh solid transparent;
-    border-bottom: 10vh solid transparent;
+    color: white;
+}
+
+.cobol, .objetos, .modernas {
+    color: var(--cor-taupe);
+    background-color: white;
+}
+
+.forma span {
+    font-size: 3vw;
+    position: absolute;
+    width: 100%;
+    font-weight: 700;
+}
+
+.fortran span {
+    margin-right: 37%;
+}
+
+.cobol span {
+    margin-right: 35%;
+}
+
+.c span {
+    margin-right: 32%;
+}
+
+.objetos span {
+    margin-right: 37%;
+}
+
+.web span {
+    margin-right: 37%;
+}
+
+.modernas span {
+    margin-right: 35%;
+}
+
+
+
+
+
+
+
+
+/* CARDS DE TEXTO */
+#caixa_texto {
+    width: 100vw;
+    height: 28%;
     display: flex;
-    flex-direction: row;
-}
-
-
-#ponta_retangulo {
-    width: 0;
-    height: 0;
-    border-top: 10vh solid transparent;
-    border-bottom: 10vh solid transparent;
-    border-left: 5vw solid transparent;
-}
-
-
-
-
-
-
-
-
-
-
-/* PONTOS EM CIMA */
-#pontos_cima {
-    display: flex;
-    align-items: center;
-    width: 90vw;
-}
-
-#fortran_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: 10%;
-    margin-bottom: 3vh;
-}
-
-#c_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: 13.5%;
-    margin-bottom: 4vh;
-}
-
-#web_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: 11%;
-    margin-bottom: 4vh;
-}
-
-
-
-
-
-/* PONTOS EM BAIXO */
-#pontos_baixo {
-    display: flex;
-    align-items: center;
-    width: 90vw;
-    margin-bottom: 27vh;
-}
-
-#cobol_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: 23.5%;
-    margin-top: 2vh;
-    width: 15vw;
-}
-
-#poo_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: 5%;
-    margin-top: 2vh;
-}
-
-#modernas_texto {
-    font-size: 2.2vw;
-    font-weight: 700;
-    color: white;
-    margin-left: -2%;
-    margin-top: 2vh;
-}
-
-
-
-
-
-
-
-
-#fortran_bola, #cobol_bola, #c_bola, #poo_bola, #web_bola, #modernas_bola {
-    width: 2.5vw;
-    background-color: var(--cor-peacock);
-    border: 0.5vw solid var(--cor-taupe);
-    height: 2.5vw;
-    border-radius: 50%;
-    display: flex;
-    position: fixed;
     align-items: center;
     justify-content: center;
 }
 
-#fortran_bola {
-    margin-left: calc(100% / 8);
-}
 
-#fortran_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 12%;
-}
-
-#cobol_bola {
-    margin-left: calc(100% / 4);
-}
-
-#cobol_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 24.3%;
-}
-
-#c_bola {
-    margin-left: calc(100% / (8/3));
-}
-
-#c_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 36.8%;
-}
-
-#poo_bola {
-    margin-left: calc(100% / 2);
-}
-
-#poo_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 49.5%;
-}
-
-#web_bola {
-    margin-left: calc(100% / 1.6);
-}
-
-#web_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 62%;
-}
-
-#modernas_bola {
-    margin-left: calc(100% / (4/3));
-}
-
-#modernas_bola:hover {
-    width: 4vw;
-    background-color: var(--cor-peacock);
-    height: 4vw;
-    cursor: pointer;
-    border: 0.4vw solid var(--cor-taupe);
-    margin-left: 74.3%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#div_fortran, #div_c, #div_web {
+#div_linguagem {
     text-align: center;
-    width: 30vw;
+    width: 55%;
     height: 100%;
-    margin-right: 3vw;
-    margin-left: 17vw;
-    display: flex;
     align-items: center;
     flex-direction: column;
+    display: flex;
 }
 
-#div_fortran h1, #div_c h1, #div_web h1 {
-    font-size: 3vw;
+#titulo_linguagem {
+    font-size: 2vw;
     font-weight: 900;
     color: white;
+    margin-bottom: 5%;
 }
 
-#div_fortran div, #div_c div, #div_web div {
+#texto_linguagem {
     padding: 1vw;
-    margin-top: 5%;
-    width: 80%;
+    margin-top: 2.5%;
+    width: 90%;
     border-radius: 2vw;
     border: 0.3vw solid var(--cor-taupe);
     background: rgb(2,52,89);
     background: linear-gradient(180deg, rgba(2,52,89,1) 0%, rgba(0,44,47,1) 100%);
-}
-
-#div_fortran span, #div_c span, #div_web span {
     font-size: 1.6vw;
     color: var(--cor-taupe);
 }
@@ -502,49 +370,43 @@ html, body {
 
 
 
-#div_cobol, #div_poo, #div_modernas {
-    text-align: center;
-    width: 30vw;
-    height: 100%;
-    margin-right: 17vw;
-    margin-left: 3vw;
+
+
+
+/* LINHA DO TEMPO DE LINGUAGENS */
+#parte_final {
+    width: 100vw;
+    height: 85vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
 }
 
-#div_cobol h1 {
-    font-size: 3vw;
-    font-weight: 900;
-    color: white;
-}
-
-#div_cobol div, #div_poo div, #div_modernas div {
-    margin-top: 5%;
-    width: 80%;
+#linha_do_tempo {
+    width: 65%;
+    height: 90%;
+    background-color: white;
     border-radius: 2vw;
-    padding: 1vw;
-    border: 0.3vw solid var(--cor-taupe);
-    background: rgb(2,52,89);
-    background: linear-gradient(180deg, rgba(2,52,89,1) 0%, rgba(0,44,47,1) 100%);
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+    text-align: center;
+    border: 0.4vw solid var(--cor-taupe);
 }
 
-#div_cobol span, #div_poo span, #div_modernas span {
-    font-size: 1.6vw;
-    color: var(--cor-taupe);
+#linha_do_tempo span {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 2vw;
+    color: black;
+    font-weight: 700;
 }
 
-
-#div_poo h1 {
-    font-size: 2.6vw;
-    font-weight: 900;
-    color: white;
-}
-
-#div_modernas h1 {
-    font-size: 2.4vw;
-    font-weight: 900;
-    color: white;
+#linha_do_tempo img {
+    width: 85%;
+    height: auto;
+    object-fit: cover;
 }
 
 

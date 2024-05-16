@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="evolucao.css">
     <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
     <title>Evolução</title>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,51 +44,53 @@
 
         <!-- ONDE TUDO COMEÇOU -->
         <div id="parte_explicacao">
-            <div id="setas1">
+            <div id="setas" class="aos" data-aos="fade-right" data-aos-delay="200">
 
-                
-                <div id="fortran_seta">
-                    <div id="ponta_retangulo"></div>
-                    <div id="retangulo">
+                <div id="setas1">
 
-                        <span id="fortran_texto">FORTRAN</span>
+                    <div onmouseenter="abrir_card_fortran()" class="forma fortran">
+                        <span>FORTRAN</span>
                     </div>
-                    <div id="ponta"></div>
-                </div>
-                
-                <div id="cobol_seta">
-                    <span id="cobol_texto">COBOL</span>
-                    
-                </div>
-                
-                <div id="c_seta">
-                    <span id="c_texto">LINGUAGEM C</span>
-
-                </div>
-                
-            </div>
-
-            <div id="setas2">
-
-                <div id="poo_seta">
-
-                    <div id="poo_texto">ORIENTAÇÃO A OBJETOS</div>
-                </div>
-
-                <div id="web_seta">
-                    <span id="web_texto">WEB E SCRIPT</span>
+                    <div onmouseenter="abrir_card_cobol()" class="forma cobol">
+                        <span>COBOL</span>
+                    </div>
+                    <div onmouseenter="abrir_card_c()" class="forma c">
+                        <span>LINGUAGEM C</span>
+                    </div>
 
                 </div>
 
-                <div id="modernas_seta">
-                    <div id="modernas_texto">LINGUAGENS MODERNAS</div>
-
+                <div id="caixa_texto">
+                    <div id="div_linguagem">
+                        <h1 id="titulo_linguagem"></h1>
+                        <div id="texto_linguagem">SELECIONE UM CARD</div>
+                    </div>
                 </div>
 
+                <div id="setas2">
+
+                    <div onmouseenter="abrir_card_objetos()" class="forma objetos">
+                        <span>ORIENTADA<br>A OBJETOS</span>
+                    </div>
+                    <div onmouseenter="abrir_card_web()" class="forma web">
+                        <span>WEB E<br>SCRIPT</span>
+                    </div>
+                    <div onmouseenter="abrir_card_modernas()" class="forma modernas">
+                        <span>LINGUAGENS<br>MODERNAS</span>
+                    </div>
+
+                </div>
             </div>
         </div>
 
 
+
+        <div id="parte_final">
+            <div id="linha_do_tempo">
+                <span>Aqui está uma linha do tempo indicando algumas linguagens criadas durante as décadas:</span>
+                <img src="../assets/Icons/linha_do_tempo_linguagens.png">
+            </div>
+        </div>
 
 
 

@@ -42,12 +42,8 @@ function validarSessao() {
 
 
 async function AtualizarGraficos() {
-    console.log("1")
     var dados1 = await buscarUltimosDados();
-    console.log("5")
-
     await gravarUltimosDados(dados1);
-    console.log("8")
     
     var dados2 = await buscarDadosDoUsuario()
     await gravarDadosDoUsuario(dados2);
@@ -62,8 +58,6 @@ async function AtualizarGraficos() {
 
 async function buscarUltimosDados() {
     var dados;
-    console.log("2")
-
 
     try {
         const response = await fetch(`/dados/ultimos/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
@@ -71,7 +65,6 @@ async function buscarUltimosDados() {
         if (response.ok) {
             const data = await response.json();
             console.log(`Dados recebidos: ${JSON.stringify(data)}`);
-    console.log("3")
     data.reverse();
             dados = data;
         } else {
@@ -80,7 +73,7 @@ async function buscarUltimosDados() {
     } catch (error) {
         console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
     }
-    console.log("4")
+     ")
 
     return dados;
 }
@@ -116,7 +109,7 @@ async function buscarDadosDoUsuario() {
 var lista_gosta = [];
 var lista_dificil = [];
 async function gravarUltimosDados(dados) {
-    console.log("6")
+     ")
 
 
     lista_gosta[0] = dados[0].nota_aprecia;
@@ -134,7 +127,7 @@ async function gravarUltimosDados(dados) {
     lista_dificil[4] = dados[4].nota_dificuldade;
     lista_dificil[5] = dados[5].nota_dificuldade;
     lista_dificil[6] = dados[6].nota_dificuldade;
-    console.log("7")
+     ")
 
 }
 
@@ -142,9 +135,6 @@ async function gravarUltimosDados(dados) {
 var gosta = 0;
 var dificil = 0;
 function gravarDadosDoUsuario(dados) {
-    console.log("AQUI")
-    console.log(dados)
-    console.log(dados[0].nota_aprecia)
     gosta = dados[0].nota_aprecia;
     dificil = dados[0].nota_dificuldade;
 }

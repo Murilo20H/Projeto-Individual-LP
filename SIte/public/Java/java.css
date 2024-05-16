@@ -177,7 +177,7 @@ html, body {
 
 #barra_selecionado {
     margin-top: 5%;
-    width: 5.2vw;
+    width: 3.5vw;
     border-radius: 3vw;
     background-color: var(--cor-taupe);
     height: 1.2vh;
@@ -221,7 +221,7 @@ html, body {
 }
 
 #logo_java img {
-    width: 70%;
+    width: 50%;
     height: auto;
 }
 

@@ -38,25 +38,24 @@ var css_dificil;
 var sql_dificil;
 
 
-function buscarMediaDados(linguagem) {
+async function buscarMediaDados(linguagem) {
     var dados;
 
-    fetch(`/dados/media/${linguagem}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
+    try {
+        const response = await fetch(`/dados/media/${linguagem}`, { cache: 'no-store' });
 
-                dados = resposta;
-            });
+        if (response.ok) {
+            var resposta = await response.json();
+            resposta.reverse();
+            dados = resposta;
         } else {
-            console.error('Nenhum dado encontrado ou erro na API');
+            console.log(`Não encontrou média na API: ${response.statusText}`);
         }
-    }).catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-    
-    gravarMediaDados(dados);
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
+
+    return dados;
 }
 
 function validarSessao() {
@@ -64,6 +63,7 @@ function validarSessao() {
     var nome = sessionStorage.NOME_USUARIO;
 
     var nome_usuario = document.getElementById("nome_usuario");
+
 
     if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
         nome_usuario.innerHTML = nome;
@@ -84,6 +84,7 @@ function validarSessao() {
             }
         });
     }
+    
     atualizarGraficos();
 }
 
@@ -93,27 +94,27 @@ function validarSessao() {
 async function atualizarGraficos() {
     var csharp = await buscarMediaDados('csharp');
     csharp_gosta = csharp[0].nota_aprecia;
-    csharp_dificil = csharp[0].nota_dificil;
-
+    csharp_dificil = csharp[0].nota_dificuldade;
+    
     var java = await buscarMediaDados('java');
     java_gosta = java[0].nota_aprecia;
-    java_dificil = java[0].nota_dificil;
-
+    java_dificil = java[0].nota_dificuldade;
+    
     var javascript = await buscarMediaDados('javascript');
     javascript_gosta = javascript[0].nota_aprecia;
-    javascript_dificil = javascript[0].nota_dificil;
-
+    javascript_dificil = javascript[0].nota_dificuldade;
+    
     var html = await buscarMediaDados('html');
     html_gosta = html[0].nota_aprecia;
-    html_dificil = html[0].nota_dificil;
-
+    html_dificil = html[0].nota_dificuldade;
+    
     var css = await buscarMediaDados('css');
     css_gosta = css[0].nota_aprecia;
-    css_dificil = css[0].nota_dificil;
-
+    css_dificil = css[0].nota_dificuldade;
+    
     var sql = await buscarMediaDados('sql');
     sql_gosta = sql[0].nota_aprecia;
-    sql_dificil = sql[0].nota_dificil;
+    sql_dificil = sql[0].nota_dificuldade;
 
     criarGraficos();
 }
