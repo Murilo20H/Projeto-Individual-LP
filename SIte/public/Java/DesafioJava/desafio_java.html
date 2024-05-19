@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desafio_java.css">
+    <link rel="icon" href="../../assets/Icons/logo-sem-fundo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Desafio Java</title>
+</head>
+
+<body onload="validarSessao()">
+
+    <div>
+        <div id="botoes">
+            <button onclick="voltar()" id="button_voltar">VOLTAR</button>
+            <span>Desafio de Java</span>
+            <button onclick="ranking()" id="button_ranking">RANKING DOS DESAFIOS</button>
+        </div>
+
+
+        <!-- PARTE INICIAL -->
+
+        <div id="parte_desafio">
+            <div id="telas">
+
+                <div id="tela_usuario">
+                    <span>Seu desafio é escrever "Ola Mundo" em Java, o nome da classe deve ser "Main"<br><br>Digite o seu código abaixo:</span>
+                    <textarea id="input_codigo" type="text"></textarea>
+                    <button onclick="verificar()">VERIFICAR</button>
+                </div>
+    
+                <div id="ajuda">
+                    <span id="ajuda_erro"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="desafio_java.js"></script>

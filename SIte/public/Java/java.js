@@ -10,6 +10,10 @@ function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
 }
 
+function desafio() {
+    window.location.href = "DesafioJava/desafio_java.html";
+}
+
 const linguagem_atual = 'java';
 var id = sessionStorage.ID_USUARIO;
 
@@ -32,7 +36,7 @@ async function validarSessao() {
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
-                window.location.href = "../index.html";
+                // window.location.href = "../index.html";
             }
         });
     }

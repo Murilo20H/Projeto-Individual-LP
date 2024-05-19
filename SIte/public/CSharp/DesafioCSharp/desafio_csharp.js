@@ -1,12 +1,12 @@
 function voltar() {
-    window.location.href = "../html.html";
+    window.location.href = "../css.html";
 }
 
 function graficos_gerais() {
     window.location.href = "../../GraficosGerais/graficos_gerais.html"
 }
 
-const linguagem_atual = 'html';
+const linguagem_atual = 'css';
 var idUsuario = sessionStorage.ID_USUARIO;
 
 function validarSessao() {
@@ -18,31 +18,30 @@ function validarSessao() {
     if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
         nome_usuario.innerHTML = nome;
     } else {
-        Swal.fire({
-            imageUrl: "../../assets/Icons/icon_error.png",
-            imageHeight: 130,
-            title: "Erro no login",
-            text: "Por favor tente entrar novamente",
-            width: 400,
-            color: "black",
-            didOpen: () => {
-                tela_cobrir.style = "display: flex;";
-            },
-            willClose: () => {
-                tela_cobrir.style = "display: none";
-                window.location.href = "../../index.html";
-            }
-        });
+        // Swal.fire({
+        //     imageUrl: "../../assets/Icons/icon_error.png",
+        //     imageHeight: 130,
+        //     title: "Erro no login",
+        //     text: "Por favor tente entrar novamente",
+        //     width: 400,
+        //     color: "black",
+        //     didOpen: () => {
+        //         // tela_cobrir.style = "display: flex;";
+        //     },
+        //     willClose: () => {
+        //         // tela_cobrir.style = "display: none";
+        //         // window.location.href = "../../index.html";
+        //     }
+        // });
     }
 
-    AtualizarGraficos();
+    // AtualizarGraficos();
 }
 
 
 
 
 async function AtualizarGraficos() {
-     )
     var dados1 = await buscarUltimosDados();
     await gravarUltimosDados(dados1);
     
@@ -109,6 +108,7 @@ async function buscarDadosDoUsuario() {
 var lista_gosta = [];
 var lista_dificil = [];
 async function gravarUltimosDados(dados) {
+
 
     lista_gosta[0] = dados[0].nota_aprecia;
     lista_gosta[1] = dados[1].nota_aprecia;

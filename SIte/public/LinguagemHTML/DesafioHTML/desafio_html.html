@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desafio_html.css">
+    <link rel="icon" href="../../assets/Icons/logo-sem-fundo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Desafio HTML</title>
+</head>
+
+<body onload="validarSessao()">
+
+    <div>
+        <div id="botoes">
+            <button onclick="voltar()" id="button_voltar">VOLTAR</button>
+            <span>Desafio de HTML</span>
+            <button onclick="ranking()" id="button_ranking">RANKING DOS DESAFIOS</button>
+        </div>
+
+
+        <!-- PARTE INICIAL -->
+
+        <div id="parte_desafio">
+            <span>Seu desafio é encaixar todas as bolinhas utilizando as bolinhas abaixo</span>
+            <div id="telas_desafio">
+                <div id="tela_usuario">
+                    <div>
+                        <span>Display: flex</span>
+                    </div>
+
+                    <div>
+                        <span>Align-items:</span>
+                        <input oninput="alterarPosicao()" id="input_align_items" type="text">
+                    </div>
+
+                    <div>
+                        <span>Justify-content:</span>
+                        <input oninput="alterarPosicao()" id="input_justify_content" type="text">
+                    </div>
+
+                    <div>
+                        <span>Flex-direction:</span>
+                        <input oninput="alterarPosicao()" id="input_flex_direction" type="text">
+                    </div>
+                </div>
+                <div id="tela_resultado">
+                    <div id="tela">
+
+                        <div id="bolinhas">
+                            <div id="bolinha_verde">1</div>
+                            <div id="bolinha_vermelho">2</div>
+                            <div id="bolinha_azul">3</div>
+                        </div>
+
+                        <div id="esperado">
+                            <div id="esperado_verde">1</div>
+                            <div id="esperado_vermelho">2</div>
+                            <div id="esperado_azul">3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="desafio_html.js"></script>

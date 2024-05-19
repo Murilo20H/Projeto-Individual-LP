@@ -73,7 +73,6 @@ async function buscarUltimosDados() {
     } catch (error) {
         console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
     }
-     ")
 
     return dados;
 }
@@ -109,7 +108,6 @@ async function buscarDadosDoUsuario() {
 var lista_gosta = [];
 var lista_dificil = [];
 async function gravarUltimosDados(dados) {
-     ")
 
 
     lista_gosta[0] = dados[0].nota_aprecia;
@@ -127,7 +125,6 @@ async function gravarUltimosDados(dados) {
     lista_dificil[4] = dados[4].nota_dificuldade;
     lista_dificil[5] = dados[5].nota_dificuldade;
     lista_dificil[6] = dados[6].nota_dificuldade;
-     ")
 
 }
 
