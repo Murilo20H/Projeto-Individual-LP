@@ -26,152 +26,229 @@ function validarSessao() {
             width: 400,
             color: "black",
             willClose: () => {
-                window.location.href = "../../index.html";
+                // window.location.href = "../../index.html";
             }
         });
     }
 }
 
+var lista_tags = [
+    'a',
+    'abbr',
+    'address',
+    'area',
+    'article',
+    'aside',
+    'audio',
+    'b',
+    'base',
+    'bdi',
+    'bdo',
+    'blockquote',
+    'body',
+    'br',
+    'button',
+    'canvas',
+    'caption',
+    'cite',
+    'code',
+    'col',
+    'colgroup',
+    'data',
+    'datalist',
+    'dd',
+    'del',
+    'details',
+    'dfn',
+    'dialog',
+    'div',
+    'dl',
+    'dt',
+    'em',
+    'embed',
+    'fieldset',
+    'figcaption',
+    'figure',
+    'footer',
+    'form',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'head',
+    'header',
+    'hr',
+    'html',
+    'i',
+    'iframe',
+    'img',
+    'input',
+    'ins',
+    'kbd',
+    'label',
+    'legend',
+    'li',
+    'link',
+    'main',
+    'map',
+    'mark',
+    'menu',
+    'meta',
+    'meter',
+    'nav',
+    'noframes',
+    'noscript',
+    'object',
+    'ol',
+    'optgroup',
+    'option',
+    'output',
+    'p',
+    'param',
+    'picture',
+    'pre',
+    'progress',
+    'q',
+    'rp',
+    'rt',
+    'ruby',
+    's',
+    'samp',
+    'script',
+    'section',
+    'select',
+    'small',
+    'source',
+    'span',
+    'strong',
+    'sub',
+    'summary',
+    'sup',
+    'table',
+    'tbody',
+    'td',
+    'template',
+    'textarea',
+    'tfoot',
+    'th',
+    'thead',
+    'time',
+    'title',
+    'tr',
+    'track',
+    'u',
+    'ul',
+    'var',
+    'video',
+    'wbr'
+];
 
+var lista_tags_usadas = [];
+var contador_tags = 0;
+var tag_atual = "";
 
-var fase = 1;
-async function alterarPosicao() {
-    var align_items = input_align_items.value;
-    var justify_content = input_justify_content.value;
-    var flex_direction = input_flex_direction.value;
+document.getElementById("tempo_faltando").innerHTML = "50";
+document.getElementById("pontuacao_contador").innerHTML = "0";
 
-    bolinhas.style.alignItems = `${align_items}`;
-    bolinhas.style.justifyContent = `${justify_content}`;
-    bolinhas.style.flexDirection = `${flex_direction}`;
-
-    if (await verificarVitoria()) {
-        if (fase == 1) {
-            fase++;
-            Swal.fire({
-                imageUrl: "../../assets/Icons/foto_check.png",
-                imageHeight: 130,
-                title: "Fase 1 concluída",
-                text: "Próxima fase...",
-                width: 400,
-                color: "black",
-                willClose: () => {
-                    fase2();
-                }
-            });
-        } else if (fase == 2) {
-            fase++;
-            Swal.fire({
-                imageUrl: "../../assets/Icons/foto_check.png",
-                imageHeight: 130,
-                title: "Fase 2 concluída",
-                text: "Próxima fase...",
-                width: 400,
-                color: "black",
-                willClose: () => {
-                    fase3();
-                }
-            });
-        } else if (fase == 3) {
-            fase++;
-            Swal.fire({
-                imageUrl: "../../assets/Icons/foto_check.png",
-                imageHeight: 130,
-                title: "Fase 3 concluída",
-                text: "Próxima fase...",
-                width: 400,
-                color: "black",
-                willClose: () => {
-                    fase4();
-                }
-            });
-        } else if (fase == 4) {
-            fase++;
-            Swal.fire({
-                imageUrl: "../../assets/Icons/foto_check.png",
-                imageHeight: 130,
-                title: "Parabéns",
-                text: "Você finalizou o desafio de CSS!!",
-                width: 400,
-                color: "black",
-                willClose: () => {
-                    finalizou();
-                }
-            });
-        }
-    }
+function comecar() {
+    var botao = document.getElementById("button_comecar");
+    proxima_palavra();
+    botao.style.display = "none";
+    iniciarCronometro();
 }
 
-
-
-
-
-
-
-function verificarVitoria() {
-
-
-    var posicaoBolinhaVerde = document.getElementById("bolinha_verde").getBoundingClientRect();
-    var posicaoEsperadoVerde = document.getElementById("esperado_verde").getBoundingClientRect();
-
-    var sobrepoeVerde = (
-        posicaoBolinhaVerde.top === posicaoEsperadoVerde.top &&
-        posicaoBolinhaVerde.left === posicaoEsperadoVerde.left
-    );
-
-    if(sobrepoeVerde) {
-        var posicaoBolinhaVermelho = document.getElementById("bolinha_vermelho").getBoundingClientRect();
-        var posicaoEsperadoVermelho = document.getElementById("esperado_vermelho").getBoundingClientRect();
-
-        var sobrepoeVermelho = (
-            posicaoBolinhaVermelho.top === posicaoEsperadoVermelho.top &&
-            posicaoBolinhaVermelho.left === posicaoEsperadoVermelho.left
-        );
-
-        if(sobrepoeVermelho) {
-            var posicaoBolinhaAzul = document.getElementById("bolinha_azul").getBoundingClientRect();
-            var posicaoEsperadoAzul = document.getElementById("esperado_azul").getBoundingClientRect();
+function verificar() {
+    var codigo = document.getElementById("input_codigo");
     
-            var sobrepoeAzul = (
-                posicaoBolinhaAzul.top === posicaoEsperadoAzul.top &&
-                posicaoBolinhaAzul.left === posicaoEsperadoAzul.left
-            );
-
-            if(sobrepoeAzul) {
-                return true;
-            }
+    if (tag_atual == codigo.value) {
+        contador_tags++;
+        document.getElementById("pontuacao_contador").innerHTML = contador_tags;
+        if (contador_tags >= 35) {
+            venceu();
         } else {
-            return false;
+            proxima_palavra();
         }
     }
+}
 
-    return false;
+function colocarTag() {
+    var numero_aleatorio = Math.floor(Math.random() * (lista_tags.length - 1));
+    if (lista_tags_usadas.indexOf(lista_tags[numero_aleatorio]) < 0) {
+        tag_atual = lista_tags[numero_aleatorio];
+        lista_tags_usadas.push(lista_tags[numero_aleatorio]);
+    } else {
+        colocarTag();
+    }
+}
+
+function proxima_palavra() {
+    var codigo = document.getElementById("input_codigo");
+    var tags = document.getElementById("tags");
+    colocarTag();
+    tags.innerHTML += `<span>${tag_atual}</span>`;
+    codigo.value = "";
 }
 
 
-
-function fase2() {
-    var esperado = document.getElementById("esperado");
-    esperado.style.justifyContent = "center";
-    esperado.style.alignItems = "end";
+// TEMPORIZADOR
+function iniciarCronometro() {
+    tempo_total = 50;
+    document.getElementById('tempo_faltando').innerHTML = tempo_total;
+    cronometro = setInterval(function() {
+        if (tempo_total <= 0) {
+            if (contador_tags >= 35) {
+                ganhou();
+            } else {
+                perdeu();
+            }
+        }
+        tempo_total -= 1; 
+        document.getElementById('tempo_faltando').innerHTML = tempo_total;
+    }, 1000);
 }
 
-function fase3() {
-    var esperado = document.getElementById("esperado");
-    esperado.style.justifyContent = "end";
-    esperado.style.alignItems = "start";
-    esperado.style.flexDirection = "column";
+function pausarCronometro() {
+    clearInterval(cronometro);
 }
 
-function fase4() {
-    var esperado = document.getElementById("esperado");
-    esperado.style.justifyContent = "start";
-    esperado.style.alignItems = "center";
-    esperado.style.flexDirection = "row-reverse";
+function perdeu() {
+    pausarCronometro();
+    document.getElementById("tags").innerHTML = "";
+    document.getElementById("tempo_faltando").innerHTML = "50";
+    document.getElementById("pontuacao_contador").innerHTML = "0";
+    contador_tags = 0;
+    lista_tags_usadas = [];
+    Swal.fire({
+        imageUrl: "../../assets/Icons/icon_error.png",
+        imageHeight: 130,
+        title: "Infelizmente você perdeu",
+        text: "Mas calma, você pode tentar novamente!",
+        width: 400,
+        color: "black",
+        willClose: () => {
+            // finalizou();
+        }
+    });
+    document.getElementById("button_comecar").style.display = "flex";
 }
 
-function finalizou() {
-    var esperado = document.getElementById("esperado");
-    esperado.style.display = "none";
-    esperado.style.alignItems = "center";
-    esperado.style.flexDirection = "row-reverse";
+function venceu() {
+    pausarCronometro();
+    document.getElementById("parte_baixo").innerHTML = "";
+    document.getElementById("tags").innerHTML = "<span>Você venveu o desafio de HTML!</span>";
+    contador_tags = 0;
+    lista_tags_usadas = [];
+    Swal.fire({
+        imageUrl: "../../assets/Icons/foto_check.png",
+        imageHeight: 130,
+        title: "Parabéns",
+        text: "Você finalizou o desafio de HTML!!",
+        width: 400,
+        color: "black",
+        willClose: () => {
+            // finalizou();
+        }
+    });
 }

@@ -25,44 +25,26 @@
         <!-- PARTE INICIAL -->
 
         <div id="parte_desafio">
-            <span>Seu desafio é encaixar todas as bolinhas utilizando as bolinhas abaixo</span>
-            <div id="telas_desafio">
+            <div id="telas">
+
                 <div id="tela_usuario">
-                    <div>
-                        <span>Display: flex</span>
-                    </div>
+                    <span>Seu desafio é digitar as tags que irão aparecer abaixo o mais rápido possível:</span>
+                    <button id="button_comecar" onclick="comecar()">COMEÇAR</button>
+                    <div id="tags"></div>
+                    <input autocomplete="off" oninput="verificar()" id="input_codigo" type="text">
+                </div>
 
-                    <div>
-                        <span>Align-items:</span>
-                        <input oninput="alterarPosicao()" id="input_align_items" type="text">
+                <div id="parte_baixo">
+                    <div id="tempo">
+                        <span>Tempo restante: </span>
+                        <span id="tempo_faltando"></span>
                     </div>
-
-                    <div>
-                        <span>Justify-content:</span>
-                        <input oninput="alterarPosicao()" id="input_justify_content" type="text">
-                    </div>
-
-                    <div>
-                        <span>Flex-direction:</span>
-                        <input oninput="alterarPosicao()" id="input_flex_direction" type="text">
+                    <div id="pontuacao">
+                        <span>Pontuação: </span>
+                        <span id="pontuacao_contador"></span>
                     </div>
                 </div>
-                <div id="tela_resultado">
-                    <div id="tela">
-
-                        <div id="bolinhas">
-                            <div id="bolinha_verde">1</div>
-                            <div id="bolinha_vermelho">2</div>
-                            <div id="bolinha_azul">3</div>
-                        </div>
-
-                        <div id="esperado">
-                            <div id="esperado_verde">1</div>
-                            <div id="esperado_vermelho">2</div>
-                            <div id="esperado_azul">3</div>
-                        </div>
-                    </div>
-                </div>
+    
             </div>
         </div>
 

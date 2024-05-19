@@ -15,7 +15,6 @@
 <body onload="validarSessao()">
 
     <div>
-        
         <div id="botoes">
             <button onclick="voltar()" id="button_voltar">VOLTAR</button>
             <span>Desafio de CSharp</span>
@@ -26,40 +25,17 @@
         <!-- PARTE INICIAL -->
 
         <div id="parte_desafio">
-            <span>Seu desafio é encaixar todas as bolinhas utilizando as tags abaixo</span>
-            <div id="telas_desafio">
+            <div id="telas">
+
                 <div id="tela_usuario">
-                    <div>
-                        <span>Display: flex</span>
-                    </div>
-
-                    <div>
-                        <span>Align-items:</span>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <span>Justify-content:</span>
-                        <input type="text">
-                    </div>
-
-                    <div>
-                        <span>Flex-direction:</span>
-                        <input type="text">
-                    </div>
+                    <span id="pergunta">Seu desafio contém 5 fases, nesta fase a sua função é exibir somente o nome do <br><br>Digite o seu código abaixo:</span>
+                    <textarea oninput="verificar()" id="input_codigo" type="text"></textarea>
                 </div>
-                <div id="tela_resultado">
-                    <div id="bolinhas">
-                        <div class="verde">1</div>
-                        <div class="vermelho">2</div>
-                        <div class="azul">3</div>
-                    </div>
-
-                    <div id="esperado">
-                        <div class="verde">1</div>
-                        <div class="vermelho">2</div>
-                        <div class="azul">3</div>
-                    </div>
+    
+                <div id="ajuda">
+                    <span id="entrada"></span>
+                    <span id="texto_saida_esperada"></span>
+                    <span id="saida"></span>
                 </div>
             </div>
         </div>

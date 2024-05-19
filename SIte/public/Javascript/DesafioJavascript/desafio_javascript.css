@@ -200,33 +200,8 @@ html, body {
     padding-left: 0.3vw;
     padding-right: 0.3vw;
     border: 0.2vw solid black;
-    font-size: 1.5vw;
+    font-size: 1.8vw;
     resize: none;
-}
-
-#tela_usuario button {
-    cursor: pointer;
-    font-size: 2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 11%;
-    font-weight: 700;
-    border-radius: 1vw;
-    border: 0.3vw solid white;
-    width: 15vw; 
-    background-color: var(--cor-space-blue);
-    color: var(--cor-taupe);
-    transition: 0.5s;
-}
-
-
-#tela_usuario button:hover {
-    font-size: 2.3vw;
-    width: 16vw;
-    background-color: var(--cor-caribbean);
-    color: white;
-    font-weight: 700;
 }
 
 
@@ -240,16 +215,17 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 2vw;
+    margin-bottom: 2vh;
 }
 
 #ajuda span {
     color: black;
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     font-weight: 700;
 }
 
 #saida {
     color: black;
-    font-size: 1.6vw;
+    font-size: 1.5vw;
     font-weight: 900;
 }

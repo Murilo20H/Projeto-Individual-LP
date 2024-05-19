@@ -38,30 +38,89 @@ function verificar() {
     var saida = document.getElementById("saida");
         
     if (fase == 1) {
-
-//          var soma = 0;
-//          for (var i = 0; i < vetor.length; i++) {
-//              soma += vetor[i];
-//          }
-//          return soma / vetor.length;
-
-        var vetor = [1, 2, 3, 4, 5];
+        // FASE 1 
+        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
         var resultado_esperado = (vetor[0] + vetor[1] + vetor[2] + vetor[3] + vetor[4]) / 5;
 
-        entrada.innerHTML = `Entrada: ${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}.`;
+        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
         texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
         
         try {
-            var fase1 = new Function('vetor', codigo.value.trim());
+            var fase1 = new Function('vetor', codigo.value);
             var resultado = fase1(vetor);
             
             saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
         } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>`;
+            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
         }            
 
         if (resultado == resultado_esperado) {
             acertou(resultado);
+            document.getElementById("pergunta").innerHTML = "Você está na segunda fase, nesta fase a sua função é somar todos os valores pares do vetor e retornar o resultado<br><br>Digite o seu código abaixo:";
+        }
+        
+    } else if (fase == 2) {
+        // FASE 2
+        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
+        var resultado_esperado = 0;
+        for (var contador = 0; contador < vetor.length; contador++) {
+            if (vetor[contador] % 2 == 0) {
+                resultado_esperado += vetor[contador];
+            }
+        }
+        
+        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
+        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
+        
+        try {
+            var fase2 = new Function('vetor', codigo.value);
+            var resultado = fase2(vetor);
+            
+            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
+        } catch (error) {
+            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
+        }            
+        
+        if (resultado === resultado_esperado) {
+            acertou(resultado);
+            document.getElementById("pergunta").innerHTML = "Você está na terceira fase, nesta fase a sua função é descobrir e retornar o segundo maior número do vetor<br><br>Digite o seu código abaixo:";
+            codigo.innerHTML = "";
+        }
+        
+    } else if (fase == 3) {
+        // FASE 3
+        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
+        var resultado_esperado;
+        var maior_valor = vetor[0];
+        var segundo_maior = vetor[0];
+        for (var contador = 0; contador < vetor.length; contador++) {
+            if (vetor[contador] > maior_valor) {
+                maior_valor = vetor[contador];
+            }
+        }
+
+        for (var contador = 0; contador < vetor.length; contador++) {
+            if (vetor[contador] > segundo_maior && vetor[contador] != maior_valor) {
+                segundo_maior = vetor[contador];
+            }
+        }
+
+        resultado_esperado = segundo_maior;
+
+        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
+        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
+        
+        try {
+            var fase2 = new Function('vetor', codigo.value);
+            var resultado = fase2(vetor);
+            
+            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
+        } catch (error) {
+            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
+        }            
+
+        if (resultado == resultado_esperado) {
+            venceu();
         }
         
     }
@@ -84,353 +143,16 @@ function acertou(resultado) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// var perdeu;
-
-// function verificar() {
-//     perdeu = false;
-//     var erro;
-
-//     const palavra_public = "public";
-//     var contador_public1 = 0;
-//     var eh_public1 = true;
-
-//     const palavra_class = "class";
-//     var contador_class = 0;
-//     var eh_class = true;
-
-//     const palavra_Main = "Main";
-//     var contador_Main = 0;
-//     var eh_Main = true;
-
-//     const chave1 = "{";
-//     var eh_chave1 = true;
-
-//     var contador_public2 = 0;
-//     var eh_public2 = true;
-
-//     const palavra_static = "static";
-//     var contador_static = 0;
-//     var eh_static = true;
-
-//     const palavra_void = "void";
-//     var contador_void = 0;
-//     var eh_void = true;
-
-//     const palavra_main = "main";
-//     var contador_main = 0;
-//     var eh_main = true;
-
-//     const parenteses1 = "(";
-//     var eh_parenteses1 = true;
-
-//     const palavra_String = "String";
-//     var contador_String = 0;
-//     var eh_String = true;
-
-//     const colchetes = "[]";
-//     var contador_colchetes = 0;
-//     var eh_colchetes = true;
-
-//     const palavra_args = "args";
-//     var contador_args = 0;
-//     var eh_args = true;
-
-//     const parenteses2 = ")";
-//     var eh_parenteses2 = true;
-
-//     const chave2 = "{";
-//     var eh_chave2 = true;
-
-//     const palavra_System = "System.";
-//     var contador_System = 0;
-//     var eh_System = true;
-
-//     const palavra_out = "out.";
-//     var contador_out = 0;
-//     var eh_out = true;
-
-//     const palavra_print = "print";
-//     var contador_print = 0;
-//     var eh_print = true;
-    
-//     const texto = '("Ola Mundo");';
-//     var contador_texto = 0;
-//     var eh_texto = true;
-
-//     const chaves = "}}";
-//     var contador_chaves = 0;
-//     var eh_chaves = true;
-    
-//     var codigo = input_codigo.value;
-
-//     for (var contador = 0; contador < codigo.length; contador++) {
-//         if (perdeu) {
-//             break;
-//         } else if (!eh_print && contador_texto < texto.length) {
-//             if (codigo[contador] == texto[contador_texto]) {
-//                 contador_texto++;
-//                 if (contador_texto == texto.length) {
-//                     eh_texto = false;
-//                 }
-//             } else {
-//                 erro = "Ola Mundo";
-//                 perdeu = true;
-//             }
-//         } else if (codigo[contador] != " " && codigo[contador] != "\n") {
-            
-            
-//             if (eh_public1) {
-//                 if (codigo[contador] == palavra_public[contador_public1]) {
-//                     contador_public1++;
-//                     if (contador_public1 == palavra_public.length) {
-//                         eh_public1 = false;
-//                     }
-//                 } else {
-//                     erro = "public";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_class) {
-//                 if (codigo[contador] == palavra_class[contador_class]) {
-//                     contador_class++;
-//                     if (contador_class == palavra_class.length) {
-//                         eh_class = false;
-//                     }
-//                 } else {
-//                     erro = "class";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_Main) {
-//                 if (codigo[contador] == palavra_Main[contador_Main]) {
-//                     contador_Main++;
-//                     if (contador_Main == palavra_Main.length) {
-//                         eh_Main = false;
-//                     }
-//                 } else {
-//                     erro = "Main";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_chave1) {
-//                 // PRIMEIRA CHAVE
-//                 if (codigo[contador] == chave1[0]) {
-//                     eh_chave1 = false;
-//                 } else {
-//                     erro = "Main";
-//                     perdeu = true;
-//                 }
-                
-                
-                
-//             } else if (eh_public2) {
-//                 if (codigo[contador] == palavra_public[contador_public2]) {
-//                     contador_public2++;
-//                     if (contador_public2 == palavra_public.length) {
-//                         eh_public2 = false;
-//                     }
-//                 } else {
-//                     erro = "public";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_static) {
-//                 if (codigo[contador] == palavra_static[contador_static]) {
-//                     contador_static++;
-//                     if (contador_static == palavra_static.length) {
-//                         eh_static = false;
-//                     }
-//                 } else {
-//                     erro = "static";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_void) {
-//                 if (codigo[contador] == palavra_void[contador_void]) {
-//                     contador_void++;
-//                     if (contador_void == palavra_void.length) {
-//                         eh_void = false;
-//                     }
-//                 } else {
-//                     erro = "void";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_main) {
-//                 if (codigo[contador] == palavra_main[contador_main]) {
-//                     contador_main++;
-//                     if (contador_main == palavra_main.length) {
-//                         eh_main = false;
-//                     }
-//                 } else {
-//                     erro = "main";
-//                     perdeu = true;
-//                 }
-                
-                
-                
-//             } else if (eh_parenteses1) {
-//                 // PRIMEIRO PARENTESES
-//                 if (codigo[contador] == parenteses1[0]) {
-//                     eh_parenteses1 = false;
-//                 } else {
-//                     erro = "main";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_String) {
-//                 if (codigo[contador] == palavra_String[contador_String]) {
-//                     contador_String++;
-//                     if (contador_String == palavra_String.length) {
-//                         eh_String = false;
-//                     }
-//                 } else {
-//                     erro = "String";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_colchetes) {
-//                 // COLCHETES
-//                 if (codigo[contador] == colchetes[contador_colchetes]) {
-//                     contador_colchetes++;
-//                     if (contador_colchetes == colchetes.length) {
-//                         eh_colchetes = false;
-//                     }
-//                 } else {
-//                     erro = "String";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_args) {
-//                 if (codigo[contador] == palavra_args[contador_args]) {
-//                     contador_args++;
-//                     if (contador_args == palavra_args.length) {
-//                         eh_args = false;
-//                     }
-//                 } else {
-//                     erro = "args";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_parenteses2) {
-//                 // SEGUNDO PARENTESES
-//                 if (codigo[contador] == parenteses2[0]) {
-//                     eh_parenteses2 = false;
-//                 } else {
-//                     erro = "main";
-//                     perdeu = true;
-//                 }
-                
-                
-                
-//             } else if (eh_chave2) {
-//                 // SEGUNDA CHAVE
-//                 if (codigo[contador] == chave2[0]) {
-//                     eh_chave2 = false;
-//                 } else {
-//                     erro = "chave";
-//                     perdeu = true;
-//                 }
-                
-                
-                
-//             }
-//             else if (eh_System) {
-//                 if (codigo[contador] == palavra_System[contador_System]) {
-//                     contador_System++;
-//                     if (contador_System == palavra_System.length) {
-//                         eh_System = false;
-//                     }
-//                 } else {
-//                     erro = "System";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_out) {
-//                 if (codigo[contador] == palavra_out[contador_out]) {
-//                     contador_out++;
-//                     if (contador_out == palavra_out.length) {
-//                         eh_out = false;
-//                     }
-//                 } else {
-//                     erro = "out";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_print) {
-//                 if (codigo[contador] == palavra_print[contador_print]) {
-//                     contador_print++;
-//                     if (contador_print == palavra_print.length) {
-//                         eh_print = false;
-//                         if (codigo[contador + 1] == "l" && codigo[contador + 2] == "n") {
-//                             contador += 2;
-//                         }
-//                     }
-//                 } else {
-//                     erro = "print ou println";
-//                     perdeu = true;
-//                 }
-//             } else if (eh_chaves) {
-//                 // CHAVES FINAIS
-//                 if (codigo[contador] == chaves[contador_chaves]) {
-//                     contador_chaves++;
-//                     if (contador_chaves == chaves.length) {
-//                         eh_chaves = false;
-//                     }
-//                 } else {
-//                     erro = "chaves";
-//                     perdeu = true;
-//                 }
-//             } else {
-//                 perdeu = true;
-//             }
-            
-//         }
-//     }
-
-//     if (!eh_chaves && !perdeu) {
-//         ganhou();
-//     } else {
-//         if (erro == undefined) {
-//             erro = "espaçamento ou falta palavras";
-//         }
-//         errou(erro);
-//     }
-
-// }
-
-
-// function ganhou() {
-//     Swal.fire({
-//         imageUrl: "../../assets/Icons/foto_check.png",
-//         imageHeight: 130,
-//         title: "Parabéns",
-//         text: "Você finalizou o desafio de Java!!",
-//         width: 400,
-//         color: "black",
-//         willClose: () => {
-//             // finalizou();
-//         }
-//     });
-// }
-
-// function errou(erro) {
-//     Swal.fire({
-//         imageUrl: "../../assets/Icons/icon_error.png",
-//         imageHeight: 130,
-//         title: "Infelizmente você perdeu",
-//         text: "Mas calma, você pode tentar novamente!",
-//         width: 400,
-//         color: "black",
-//         willClose: () => {
-//             // finalizou();
-//         }
-//     });
-
-//     ajuda.style.display = "flex";
-//     ajuda_erro.innerHTML = `Você errou <b style="color: red; font-weight: 900">${erro}</b>, tente novamente`
-// }
-
-// // public class Main {
-// //     public static void main(String[] args) {
-// //       System.out.println("Hello, World!");
-// //   }
-// // }
+function venceu() {
+    Swal.fire({
+        imageUrl: "../../assets/Icons/foto_check.png",
+        imageHeight: 130,
+        title: "Parabéns",
+        text: "Você finalizou o desafio de JavaScript!!",
+        width: 400,
+        color: "black",
+        willClose: () => {
+            // finalizou();
+        }
+    });
+}
