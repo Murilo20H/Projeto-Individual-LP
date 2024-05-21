@@ -109,21 +109,105 @@ var lista_gosta = [];
 var lista_dificil = [];
 async function gravarUltimosDados(dados) {
 
-    lista_gosta[0] = dados[0].nota_aprecia;
-    lista_gosta[1] = dados[1].nota_aprecia;
-    lista_gosta[2] = dados[2].nota_aprecia;
-    lista_gosta[3] = dados[3].nota_aprecia;
-    lista_gosta[4] = dados[4].nota_aprecia;
-    lista_gosta[5] = dados[5].nota_aprecia;
-    lista_gosta[6] = dados[6].nota_aprecia;
-    
-    lista_dificil[0] = dados[0].nota_dificuldade;
-    lista_dificil[1] = dados[1].nota_dificuldade;
-    lista_dificil[2] = dados[2].nota_dificuldade;
-    lista_dificil[3] = dados[3].nota_dificuldade;
-    lista_dificil[4] = dados[4].nota_dificuldade;
-    lista_dificil[5] = dados[5].nota_dificuldade;
-    lista_dificil[6] = dados[6].nota_dificuldade;
+    if (!dados[6]) {
+        lista_gosta[6] = 0;
+        lista_dificil[6] = 0;
+        if (!dados[5]) {
+            lista_gosta[5] = 0;
+            lista_dificil[5] = 0;
+            if (!dados[4]) {
+                lista_gosta[4] = 0;
+                lista_dificil[4] = 0;
+                if (!dados[3]) {
+                    lista_gosta[3] = 0;
+                    lista_dificil[3] = 0;
+                    if (!dados[2]) {
+                        lista_gosta[2] = 0;
+                        lista_dificil[2] = 0;
+                        if (!dados[1]) {
+                            lista_gosta[1] = 0;
+                            lista_dificil[1] = 0;
+                            if (!dados[0]) {
+                                lista_gosta[0] = 0;
+                                lista_dificil[0] = 0;
+                            } else {
+                                lista_gosta[0] = dados[0].nota_aprecia;
+                                
+                                lista_dificil[0] = dados[0].nota_dificuldade;
+                            }
+                        } else {
+                            lista_gosta[0] = dados[0].nota_aprecia;
+                            lista_gosta[1] = dados[1].nota_aprecia;
+                            
+                            lista_dificil[0] = dados[0].nota_dificuldade;
+                            lista_dificil[1] = dados[1].nota_dificuldade;
+                        }
+                    } else {
+                        lista_gosta[0] = dados[0].nota_aprecia;
+                        lista_gosta[1] = dados[1].nota_aprecia;
+                        lista_gosta[2] = dados[2].nota_aprecia;
+                        
+                        lista_dificil[0] = dados[0].nota_dificuldade;
+                        lista_dificil[1] = dados[1].nota_dificuldade;
+                        lista_dificil[2] = dados[2].nota_dificuldade;
+                    }
+                } else {
+                    lista_gosta[0] = dados[0].nota_aprecia;
+                    lista_gosta[1] = dados[1].nota_aprecia;
+                    lista_gosta[2] = dados[2].nota_aprecia;
+                    lista_gosta[3] = dados[3].nota_aprecia;
+                    
+                    lista_dificil[0] = dados[0].nota_dificuldade;
+                    lista_dificil[1] = dados[1].nota_dificuldade;
+                    lista_dificil[2] = dados[2].nota_dificuldade;
+                    lista_dificil[3] = dados[3].nota_dificuldade;
+                }
+            } else {
+                lista_gosta[0] = dados[0].nota_aprecia;
+                lista_gosta[1] = dados[1].nota_aprecia;
+                lista_gosta[2] = dados[2].nota_aprecia;
+                lista_gosta[3] = dados[3].nota_aprecia;
+                lista_gosta[4] = dados[4].nota_aprecia;
+                
+                lista_dificil[0] = dados[0].nota_dificuldade;
+                lista_dificil[1] = dados[1].nota_dificuldade;
+                lista_dificil[2] = dados[2].nota_dificuldade;
+                lista_dificil[3] = dados[3].nota_dificuldade;
+                lista_dificil[4] = dados[4].nota_dificuldade;
+            }
+        } else {
+            lista_gosta[0] = dados[0].nota_aprecia;
+            lista_gosta[1] = dados[1].nota_aprecia;
+            lista_gosta[2] = dados[2].nota_aprecia;
+            lista_gosta[3] = dados[3].nota_aprecia;
+            lista_gosta[4] = dados[4].nota_aprecia;
+            lista_gosta[5] = dados[5].nota_aprecia;
+            
+            lista_dificil[0] = dados[0].nota_dificuldade;
+            lista_dificil[1] = dados[1].nota_dificuldade;
+            lista_dificil[2] = dados[2].nota_dificuldade;
+            lista_dificil[3] = dados[3].nota_dificuldade;
+            lista_dificil[4] = dados[4].nota_dificuldade;
+            lista_dificil[5] = dados[5].nota_dificuldade;
+        }
+    } else {
+        document.getElementById("explicacao_0").innerHTML = "";
+        lista_gosta[0] = dados[0].nota_aprecia;
+        lista_gosta[1] = dados[1].nota_aprecia;
+        lista_gosta[2] = dados[2].nota_aprecia;
+        lista_gosta[3] = dados[3].nota_aprecia;
+        lista_gosta[4] = dados[4].nota_aprecia;
+        lista_gosta[5] = dados[5].nota_aprecia;
+        lista_gosta[6] = dados[6].nota_aprecia;
+        
+        lista_dificil[0] = dados[0].nota_dificuldade;
+        lista_dificil[1] = dados[1].nota_dificuldade;
+        lista_dificil[2] = dados[2].nota_dificuldade;
+        lista_dificil[3] = dados[3].nota_dificuldade;
+        lista_dificil[4] = dados[4].nota_dificuldade;
+        lista_dificil[5] = dados[5].nota_dificuldade;
+        lista_dificil[6] = dados[6].nota_dificuldade;
+    }
 
 }
 

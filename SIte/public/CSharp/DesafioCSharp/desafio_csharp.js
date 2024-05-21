@@ -1,5 +1,5 @@
 function voltar() {
-    window.location.href = "../chsarp.html";
+    window.location.href = "../csharp.html";
 }
 
 const linguagem_atual = 'csharp';
@@ -30,134 +30,143 @@ function validarSessao() {
 
 
 
+
+
+
+function limpar_resposta() {
+    resposta_escolhida = 0;
+    document.getElementById("resposta1").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta2").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta3").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta4").style = "border: 0.2vw solid black;"
+}
+
+function resposta1() {
+    resposta_escolhida = 1;
+    document.getElementById("resposta1").style = "border: 0.4vw solid green;"
+    document.getElementById("resposta2").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta3").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta4").style = "border: 0.2vw solid black;"
+}
+
+function resposta2() {
+    resposta_escolhida = 2;
+    document.getElementById("resposta2").style = "border: 0.4vw solid green;"
+    document.getElementById("resposta1").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta3").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta4").style = "border: 0.2vw solid black;"
+}
+
+function resposta3() {
+    resposta_escolhida = 3;
+    document.getElementById("resposta3").style = "border: 0.4vw solid green;"
+    document.getElementById("resposta1").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta2").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta4").style = "border: 0.2vw solid black;"
+}
+
+function resposta4() {
+    resposta_escolhida = 4;
+    document.getElementById("resposta4").style = "border: 0.4vw solid green;"
+    document.getElementById("resposta1").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta2").style = "border: 0.2vw solid black;"
+    document.getElementById("resposta3").style = "border: 0.2vw solid black;"
+}
+
+var resposta_escolhida = 0;
 var fase = 1;
-function verificar() {
-    var codigo = document.getElementById("input_codigo");
-    var entrada = document.getElementById("entrada");
-    var texto_saida_esperada = document.getElementById("texto_saida_esperada");
-    var saida = document.getElementById("saida");
-        
+
+function responder() {
     if (fase == 1) {
-        // FASE 1 
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado = (vetor[0] + vetor[1] + vetor[2] + vetor[3] + vetor[4]) / 5;
+        if (resposta_escolhida == 3) {
 
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase1 = new Function('vetor', codigo.value);
-            var resultado = fase1(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
 
-        if (resultado == resultado_esperado) {
-            acertou(resultado);
-            document.getElementById("pergunta").innerHTML = "Você está na segunda fase, nesta fase a sua função é somar todos os valores pares do vetor e retornar o resultado<br><br>Digite o seu código abaixo:";
+            fase++;
+            Swal.fire({
+                imageUrl: "../../assets/Icons/foto_check.png",
+                imageHeight: 130,
+                title: "Correto",
+                text: `Fase ${fase} ...`,
+                width: 400,
+                color: "black"
+            });
+            limpar_resposta();
+            document.getElementById("questao").innerHTML = "Questão 2: como criar um vetor de strings e colocar 3 nomes dentro dele";
+            document.getElementById("resposta1").innerHTML = '<span>string[] nomes = <br>new string[]{"Ana", "João", "Maria"};</span>';
+            document.getElementById("resposta2").innerHTML = '<span>string[] nomes = <br>{"Ana", "João", "Maria"};</span>';
+            document.getElementById("resposta3").innerHTML = '<span>string[] nomes = <br>new[]{"Ana", "João", "Maria"};</span>';
+            document.getElementById("resposta4").innerHTML = '<span>array nomes = <br>new array{"Ana", "João", "Maria"};</span>';
+        } else {
+            errou();
         }
-        
+
+
     } else if (fase == 2) {
-        // FASE 2
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado = 0;
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] % 2 == 0) {
-                resultado_esperado += vetor[contador];
-            }
+
+
+        if (resposta_escolhida == 2) {
+            fase++;
+            Swal.fire({
+                imageUrl: "../../assets/Icons/foto_check.png",
+                imageHeight: 130,
+                title: "Correto",
+                text: `Fase ${fase} ...`,
+                width: 400,
+                color: "black"
+            });
+            limpar_resposta();
+            document.getElementById("questao").innerHTML = "Questão 3: qual laço de repetição não contém nenhum erro";
+            document.getElementById("resposta1").innerHTML = '<span>int[] array = {1, 2, 3};<br>for (int i = 0; i <= array.Length; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(array[i]);<br>}</span>';
+            document.getElementById("resposta2").innerHTML = '<span>int[] array = {1, 2, 3};<br>for (int i = 0; i > array.Length; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(array[i]);<br>}</span>';
+            document.getElementById("resposta3").innerHTML = '<span>int[] array = {1, 2, 3};<br>for (int i = 0; i < array.Length; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(array[i]);<br></br>}</span>';
+            document.getElementById("resposta4").innerHTML = '<span>int[] array = {1, 2, 3};<br>for (double i = 0; i < array.Length; i++)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(array[i]);<br></br>}</span>';
+        } else {
+            errou();
         }
-        
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase2 = new Function('vetor', codigo.value);
-            var resultado = fase2(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
-        
-        if (resultado === resultado_esperado) {
-            acertou(resultado);
-            document.getElementById("pergunta").innerHTML = "Você está na terceira fase, nesta fase a sua função é descobrir e retornar o segundo maior número do vetor<br><br>Digite o seu código abaixo:";
-            codigo.innerHTML = "";
-        }
-        
+
+
     } else if (fase == 3) {
-        // FASE 3
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado;
-        var maior_valor = vetor[0];
-        var segundo_maior = vetor[0];
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] > maior_valor) {
-                maior_valor = vetor[contador];
-            }
+
+
+        if (resposta_escolhida == 0) {
+            fase++;
+            Swal.fire({
+                imageUrl: "../../assets/Icons/foto_check.png",
+                imageHeight: 130,
+                title: "Correto",
+                text: `Fase ${fase} ...`,
+                width: 400,
+                color: "black"
+            });
+            limpar_resposta();
+            document.getElementById("questao").innerHTML = "Questão 3: ";
+            document.getElementById("resposta1").innerHTML = '<span></span>';
+            document.getElementById("resposta2").innerHTML = '<span></span>';
+            document.getElementById("resposta3").innerHTML = '<span></span>';
+            document.getElementById("resposta4").innerHTML = '<span></span>';
+        } else {
+            errou();
         }
 
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] > segundo_maior && vetor[contador] != maior_valor) {
-                segundo_maior = vetor[contador];
-            }
-        }
 
-        resultado_esperado = segundo_maior;
-
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase2 = new Function('vetor', codigo.value);
-            var resultado = fase2(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
-
-        if (resultado == resultado_esperado) {
-            venceu();
-        }
-        
     }
-
 }
 
-function acertou(resultado) {
+
+function errou () {
     Swal.fire({
-        imageUrl: "../../assets/Icons/foto_check.png",
+        imageUrl: "../../assets/Icons/icon_error.png",
         imageHeight: 130,
-        title: `Fase ${fase} concluída`,
-        text: "Próxima fase...",
+        title: "Errado",
+        text: `Infelizmente o desafio será resetado`,
         width: 400,
-        color: "black",
-        willClose: () => {
-            // window.location.href = "../../index.html";
-        }
+        color: "black"
     });
-    fase++;
+    limpar_resposta();
+    fase = 1;
+    document.getElementById("questao").innerHTML = 'Seu desafio contém 5 questões de múltiplas escolhas, de códigos feitos em CSharp:<br><br>Questão 1: qual destes comandos exibe "Hello World" na tela';
+    document.getElementById("resposta1").innerHTML = '<span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span>';
+    document.getElementById("resposta2").innerHTML = '<span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span>';
+    document.getElementById("resposta3").innerHTML = '<span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span>';
+    document.getElementById("resposta4").innerHTML = '<span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span>';
 }
-
-
-function venceu() {
-    Swal.fire({
-        imageUrl: "../../assets/Icons/foto_check.png",
-        imageHeight: 130,
-        title: "Parabéns",
-        text: "Você finalizou o desafio de JavaScript!!",
-        width: 400,
-        color: "black",
-        willClose: () => {
-            // finalizou();
-        }
-    });
-}
-
-
-
-
-

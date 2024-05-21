@@ -82,109 +82,8 @@ html, body {
     height: 100%;
     width: 100%;
     background: var(--cor-peacock);
-    background: linear-gradient(180deg, var(--cor-peacock) 0%, var(--cor-space-blue) 100%);
+    background: linear-gradient(180deg, var(--cor-caribbean) 0%, var(--cor-space-blue) 100%);
 }
-
-
-
-/* NAVBAR */
-
-#div_navbar {
-    height: 8vh;
-    width: 100vw;
-    border-bottom: 0.25vw solid var(--cor-taupe);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-
-/* LOGO */
-#div_logo {
-    width: 4vw;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow-y: hidden;
-    align-items: center;
-    justify-content: center;
-    margin-right: 3%;
-    margin-left: 1%;
-}
-
-#img_logo {
-    width: 4vw;
-    height: 4vw;
-}
-
-
-/* ITENS NAVBAR */
-#ul_navbar {
-    width: 80%;
-    height: 100%;
-    list-style: none;
-    color: var(--cor-taupe);
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    flex-direction: row;
-    margin-right: 2.1vw;
-    margin-left: 1.2vw;
-}
-
-#ul_navbar a {
-    color: var(--cor-taupe);
-    text-decoration: none;
-    font-size: 1.3vw;
-    font-weight: 700;
-}
-
-#div_selecionado a {
-    margin-bottom: 1vw;
-}
-
-
-/* BOTAO LOGIN */
-#button_sair {
-    cursor: pointer;
-    font-size: 1.4vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 9vw; 
-    height: 5vh;
-    background-color: var(--cor-taupe);
-    font-weight: 900;
-    border-radius: 1vw;
-    border: 0.3vw solid white;
-    margin-right: 3%;
-    margin-left: 3%;
-    transition: 0.6s;
-}
-
-#button_sair:hover {
-    font-size: 1.5vw;
-    width: 9.5vw;
-    height: 5.5vh;
-    color: var(--cor-taupe);
-    background-color: var(--cor-space-blue);
-}
-
-#selecionado_navbar li {
-    margin-top: -1%;
-}
-
-#barra_selecionado {
-    margin-top: 5%;
-    width: 4.1vw;
-    border-radius: 3vw;
-    background-color: var(--cor-taupe);
-    height: 1.2vh;
-}
-
-
 
 
 
@@ -193,20 +92,16 @@ html, body {
 /* PARTE DA EXPLICACAO */
 #parte_explicacao {
     width: 100vw;
-    height: 110vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(../assets/Icons/tela_programacao_03.jpg);
-    background-position: center top;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #parte_inicial {
-    width: 100%;
-    height: 7%;
-    margin-top: 5%;
+    width: 93%;
+    height: 27%;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -215,134 +110,58 @@ html, body {
 #parte_inicial h1 {
     font-size: 2.3vw;
     color: white;
-    background-color: rgba(0, 44, 47, 1);
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
-    border-radius: 1vw;
-    border: 0.3vw solid var(--cor-space-blue);
+    background-color: rgba(0, 44, 47, 0.5);
+    padding: 0.5vw;
+    border-radius: 3.5vw;
+    border: 0.3vw solid rgba(2, 52, 89, 0.7);
 }
 
-#texto_explicacao {
+
+
+
+
+
+
+
+
+
+
+
+/* BOTOES */
+#botoes1 {
+    margin-bottom: -15vh;
+    margin-top: -15vh;
+}
+
+#botoes2 {
+    margin-top: -10vh;
+}
+
+#botoes1, #botoes2 {
     width: 100%;
-    height: 65%;
-    margin-top: 2%;
+    height: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
 
-
-
-
-
-
-/* TEXTOS */
-#usos, #nivel, #paradigma {
-    width: 28%;
-    height: 75%;
-    border: 0.3vw solid var(--cor-peacock);
-    border-radius: 2vw;
-    padding: 1vw;
-    background-color: rgb(2, 52, 89, 0.9);
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    display: flex;
-}
-
-#usos h1, #nivel h1, #paradigma h1 {
-    color: white;
-    font-size: 1.6vw;
-    font-weight: 900;
-}
-
-#usos span, #nivel span, #paradigma span {
-    color: white;
-    font-size: 1.2vw;
-    font-weight: 700;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* BOTAO DE CADASTRO */
-#botoes {
-    margin-top: 2%;
-    width: 100%;
-    height: 6%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#botoes button {
+#botoes1 button, #botoes2 button {
     background-color: var(--cor-taupe);
     border: 0.2vw solid white;
     cursor: pointer;
-    width: 10%;
+    width: 20%;
     height: 90%;
     white-space: nowrap;
     font-weight: 900;
-    font-size: 1.5vw;
-    border-radius: 0.7vw;
-    transition: 0.5s;
+    font-size: 2.4vw;
+    border-radius: 1.4vw;
+    transition: 0.8s;
 }
 
-#botoes button:hover {
-    font-size: 1.65vw;
-    width: 12%;
-    height: 95%;
+#botoes1 button:hover, #botoes2 button:hover {
+    font-size: 3vw;
+    height: 92%;
     color: var(--cor-taupe);
     background-color: var(--cor-space-blue);
-}
-
-#cadastro span {
-    color: white;
-    font-weight: 700;
-    font-size: 1.4vw;
-    background-color: rgb(2, 52, 89, 0.9);
-    padding-left: 1vw;
-    padding-right: 1vw;
-    border: 0.3vw solid var(--cor-peacock);
-    border-radius: 2vw;
-}
-
-
-
-
-
-
-
-/* RODAPÉ */
-#rodape {
-    width: 100vw;
-    height: 10%;
-    background-color: var(--cor-taupe);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-/* LOGO */
-#rodape #div_logo {
-    margin-left: 2%;
-}
-
-#texto_rodape {
-    color: var(--cor-space-blue);
-    font-weight: 700;
-    font-size: 1.6vw;
-    margin-left: 12%;
-    cursor: pointer;
 }

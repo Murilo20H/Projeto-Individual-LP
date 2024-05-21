@@ -36,7 +36,7 @@ function cadastrar() {
                 Swal.fire({
                     title: "Cadastro realizado com sucesso!",
                     html: "Redirecionado para a página de login",
-                    timer: 3000,
+                    timer: 1800,
                     timerProgressBar: true,
                     didOpen: () => {
                         tela_cobrir.style = "display: flex;";

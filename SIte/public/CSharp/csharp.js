@@ -10,6 +10,10 @@ function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
 }
 
+function desafio() {
+    window.location.href = "DesafioCSharp/desafio_csharp.html";
+}
+
 const linguagem_atual = 'csharp';
 var id = sessionStorage.ID_USUARIO;
 

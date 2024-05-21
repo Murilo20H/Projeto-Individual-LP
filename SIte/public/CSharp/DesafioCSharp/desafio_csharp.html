@@ -28,14 +28,18 @@
             <div id="telas">
 
                 <div id="tela_usuario">
-                    <span id="pergunta">Seu desafio contém 5 fases, nesta fase a sua função é exibir somente o nome do <br><br>Digite o seu código abaixo:</span>
-                    <textarea oninput="verificar()" id="input_codigo" type="text"></textarea>
+                    <span id="questao">Seu desafio contém 5 questões de múltiplas escolhas, de códigos feitos em CSharp:<br><br>Questão 1: qual destes comandos exibe "Hello World" na tela</span>
+                    <div id="respostas">
+                        <div onclick="resposta1()" id="resposta1"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
+                        <div onclick="resposta2()" id="resposta2"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
+                        <div onclick="resposta3()" id="resposta3"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
+                        <div onclick="resposta4()" id="resposta4"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
+                    </div>
+                    <button onclick="responder()">RESPONDER</button>
                 </div>
     
                 <div id="ajuda">
-                    <span id="entrada"></span>
-                    <span id="texto_saida_esperada"></span>
-                    <span id="saida"></span>
+                    <span id="ajuda_erro"></span>
                 </div>
             </div>
         </div>

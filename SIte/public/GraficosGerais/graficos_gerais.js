@@ -65,9 +65,7 @@ function validarSessao() {
     var nome_usuario = document.getElementById("nome_usuario");
 
 
-    if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
-        nome_usuario.innerHTML = nome;
-    } else {
+    if (email == null || email == 'undefined' || nome == null || nome == 'undefined') {
         Swal.fire({
             imageUrl: "../../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -242,5 +240,45 @@ function criarGraficos() {
             }
         }
     });
+
+    var mais_gosta = Math.max(csharp_gosta, java_gosta, javascript_gosta, html_gosta, css_gosta, sql_gosta);
+    var linguagem_adorada = ""
+
+    if (csharp_gosta == mais_gosta) {
+        linguagem_adorada = "CSharp"
+    } else if (java_gosta == mais_gosta) {
+        linguagem_adorada = "Java"
+    } else if (javascript_gosta == mais_gosta) {
+        linguagem_adorada = "JavaScript"
+    } else if (html_gosta == mais_gosta) {
+        linguagem_adorada = "HTML"
+    } else if (css_gosta == mais_gosta) {
+        linguagem_adorada = "CSS"
+    } else if (sql_gosta == mais_gosta) {
+        linguagem_adorada = "SQL"
+    }
+
+    var mais_dificil = Math.max(csharp_dificil, java_dificil, javascript_dificil, html_dificil, css_dificil, sql_dificil);
+    var linguagem_mais_dificil = ""
+
+    if (csharp_dificil == mais_dificil) {
+        linguagem_mais_dificil = "CSharp"
+    } else if (java_dificil == mais_dificil) {
+        linguagem_mais_dificil = "Java"
+    } else if (javascript_dificil == mais_dificil) {
+        linguagem_mais_dificil = "JavaScript"
+    } else if (html_dificil == mais_dificil) {
+        linguagem_mais_dificil = "HTML"
+    } else if (css_dificil == mais_dificil) {
+        linguagem_mais_dificil = "CSS"
+    } else if (sql_dificil == mais_dificil) {
+        linguagem_mais_dificil = "SQL"
+    }
+    
+    if (linguagem_adorada != "" && linguagem_mais_dificil != "") {
+        document.getElementById("titulo").innerHTML = `A linguagem mais bem avaliada é <span id="linguagem">${linguagem_adorada}</span> e a linguagem mais difícil é <span id="linguagem">${linguagem_mais_dificil}</span>`
+    } else {
+        document.getElementById("titulo").innerHTML = `Bem vindo(a) ${sessionStorage.NOME_USUARIO}!`
+    }
 
 }

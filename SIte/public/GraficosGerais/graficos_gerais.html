@@ -20,7 +20,6 @@
     <div>
         
         <div id="botoes">
-            <button onclick="voltar()" id="button_voltar">VOLTAR</button>
             <button onclick="graficos_csharp()" id="button_graficos_csharp">GRÁFICOS<br>CSHARP</button>
             <button onclick="graficos_java()" id="button_graficos_java">GRÁFICOS<br>JAVA</button>
             <button onclick="graficos_javascript()" id="button_graficos_javascript">GRÁFICOS<br>JAVASCRIPT</button>
@@ -32,7 +31,7 @@
 
         <!-- PARTE INICIAL -->
         <div id="parte_inicial">
-            <h1>Bem Vindo <span id="nome_usuario">usuário</span>!</h1>
+            <h1 id="titulo"></h1>
             <h6>Avaliações Gerais</h6>
         </div>
 
@@ -44,6 +43,10 @@
             <div id="grafico_dificuldade">
                 <canvas id="chart_dificuldade"></canvas>
             </div>
+        </div>
+        
+        <div id="legendas">
+            <span id="explicacao_notas">Acima estão as médias das notas de cada categoria das linguagens</span>
         </div>
 
     </div>

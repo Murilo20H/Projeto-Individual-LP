@@ -154,6 +154,7 @@ document.getElementById("pontuacao_contador").innerHTML = "0";
 
 function comecar() {
     var botao = document.getElementById("button_comecar");
+    input_codigo.focus();
     proxima_palavra();
     botao.style.display = "none";
     iniciarCronometro();
@@ -165,7 +166,7 @@ function verificar() {
     if (tag_atual == codigo.value) {
         contador_tags++;
         document.getElementById("pontuacao_contador").innerHTML = contador_tags;
-        if (contador_tags >= 35) {
+        if (contador_tags >= 25) {
             venceu();
         } else {
             proxima_palavra();
@@ -198,7 +199,7 @@ function iniciarCronometro() {
     document.getElementById('tempo_faltando').innerHTML = tempo_total;
     cronometro = setInterval(function() {
         if (tempo_total <= 0) {
-            if (contador_tags >= 35) {
+            if (contador_tags >= 25) {
                 ganhou();
             } else {
                 perdeu();
@@ -217,7 +218,6 @@ function perdeu() {
     pausarCronometro();
     document.getElementById("tags").innerHTML = "";
     document.getElementById("tempo_faltando").innerHTML = "50";
-    document.getElementById("pontuacao_contador").innerHTML = "0";
     contador_tags = 0;
     lista_tags_usadas = [];
     Swal.fire({
@@ -236,8 +236,8 @@ function perdeu() {
 
 function venceu() {
     pausarCronometro();
-    document.getElementById("parte_baixo").innerHTML = "";
-    document.getElementById("tags").innerHTML = "<span>Você venveu o desafio de HTML!</span>";
+    document.getElementById("tags").innerHTML = "<span>Você venceu o desafio de HTML!</span>";
+    tempo_total++;
     contador_tags = 0;
     lista_tags_usadas = [];
     Swal.fire({

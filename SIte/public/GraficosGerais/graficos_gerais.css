@@ -107,10 +107,7 @@ html, body {
     font-weight: 900;
     border-radius: 1vw;
     border: 0.3vw solid white;
-}
-
-#button_voltar {
-    width: 9vw; 
+    transition: 0.5s;
 }
 
 #button_graficos_csharp, #button_graficos_java, #button_graficos_html, #button_graficos_css, #button_graficos_sql {
@@ -119,14 +116,6 @@ html, body {
 
 #button_graficos_javascript {
     width: 11vw; 
-}
-
-#button_voltar:hover {
-    font-size: 1.6vw;
-    width: 10vw; 
-    font-weight: 700;
-    background-color: var(--cor-space-blue);
-    color: var(--cor-taupe);
 }
 
 #button_graficos_csharp:hover, #button_graficos_java:hover, #button_graficos_html:hover, #button_graficos_css:hover, #button_graficos_sql:hover {
@@ -165,7 +154,7 @@ html, body {
 
 #parte_inicial h1 {
     color: white;
-    font-size: 4.5vw;
+    font-size: 2.5vw;
     font-weight: 900;
 }
 
@@ -173,6 +162,11 @@ html, body {
     color: white;
     font-size: 2vw;
     font-weight: 700;
+    text-decoration: underline;
+}
+
+#linguagem {
+    color: var(--cor-taupe);
     text-decoration: underline;
 }
 
@@ -207,4 +201,23 @@ html, body {
     display: flex;
     align-items: center;
     border-radius: 1.5vw;
+}
+
+
+
+
+/* LEGENDAS */
+#legendas {
+    width: 100vw;
+    height: 5vh;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+}
+
+#explicacao_notas {
+    color: white;
+    font-size: 1.6vw;
+    font-weight: 400;
 }

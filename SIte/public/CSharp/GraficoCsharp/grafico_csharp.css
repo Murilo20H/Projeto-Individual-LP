@@ -107,6 +107,7 @@ html, body {
     font-weight: 900;
     border-radius: 1vw;
     border: 0.3vw solid white;
+    transition: 0.5s;
 }
 
 #button_voltar {
@@ -194,4 +195,29 @@ html, body {
     display: flex;
     align-items: center;
     border-radius: 1.5vw;
+}
+
+
+
+
+/* LEGENDAS */
+#legendas {
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+}
+
+#explicacao_notas {
+    color: white;
+    font-size: 1.6vw;
+    font-weight: 400;
+}
+
+#explicacao_0 {
+    color: white;
+    font-size: 1.2vw;
+    font-weight: 400;
 }

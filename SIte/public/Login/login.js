@@ -40,7 +40,7 @@ function entrar() {
     let timerInterval;
     Swal.fire({
         title: "Verificando campos!",
-        timer: 1400,
+        timer: 400,
         timerProgressBar: true,
         didOpen: () => {
             tela_cobrir.style = "display: flex;";
@@ -85,7 +85,7 @@ function entrar() {
                         html: "Redirecionado para a página de login",
                         imageUrl: "assets/Icons/foto_check.png",
                         imageHeight: 130,
-                        timer: 2000,
+                        timer: 1800,
                         timerProgressBar: true,
                         didOpen: () => {
                             tela_cobrir.style = "display: flex;";
