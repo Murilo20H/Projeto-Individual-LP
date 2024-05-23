@@ -16,8 +16,9 @@ var HOST_APP = process.env.APP_HOST;
 var app = express();
 
 var indexRouter = require("./src/routes/index");
-var indexRouter = require("./src/routes/dadosLinguagem");
+var dadosLinguagemRouter = require("./src/routes/dadosLinguagem");
 var usuarioRouter = require("./src/routes/usuarios");
+var desafiosRouter = require("./src/routes/desafios");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -27,7 +28,8 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/dadosLinguagem", usuarioRouter);
+app.use("/dadosLinguagem", dadosLinguagemRouter);
+app.use("/desafios", desafiosRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

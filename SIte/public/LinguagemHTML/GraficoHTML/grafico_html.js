@@ -60,7 +60,7 @@ async function buscarUltimosDados() {
     var dados;
 
     try {
-        const response = await fetch(`/dados/ultimos/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/ultimos/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
     
         if (response.ok) {
             const data = await response.json();
@@ -81,7 +81,7 @@ async function buscarDadosDoUsuario() {
     var dados;
 
     try {
-        const response = await fetch(`/dados/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/usuario/${idUsuario}/${linguagem_atual}`, { cache: 'no-store' });
     
         if (response.ok) {
             const data = await response.json();

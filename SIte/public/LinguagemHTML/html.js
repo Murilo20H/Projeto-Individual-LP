@@ -42,7 +42,7 @@ async function validarSessao() {
     }
 
     try {
-        const response = await fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
 
         if (response.ok) {
             var resposta = await response.json();
@@ -70,7 +70,7 @@ async function verSeJaVotou() {
     var dados;
 
     try {
-        const response = await fetch(`/dados/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
 
         if (response.ok) {
             var resposta = await response.json();
@@ -236,7 +236,7 @@ async function estaCerto() {
 async function votar() {
 
     try {
-        const response = await fetch(`/dados/criarNotas/${id}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
+        const response = await fetch(`/dadosLinguagem/criarNotas/${id}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
             cache: 'no-store',
             method: "POST",
             headers: {
@@ -260,7 +260,7 @@ async function votar() {
 
 async function apagar() {
     try {
-        const response = await fetch(`/dados/apagarNotas/${id}`, {
+        const response = await fetch(`/dadosLinguagem/apagarNotas/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

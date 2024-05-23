@@ -20,9 +20,14 @@ CREATE TABLE dados_linguagem (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE desafio (
+CREATE TABLE desafios (
 	id INT AUTO_INCREMENT,
-	linguagem VARCHAR(15),
+	desafioCsharp INT DEFAULT 0,
+	desafioJava INT DEFAULT 0,
+	desafioJavascript INT DEFAULT 0,
+	desafioHtml INT DEFAULT 0,
+	desafioCss INT DEFAULT 0,
+	desafioSql INT DEFAULT 0,
  	fk_usuario INT,
 	PRIMARY KEY (id, fk_usuario),
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
@@ -30,4 +35,4 @@ CREATE TABLE desafio (
 
 SELECT * FROM usuario;
 SELECT * FROM dados_linguagem;
-SELECT * FROM desafio;
+SELECT * FROM desafios;

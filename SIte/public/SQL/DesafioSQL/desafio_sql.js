@@ -156,8 +156,3 @@ function venceu() {
         }
     });
 }
-
-
-
-
-

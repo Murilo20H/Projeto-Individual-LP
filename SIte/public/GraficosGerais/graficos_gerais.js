@@ -42,7 +42,7 @@ async function buscarMediaDados(linguagem) {
     var dados;
 
     try {
-        const response = await fetch(`/dados/media/${linguagem}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/media/${linguagem}`, { cache: 'no-store' });
 
         if (response.ok) {
             var resposta = await response.json();

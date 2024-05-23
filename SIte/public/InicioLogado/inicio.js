@@ -30,6 +30,8 @@ function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
 }
 
+var id = sessionStorage.ID_USUARIO;
+
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
@@ -38,6 +40,7 @@ function validarSessao() {
 
     if (email != null && nome != null) {
         nome_usuario.innerHTML = nome;
+        verificarDesafios()
     } else {
         Swal.fire({
             imageUrl: "../assets/Icons/icon_error.png",
@@ -55,4 +58,39 @@ function validarSessao() {
             }
         });
     }
+}
+
+async function verificarDesafios() {
+    var existe = false;
+    var linguagem = "desafioCsharp";
+
+    try {
+        const response = await fetch(`/desafios/verDadosUsuario/${linguagem}/${id}`, { cache: 'no-store' });
+
+        if (response.status == 200) {
+            console.log("Tabela desafios existe: ", response);
+            existe = true;
+        } else {
+            console.log('Nenhum dado encontrado na API');
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados para o gráfico: ${error.message}`);
+    }
+
+    if (!existe) {
+        cadastrarDesafios();
+    }
+}
+
+function cadastrarDesafios() {
+    fetch(`/desafios/cadastrar/${id}`, { cache: 'no-store' })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("dados cadastrados com sucesso: ", resposta);
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro dos desafios!";
+            }
+        });
 }
