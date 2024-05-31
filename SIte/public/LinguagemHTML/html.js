@@ -36,7 +36,7 @@ async function validarSessao() {
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
-                // window.location.href = "../index.html";
+                window.location.href = "../index.html";
             }
         });
     }

@@ -18,25 +18,37 @@
         <div id="botoes">
             <button onclick="voltar()" id="button_voltar">VOLTAR</button>
             <span>Desafio de SQL</span>
-            <button onclick="ranking()" id="button_ranking">RANKING DOS DESAFIOS</button>
+            <button onclick="ranking()" id="button_ranking">RANKING</button>
         </div>
 
 
-        <!-- PARTE INICIAL -->
+        <div id="tela_resultados">
+            <button id="" onclick="fecharLista()">FECHAR</button>
+            <div id="div_resultados">
+                <div id="lista_resultados">
+                    <h1>RESULTADOS</h1>
+                </div>
+            </div>
+        </div>
 
         <div id="parte_desafio">
             <div id="telas">
 
                 <div id="tela_usuario">
-                    <span id="pergunta">Seu desafio contém 5 fases, nesta fase a sua função é exibir somente o nome do <br><br>Digite o seu código abaixo:</span>
-                    <textarea oninput="verificar()" id="input_codigo" type="text"></textarea>
+                    <span id="pergunta">Olá <b id="nome_usuario">usuário</b>, você é um detetive e precisa resolver um crime:<br>Enzo Ferreira foi vítima de um homicídio em São Paulo, na rua Haddock Lobo, em frente a sua casa, sua missão é encontrar o criminoso utilizando comandos 'SELECT' para ver os dados no sistema, ao encontrar o assassino você deve dar um 'INSERT' na tabela solução, boa sorte!</span>
+                    <span id="tabelas">Tabelas: Pessoa, Relacionamento, Crime, DeclaracaoTestemunha, Evidencia, Suspeito, Alibi e Ligacao</span>
+                    <textarea id="textarea_comando" type="text"></textarea>
+                    <button id="botao_verificar" onclick="verificar()">PROCURAR</button>
+                </div>
+
+                <div id="tela_resposta">
+                    <input value="INSERT INTO Solucao VALUES ('nome do criminoso')" id="resposta" type="text">
+                    <button onclick="enviar()">ENVIAR</button>
                 </div>
     
-                <div id="ajuda">
-                    <span id="entrada"></span>
-                    <span id="texto_saida_esperada"></span>
-                    <span id="saida"></span>
-                </div>
+            </div>
+            <div id="ajuda">
+                <span id="texto_ajuda">Digite o comando na caixa acima</span>
             </div>
         </div>
 

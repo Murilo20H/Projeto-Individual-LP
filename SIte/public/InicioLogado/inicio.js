@@ -54,7 +54,7 @@ function validarSessao() {
             },
             willClose: () => {
                 tela_cobrir.style = "display: none";
-                // window.location.href = "../index.html";
+                window.location.href = "../index.html";
             }
         });
     }
@@ -93,4 +93,10 @@ function cadastrarDesafios() {
                 throw "Houve um erro ao tentar realizar o cadastro dos desafios!";
             }
         });
+}
+
+
+
+function csharp_button() {
+    csharp_texto.style = "width: 0; height: 0;"
 }

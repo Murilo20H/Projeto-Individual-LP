@@ -2,18 +2,19 @@ function voltar() {
     window.location.href = "../sql.html";
 }
 
-const linguagem_atual = 'sql';
+function ranking() {
+    window.location.href = "../../Ranking/ranking.html"
+}
+
+const linguagem_atual = 'desafioSql';
 var idUsuario = sessionStorage.ID_USUARIO;
 
-function validarSessao() {
+async function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var nome_usuario = document.getElementById("nome_usuario");
 
-    if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
-        nome_usuario.innerHTML = nome;
-    } else {
+    if (email == null || email == 'undefined' || nome == null || nome == 'undefined') {
         Swal.fire({
             imageUrl: "../../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -22,124 +23,57 @@ function validarSessao() {
             width: 400,
             color: "black",
             willClose: () => {
-                // window.location.href = "../../index.html";
+                window.location.href = "../../index.html";
             }
         });
+    } else {
+        document.getElementById("nome_usuario").innerHTML = nome;
+        procurar();
     }
 }
 
 
 
-var fase = 1;
+async function procurar() {
+    var dados;
+    try {
+        const response = await fetch(`/desafios/verDadosUsuario/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+
+        if (response && response.ok) {
+            const json = await response.json();
+            dados = JSON.stringify(json);
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados do desafio: ${error.message}`);
+    }
+
+    if (dados[dados.length - 3] == "1") {
+        document.getElementById("tabelas").style.display = "none";
+        document.getElementById("textarea_comando").style.display = "none";
+        document.getElementById("botao_verificar").style.display = "none";
+        document.getElementById("tela_resposta").style.display = "none";
+        document.getElementById("ajuda").style.display = "none";
+        document.getElementById("pergunta").style = "color: green; font-size: 3.5vw";
+        document.getElementById("pergunta").innerHTML = "Parabéns, você venceu o desafio de SQL!";
+    }
+}
+
+
 function verificar() {
-    var codigo = document.getElementById("input_codigo");
-    var entrada = document.getElementById("entrada");
-    var texto_saida_esperada = document.getElementById("texto_saida_esperada");
-    var saida = document.getElementById("saida");
-        
-    if (fase == 1) {
-        // FASE 1 
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado = (vetor[0] + vetor[1] + vetor[2] + vetor[3] + vetor[4]) / 5;
+    var comando = document.getElementById("textarea_comando").value;
+    var texto_ajuda = document.getElementById("texto_ajuda");
 
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase1 = new Function('vetor', codigo.value);
-            var resultado = fase1(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
-
-        if (resultado == resultado_esperado) {
-            acertou(resultado);
-            document.getElementById("pergunta").innerHTML = "Você está na segunda fase, nesta fase a sua função é somar todos os valores pares do vetor e retornar o resultado<br><br>Digite o seu código abaixo:";
-        }
-        
-    } else if (fase == 2) {
-        // FASE 2
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado = 0;
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] % 2 == 0) {
-                resultado_esperado += vetor[contador];
-            }
-        }
-        
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase2 = new Function('vetor', codigo.value);
-            var resultado = fase2(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
-        
-        if (resultado === resultado_esperado) {
-            acertou(resultado);
-            document.getElementById("pergunta").innerHTML = "Você está na terceira fase, nesta fase a sua função é descobrir e retornar o segundo maior número do vetor<br><br>Digite o seu código abaixo:";
-            codigo.innerHTML = "";
-        }
-        
-    } else if (fase == 3) {
-        // FASE 3
-        var vetor = [Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10), Math.round(Math.random() * 10)];
-        var resultado_esperado;
-        var maior_valor = vetor[0];
-        var segundo_maior = vetor[0];
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] > maior_valor) {
-                maior_valor = vetor[contador];
-            }
-        }
-
-        for (var contador = 0; contador < vetor.length; contador++) {
-            if (vetor[contador] > segundo_maior && vetor[contador] != maior_valor) {
-                segundo_maior = vetor[contador];
-            }
-        }
-
-        resultado_esperado = segundo_maior;
-
-        entrada.innerHTML = `Entrada: vetor[${vetor[0]}, ${vetor[1]}, ${vetor[2]}, ${vetor[3]}, ${vetor[4]}]`;
-        texto_saida_esperada.innerHTML = `A saída deve ser identica, saída esperada: <b style="text-decoration: underline; font-weight: 900;">${resultado_esperado}</b>`;
-        
-        try {
-            var fase2 = new Function('vetor', codigo.value);
-            var resultado = fase2(vetor);
-            
-            saida.innerHTML = `Saída: <span style="text-decoration: underline">${resultado}</span>`;
-        } catch (error) {
-            saida.innerHTML = `Saída: <b style="color: red; text-decoration: underline">erro</b>: ${error}`;
-        }            
-
-        if (resultado == resultado_esperado) {
-            venceu();
-        }
-        
+    if (comando.length < 14) {
+        texto_ajuda.innerHTML = "Será aceito somente o comando 'SELECT'";
+        texto_ajuda.style.color = "red";
+    } else if (comando[0].toLowerCase() == "s" && comando[1].toLowerCase() == "e" && comando[2].toLowerCase() == "l" && comando[3].toLowerCase() == "e" && comando[4].toLowerCase() == "c" && comando[5].toLowerCase() == "t") {
+        texto_ajuda.innerHTML = "Digite o comando na caixa acima";
+        texto_ajuda.style.color = "white";
+        procurarDados(comando);
+    } else {
+        texto_ajuda.innerHTML = "Será aceito somente o comando 'SELECT'";
+        texto_ajuda.style.color = "red";
     }
-
-}
-
-function acertou(resultado) {
-    Swal.fire({
-        imageUrl: "../../assets/Icons/foto_check.png",
-        imageHeight: 130,
-        title: `Fase ${fase} concluída`,
-        text: "Próxima fase...",
-        width: 400,
-        color: "black",
-        willClose: () => {
-            // window.location.href = "../../index.html";
-        }
-    });
-    fase++;
 }
 
 
@@ -148,11 +82,131 @@ function venceu() {
         imageUrl: "../../assets/Icons/foto_check.png",
         imageHeight: 130,
         title: "Parabéns",
-        text: "Você finalizou o desafio de JavaScript!!",
+        text: "Você finalizou o desafio de SQL!!",
         width: 400,
         color: "black",
         willClose: () => {
-            // finalizou();
+            finalizou();
         }
     });
+}
+
+function perdeu() {
+    Swal.fire({
+        imageUrl: "../../assets/Icons/icon_error.png",
+        imageHeight: 130,
+        title: "Infelizmente você perdeu",
+        text: "Procure mais ou verifique se digitou corretamente",
+        width: 400,
+        color: "black"
+    });
+}
+
+
+function procurarDados(comando_usario) {
+    var erro = false;
+    var dados;
+    fetch("/desafios/sql", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            comando: comando_usario
+        })
+    }).then(function (resposta) {
+        
+        if (resposta.ok) {
+            document.getElementById("tela_resultados").style.display = "flex";
+            console.log(resposta);
+            
+            resposta.json().then(json => {
+                dados = JSON.stringify(json);
+            });
+            
+        } else if (resposta.status == 500) {
+            console.log(resposta);
+            erro = true;
+
+            Swal.fire({
+                imageUrl: "../../assets/Icons/icon_error.png",
+                imageHeight: 130,
+                title: "Erro",
+                text: "Comando inválido",
+                width: 400,
+                color: "black"
+            });
+            
+        } else {
+            console.log("Houve um erro ao tentar rodar o comando do usario no desafio sql!");
+            
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    if (!erro) {
+        setTimeout(function () { criarLista(dados) }, 500);
+    }
+}
+
+
+function criarLista(dados) {
+    var lista = document.getElementById("lista_resultados");
+    var dados1 = dados.replaceAll(',"', '@');
+    var dados2 = dados1.replaceAll('"', ' ');
+    var dados3 = dados2.replaceAll('[', '<div style="width: 100%; background-color: black; height: 0.2vh"></div><br>');
+    var dados4 = dados3.replaceAll(']', '');
+    var dados5 = dados4.replaceAll('{', '');
+    var dados6 = dados5.replaceAll('},', '<br><br><div style="width: 100%; background-color: black; height: 0.2vh"></div><br>');
+    var dados7 = dados6.replaceAll('}', '<br><br>');
+    var dados8 = dados7.replaceAll('T03:00:00.000Z', '');
+    var dados9 = dados8.replaceAll(' , ', ' <b style="color: red"> || </b> ');
+    var dadosFinais = dados9.replaceAll('@', ' <b style="color: red"> || </b> ');
+    lista.innerHTML = "<h1>RESULTADOS</h1>";
+    lista.scrollTop = 0;
+    lista.innerHTML += dadosFinais;
+}
+
+function fecharLista() {
+    var tela = document.getElementById("tela_resultados");
+    tela.style.display = "none";
+}
+
+function enviar() {
+    var resposta = document.getElementById("resposta").value;
+    var resultado_certo1 = "insert into solucao values ('william pinheiro')"
+    var resultado_certo2 = "insert into solucao values ('william pinheiro');"
+    if (resposta.toLowerCase() == resultado_certo1 || resposta.toLowerCase() == resultado_certo2) {
+        venceu();
+    } else {
+        perdeu();
+    }
+}
+
+
+async function finalizou() {
+    try {
+        const response = await fetch(`/desafios/atualizar/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+        console.log(response);
+
+        if (response.ok) {
+            const json = response.json();
+            console.log(JSON.stringify(json));
+        } else {
+            console.error(`Erro na atualização dos dados do desafio: ${response.status} - ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error(`Erro na atualização dos dados do desafio: ${error.message}`);
+    }
+    document.getElementById("tabelas").style.display = "none";
+    document.getElementById("textarea_comando").style.display = "none";
+    document.getElementById("botao_verificar").style.display = "none";
+    document.getElementById("tela_resposta").style.display = "none";
+    document.getElementById("ajuda").style.display = "none";
+    document.getElementById("pergunta").style = "color: green; font-size: 3.5vw";
+    document.getElementById("pergunta").innerHTML = "Parabéns, você venceu o desafio de SQL!";
 }

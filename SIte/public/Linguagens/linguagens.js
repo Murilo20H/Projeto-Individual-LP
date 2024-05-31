@@ -9,3 +9,7 @@ function login() {
 function cadastro() {
     window.location.href = "../cadastro.html";
 }
+
+function cadastro() {
+    window.location.href = "../cadastro.html";
+}

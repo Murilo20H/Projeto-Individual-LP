@@ -10,6 +10,10 @@ function login() {
     window.location.href = "../login.html";
 }
 
+function cadastro() {
+    window.location.href = "../cadastro.html";
+}
+
 
 function alternar1() {
     div_usos_tecnologia.style = "transition: 0.5s; left: 0vw"

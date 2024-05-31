@@ -2,22 +2,19 @@ function voltar() {
     window.location.href = "../html.html";
 }
 
-function graficos_gerais() {
-    window.location.href = "../../GraficosGerais/graficos_gerais.html"
+function ranking() {
+    window.location.href = "../../Ranking/ranking.html"
 }
 
-const linguagem_atual = 'html';
+var primeira_vez = false;
+const linguagem_atual = 'desafioHtml';
 var idUsuario = sessionStorage.ID_USUARIO;
 
-function validarSessao() {
+async function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var nome_usuario = document.getElementById("nome_usuario");
-
-    if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
-        nome_usuario.innerHTML = nome;
-    } else {
+    if (email == null || email == 'undefined' || nome == null || nome == 'undefined') {
         Swal.fire({
             imageUrl: "../../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -26,11 +23,39 @@ function validarSessao() {
             width: 400,
             color: "black",
             willClose: () => {
-                // window.location.href = "../../index.html";
+                window.location.href = "../../index.html";
             }
         });
+    } else {
+        await procurar()
     }
 }
+
+
+
+async function procurar() {
+    var dados;
+    try {
+        const response = await fetch(`/desafios/verDadosUsuario/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+
+        if (response && response.ok) {
+            const json = await response.json();
+            dados = JSON.stringify(json);
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados do desafio: ${error.message}`);
+    }
+
+    if (dados[dados.length - 3] == "1") {
+        document.getElementById("texto_venceu").style.display = "flex";
+        primeira_vez = false;
+    } else {
+        primeira_vez = true;
+    }
+}
+
+
+
 
 var lista_tags = [
     'a',
@@ -226,29 +251,57 @@ function perdeu() {
         title: "Infelizmente você perdeu",
         text: "Mas calma, você pode tentar novamente!",
         width: 400,
-        color: "black",
-        willClose: () => {
-            // finalizou();
-        }
+        color: "black"
     });
     document.getElementById("button_comecar").style.display = "flex";
 }
 
 function venceu() {
     pausarCronometro();
-    document.getElementById("tags").innerHTML = "<span>Você venceu o desafio de HTML!</span>";
-    tempo_total++;
+    document.getElementById("tags").innerHTML = "";
+    document.getElementById("tempo_faltando").innerHTML = "50";
     contador_tags = 0;
     lista_tags_usadas = [];
-    Swal.fire({
-        imageUrl: "../../assets/Icons/foto_check.png",
-        imageHeight: 130,
-        title: "Parabéns",
-        text: "Você finalizou o desafio de HTML!!",
-        width: 400,
-        color: "black",
-        willClose: () => {
-            // finalizou();
+    if (primeira_vez) {
+        Swal.fire({
+            imageUrl: "../../assets/Icons/foto_check.png",
+            imageHeight: 130,
+            title: "Parabéns",
+            text: "Você finalizou o desafio de HTML!!",
+            width: 400,
+            color: "black",
+            willClose: () => {
+                finalizou();
+            }
+        });
+    } else {
+        Swal.fire({
+            imageUrl: "../../assets/Icons/foto_check.png",
+            imageHeight: 130,
+            title: "Parabéns",
+            text: `Você terminou em ${50 - tempo_total} segundos!`,
+            width: 400,
+            color: "black"
+        });
+    }
+    document.getElementById("button_comecar").style.display = "flex";
+    tempo_total++;
+}
+
+
+async function finalizou() {
+    try {
+        const response = await fetch(`/desafios/atualizar/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+        console.log(response);
+
+        if (response.ok) {
+            const json = response.json();
+            console.log(JSON.stringify(json));
+        } else {
+            console.error(`Erro na atualização dos dados do desafio: ${response.status} - ${response.statusText}`);
         }
-    });
+    } catch (error) {
+        console.error(`Erro na atualização dos dados do desafio: ${error.message}`);
+    }
+    document.getElementById("texto_venceu").style.display = "flex";
 }

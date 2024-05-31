@@ -12,6 +12,10 @@ function login() {
     window.location.href = "../login.html";
 }
 
+function cadastro() {
+    window.location.href = "../cadastro.html";
+}
+
 function abrir_card_fortran() {
     titulo_linguagem.style = "margin-bottom: 0%;";
     titulo_linguagem.innerHTML = "FORTRAN";

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ranking.css">
+    <link rel="icon" href="../../assets/Icons/logo-sem-fundo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Ranking</title>
+</head>
+
+<body onload="validarSessao()">
+
+    <div>
+        
+        <div id="botoes">
+            <button onclick="voltar()" id="button_voltar">VOLTAR</button>
+            <h6>Ranking de Desafios</h6>
+            <button onclick="graficos_gerais()" id="button_graficos_gerais">GRÁFICOS GERAIS</button>
+        </div>
+        
+        
+        <div id="legendas">
+            <span id="explicacao">Aqui estão as pessoas que mais conseguiram completar desafios</span>
+        </div>
+
+        <div id="div_tabela">
+            <div id="tabela_ranking">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1º</td>
+                            <td id="nome1">---</td>
+                            <td id="pontuacao1"></td>
+                        </tr>
+                        <tr>
+                            <td>2º</td>
+                            <td id="nome2">---</td>
+                            <td id="pontuacao2"></td>
+                        </tr>
+                        <tr>
+                            <td>3º</td>
+                            <td id="nome3">---</td>
+                            <td id="pontuacao3"></td>
+                        </tr>
+                        <tr>
+                            <td>4º</td>
+                            <td id="nome4">---</td>
+                            <td id="pontuacao4"></td>
+                        </tr>
+                        <tr>
+                            <td>5º</td>
+                            <td id="nome5">---</td>
+                            <td id="pontuacao5"></td>
+                        </tr>
+                        <tr>
+                            <td>6º</td>
+                            <td id="nome6">---</td>
+                            <td id="pontuacao6"></td>
+                        </tr>
+                        <tr>
+                            <td>7º</td>
+                            <td id="nome7">---</td>
+                            <td id="pontuacao7"></td>
+                        </tr>
+                        <tr>
+                            <td>8º</td>
+                            <td id="nome8">---</td>
+                            <td id="pontuacao8"></td>
+                        </tr>
+                        <tr>
+                            <td>9º</td>
+                            <td id="nome9">---</td>
+                            <td id="pontuacao9"></td>
+                        </tr>
+                        <tr>
+                            <td>10º</td>
+                            <td id="nome10">---</td>
+                            <td id="pontuacao10"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="ranking.js"></script>

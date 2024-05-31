@@ -128,7 +128,7 @@ html, body {
 
 
 /* BOTOES */
-#botoes1 {
+/* #botoes1 {
     margin-bottom: -15vh;
     margin-top: -15vh;
 }
@@ -159,9 +159,129 @@ html, body {
     transition: 0.8s;
 }
 
+
 #botoes1 button:hover, #botoes2 button:hover {
     font-size: 3vw;
     height: 92%;
     color: var(--cor-taupe);
     background-color: var(--cor-space-blue);
+} */
+
+
+
+
+
+
+
+
+#botoes1 {
+    margin-bottom: -15vh;
+    margin-top: -15vh;
+}
+
+#botoes2 {
+    margin-top: -10vh;
+}
+
+#botoes1, #botoes2 {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#botoes1 div, #botoes2 div {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#botoes1 div button, #botoes2 div button{
+    border: 0.2vw solid white;
+    background-color: var(--cor-taupe);
+    border-radius: 2vw;
+    width: 70%;
+    height: 90%;
+    transition: 0.5s;
+    font-size: 2.5vw;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#buttonCsharp button:hover{
+    width: 90%;
+    height: 100%;
+    border: 0.3vw solid white;
+    background-color: var(--cor-caribbean);
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-csharp.png);
+    background-size: 5rem;
+    background-repeat: no-repeat;
+    background-position: 2vw;
+    color: white;
+    padding-left: 6vw;
+}
+
+#buttonJava button:hover{
+    width: 90%;
+    height: 100%;
+    background-color: var(--cor-caribbean);
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-java.png);
+    background-size: 3.4rem;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: 3.5vw;
+    padding-left: 6vw;
+}
+
+#buttonJavascript button:hover{
+    background-color: var(--cor-caribbean);
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-javascript.png);
+    background-size: 5rem;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: 1.5vw;
+    padding-left: 6vw;
+}
+
+#buttonHtml button:hover{
+    width: 90%;
+    height: 100%;
+    border: 0.3vw solid white;
+    background-color: var(--cor-caribbean);
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-html.png);
+    background-size: 5.2rem;
+    background-repeat: no-repeat;
+    background-position: 2vw;
+    color: white;
+    padding-left: 6vw;
+}
+
+#buttonCss button:hover{
+    width: 90%;
+    height: 100%;
+    background-color: var(--cor-caribbean);
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-css.png);
+    background-size: 4.1rem;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: 3.5vw;
+    padding-left: 6vw;
+}
+
+#buttonSql button:hover{
+    background-color: var(--cor-caribbean);
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/Icons/Logos-Linguagens/logo-sql-2.png);
+    background-size: 9rem;
+    background-repeat: no-repeat;
+    color: white;
+    background-position: 1.5vw;
+    padding-left: 6vw;
 }

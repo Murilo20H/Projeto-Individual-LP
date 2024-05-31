@@ -400,60 +400,60 @@ html, body {
     font-size: 1.8vw;
 }
 
-#gosta1, #dificil1 {
+#gosta1, #dificil10 {
     border-right: 0.01vw solid white;
     background-color: #FF0000;
 }
 
-#gosta2, #dificil2 {
+#gosta2, #dificil9 {
     background-color: #FF4500;
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
 }
 
-#gosta3, #dificil3 {
+#gosta3, #dificil8 {
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
     background-color: #FFA500;
 }
 
-#gosta4, #dificil4 {
+#gosta4, #dificil7 {
     background-color: #FFD700;
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
 }
 
-#gosta5, #dificil5 {
+#gosta5, #dificil6 {
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
     background-color: #FFFF00;
 }
 
-#gosta6, #dificil6 {
+#gosta6, #dificil5 {
     background-color: #ADFF2F;
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
 }
 
-#gosta7, #dificil7 {
+#gosta7, #dificil4 {
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
     background-color: #7FFF00;
 }
 
-#gosta8, #dificil8 {
+#gosta8, #dificil3 {
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
     background-color: rgb(39, 163, 39);
 }
 
-#gosta9, #dificil9 {
+#gosta9, #dificil2 {
     border-left: 0.01vw solid white;
     border-right: 0.01vw solid white;
     background-color: #008600;
 }
 
-#gosta10, #dificil10 {
+#gosta10, #dificil1 {
     background-color: #006400;
     border-left: 0.01vw solid white;
 }

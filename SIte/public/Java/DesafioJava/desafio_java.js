@@ -2,18 +2,18 @@ function voltar() {
     window.location.href = "../java.html";
 }
 
-const linguagem_atual = 'java';
+function ranking() {
+    window.location.href = "../../Ranking/ranking.html"
+}
+
+const linguagem_atual = 'desafioJava';
 var idUsuario = sessionStorage.ID_USUARIO;
 
-function validarSessao() {
+async function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var nome_usuario = document.getElementById("nome_usuario");
-
-    if (email != null && email != 'undefined' && nome != null && nome != 'undefined') {
-        nome_usuario.innerHTML = nome;
-    } else {
+    if (email == null || email == 'undefined' || nome == null || nome == 'undefined') {
         Swal.fire({
             imageUrl: "../../assets/Icons/icon_error.png",
             imageHeight: 130,
@@ -22,9 +22,34 @@ function validarSessao() {
             width: 400,
             color: "black",
             willClose: () => {
-                // window.location.href = "../../index.html";
+                window.location.href = "../../index.html";
             }
         });
+    } else {
+        await procurar()
+    }
+}
+
+
+
+async function procurar() {
+    var dados;
+    try {
+        const response = await fetch(`/desafios/verDadosUsuario/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+
+        if (response && response.ok) {
+            const json = await response.json();
+            dados = JSON.stringify(json);
+        }
+    } catch (error) {
+        console.error(`Erro na obtenção dos dados do desafio: ${error.message}`);
+    }
+
+    if (dados[dados.length - 3] == "1") {
+        document.getElementById("input_codigo").style.display = "none";
+        document.getElementById("botao_verificar").style.display = "none";
+        document.getElementById("pergunta").style = "color: green; font-size: 3.5vw";
+        document.getElementById("pergunta").innerHTML = "Parabéns, você venceu o desafio de Java!";
     }
 }
 
@@ -346,7 +371,7 @@ function ganhou() {
         width: 400,
         color: "black",
         willClose: () => {
-            // finalizou();
+            finalizou();
         }
     });
 }
@@ -358,18 +383,30 @@ function errou(erro) {
         title: "Infelizmente você perdeu",
         text: "Mas calma, você pode tentar novamente!",
         width: 400,
-        color: "black",
-        willClose: () => {
-            // finalizou();
-        }
+        color: "black"
     });
 
     ajuda.style.display = "flex";
     ajuda_erro.innerHTML = `Você errou <b style="color: red; font-weight: 900">${erro}</b>, tente novamente`
 }
 
-// public class Main {
-//     public static void main(String[] args) {
-//       System.out.println("Hello, World!");
-//   }
-// }
+
+async function finalizou() {
+    try {
+        const response = await fetch(`/desafios/atualizar/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+        console.log(response);
+
+        if (response.ok) {
+            const json = response.json();
+            console.log(JSON.stringify(json));
+        } else {
+            console.error(`Erro na atualização dos dados do desafio: ${response.status} - ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error(`Erro na atualização dos dados do desafio: ${error.message}`);
+    }
+    document.getElementById("input_codigo").style.display = "none";
+    document.getElementById("botao_verificar").style.display = "none";
+    document.getElementById("pergunta").style = "color: green; font-size: 3.5vw";
+    document.getElementById("pergunta").innerHTML = "Parabéns, você venceu o desafio de Java!";
+}

@@ -42,14 +42,6 @@ SELECT * FROM desafios;
 
 
 
-drop table Pessoa;
-drop table Relacionamento;
-drop table Crime;
-drop table DeclaracaoTestemunha;
-drop table Evidencia;
-drop table Suspeito;
-drop table Alibi;
-drop table Ligacao;
 
 -- CREATE DESAFIO DE SQL
 CREATE TABLE Pessoa (

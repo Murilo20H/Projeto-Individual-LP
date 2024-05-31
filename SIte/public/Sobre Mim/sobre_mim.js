@@ -6,6 +6,10 @@ function login() {
     window.location.href = "../login.html";
 }
 
+function cadastro() {
+    window.location.href = "../cadastro.html";
+}
+
 function email() {
     window.open("mailto:murilo.correa@sptech.school?subject=Assunto do Email&body=Digite a sua mensagem aqui:", "_blank");
 }

@@ -2,14 +2,16 @@ function voltar() {
     window.location.href = "../javascript.html";
 }
 
+function ranking() {
+    window.location.href = "../../Ranking/ranking.html"
+}
+
 const linguagem_atual = 'desafioJavascript';
 var idUsuario = sessionStorage.ID_USUARIO;
 
 async function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-
-    var nome_usuario = document.getElementById("nome_usuario");
 
     if (email == null || email == 'undefined' || nome == null || nome == 'undefined') {
         Swal.fire({
@@ -20,11 +22,11 @@ async function validarSessao() {
             width: 400,
             color: "black",
             willClose: () => {
-                // window.location.href = "../../index.html";
+                window.location.href = "../../index.html";
             }
         });
     } else {
-        finalizou()
+        await procurar()
     }
 }
 
@@ -160,7 +162,7 @@ function acertou(resultado) {
         width: 400,
         color: "black",
         willClose: () => {
-            // window.location.href = "../../index.html";
+            window.location.href = "../../index.html";
         }
     });
     fase++;
@@ -196,4 +198,7 @@ async function finalizou() {
     } catch (error) {
         console.error(`Erro na atualização dos dados do desafio: ${error.message}`);
     }
+    document.getElementById("input_codigo").style.display = "none";
+    document.getElementById("pergunta").style = "color: green; font-size: 3.5vw";
+    document.getElementById("pergunta").innerHTML = "Parabéns, você venceu o desafio de JavaScript!";
 }

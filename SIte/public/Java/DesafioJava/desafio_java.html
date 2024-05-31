@@ -18,7 +18,7 @@
         <div id="botoes">
             <button onclick="voltar()" id="button_voltar">VOLTAR</button>
             <span>Desafio de Java</span>
-            <button onclick="ranking()" id="button_ranking">RANKING DOS DESAFIOS</button>
+            <button onclick="ranking()" id="button_ranking">RANKING</button>
         </div>
 
 
@@ -28,9 +28,9 @@
             <div id="telas">
 
                 <div id="tela_usuario">
-                    <span>Seu desafio é escrever "Ola Mundo" em Java, o nome da classe deve ser "Main"<br><br>Digite o seu código abaixo:</span>
+                    <span id="pergunta">Seu desafio é escrever "Ola Mundo" em Java, o nome da classe deve ser "Main"<br><br>Digite o seu código abaixo:</span>
                     <textarea id="input_codigo" type="text"></textarea>
-                    <button onclick="verificar()">VERIFICAR</button>
+                    <button id="botao_verificar" onclick="verificar()">VERIFICAR</button>
                 </div>
     
                 <div id="ajuda">

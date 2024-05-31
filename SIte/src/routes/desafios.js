@@ -19,4 +19,8 @@ router.get("/cadastrar/:idUsuario", function (req, res) {
     desafiosController.cadastrar(req, res);
 })
 
+router.post("/sql", function (req, res) {
+    desafiosController.desafioSql(req, res);
+})
+
 module.exports = router;

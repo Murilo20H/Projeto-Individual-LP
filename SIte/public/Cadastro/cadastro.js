@@ -77,7 +77,6 @@ function validar() {
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var confirmarSenhaVar = input_confirmar_senha.value;
-    var mensagem = "";
     var validado = true;
 
     if (

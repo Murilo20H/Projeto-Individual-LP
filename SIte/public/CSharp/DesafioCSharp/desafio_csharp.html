@@ -18,7 +18,7 @@
         <div id="botoes">
             <button onclick="voltar()" id="button_voltar">VOLTAR</button>
             <span>Desafio de CSharp</span>
-            <button onclick="ranking()" id="button_ranking">RANKING DOS DESAFIOS</button>
+            <button onclick="ranking()" id="button_ranking">RANKING</button>
         </div>
 
 
@@ -28,14 +28,14 @@
             <div id="telas">
 
                 <div id="tela_usuario">
-                    <span id="questao">Seu desafio contém 5 questões de múltiplas escolhas, de códigos feitos em CSharp:<br><br>Questão 1: qual destes comandos exibe "Hello World" na tela</span>
+                    <span id="questao">Seu desafio contém 3 questões de múltiplas escolhas, de códigos feitos em CSharp:<br><br>Questão 1: qual destes comandos exibe "Hello World" na tela</span>
                     <div id="respostas">
                         <div onclick="resposta1()" id="resposta1"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
                         <div onclick="resposta2()" id="resposta2"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
                         <div onclick="resposta3()" id="resposta3"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void Main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
                         <div onclick="resposta4()" id="resposta4"><span>class Program<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;static void main(string[] args)<br>&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Hello World");<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</span></div>
                     </div>
-                    <button onclick="responder()">RESPONDER</button>
+                    <button id="botao_responder" onclick="responder()">RESPONDER</button>
                 </div>
     
                 <div id="ajuda">

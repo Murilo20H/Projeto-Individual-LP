@@ -113,9 +113,40 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+// DESAFIO SQL
+function desafioSql(req, res) {
+    var comando = req.body.comando;
+
+    console.log(`Rodando o comando do desafio de SQL`);
+
+    if (comando == undefined) {
+        res.status(400).send("Seu comando está undefined!");
+    } else {
+        
+        
+        desafiosModel.desafioSql(comando).then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao rodar o comando do desafio de SQL! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 module.exports = {
     verRanking,
     atualizar,
     verDadosUsuario,
-    cadastrar
+    cadastrar,
+    desafioSql
 }

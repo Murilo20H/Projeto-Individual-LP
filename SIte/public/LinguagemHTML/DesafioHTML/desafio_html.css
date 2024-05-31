@@ -94,6 +94,8 @@ html, body {
     justify-content: center;
     gap: 10vw;
     align-items: end;
+    margin-bottom: 2vh;
+    text-align: center;
 }
 
 #button_voltar, #button_ranking {
@@ -107,26 +109,12 @@ html, body {
     font-weight: 900;
     border-radius: 1vw;
     border: 0.3vw solid white;
-}
-
-#button_voltar {
-    width: 9vw; 
-}
-
-#button_ranking {
-    width: 24vw; 
-}
-
-#button_voltar:hover {
-    font-size: 1.6vw;
+    transition: 0.5s;
     width: 10vw; 
-    font-weight: 700;
-    background-color: var(--cor-space-blue);
-    color: var(--cor-taupe);
 }
 
-#button_graficos_gerais:hover {
-    width: 19vw; 
+#button_voltar:hover, #button_ranking:hover {
+    width: 11vw; 
     font-size: 1.6vw;
     font-weight: 700;
     background-color: var(--cor-space-blue);
@@ -152,6 +140,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #telas {
@@ -286,4 +275,19 @@ html, body {
     color: black;
     font-size: 2.3vw;
     font-weight: 700;
+}
+
+
+
+
+
+#texto_venceu {
+    display: none;
+    margin-top: -3vh;
+}
+
+#texto_venceu span {
+    font-size: 2vw;
+    color: green;
+    text-decoration: underline;
 }

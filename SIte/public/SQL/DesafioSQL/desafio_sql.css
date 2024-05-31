@@ -94,6 +94,8 @@ html, body {
     justify-content: center;
     gap: 10vw;
     align-items: end;
+    margin-bottom: 2vh;
+    text-align: center;
 }
 
 #button_voltar, #button_ranking {
@@ -107,28 +109,12 @@ html, body {
     font-weight: 900;
     border-radius: 1vw;
     border: 0.3vw solid white;
-    /* margin-left: 9vw;
-    margin-right: 9vw; */
-}
-
-#button_voltar {
-    width: 9vw; 
-}
-
-#button_ranking {
-    width: 24vw; 
-}
-
-#button_voltar:hover {
-    font-size: 1.6vw;
+    transition: 0.5s;
     width: 10vw; 
-    font-weight: 700;
-    background-color: var(--cor-space-blue);
-    color: var(--cor-taupe);
 }
 
-#button_graficos_gerais:hover {
-    width: 19vw; 
+#button_voltar:hover, #button_ranking:hover {
+    width: 11vw; 
     font-size: 1.6vw;
     font-weight: 700;
     background-color: var(--cor-space-blue);
@@ -154,6 +140,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #telas {
@@ -188,21 +175,99 @@ html, body {
 #tela_usuario span {
     color: black;
     font-weight: 700;
-    font-size: 2.2vw;
+    font-size: 1.8vw;
 }
 
 #tela_usuario textarea {
     color: black;
     width: 80%;
-    height: 42%;
+    height: 20%;
     font-weight: 700;
     border-radius: 2vw;
     padding-left: 0.3vw;
     padding-right: 0.3vw;
     border: 0.2vw solid black;
+    text-align: center;
     font-size: 1.8vw;
     resize: none;
 }
+
+#tela_usuario button {
+    cursor: pointer;
+    font-size: 1.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    font-weight: 700;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    width: 13vw; 
+    background-color: var(--cor-space-blue);
+    color: var(--cor-taupe);
+    transition: 0.5s;
+}
+
+#tela_usuario button:hover {
+    font-size: 2.2vw;
+    width: 14vw;
+    background-color: var(--cor-caribbean);
+    color: white;
+    font-weight: 700;
+}
+
+
+
+
+
+#tela_resposta {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    margin-top: -2vh;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vw;
+    justify-content: center;
+}
+
+#tela_resposta input {
+    color: black;
+    width: 50%;
+    height: 80%;
+    font-weight: 700;
+    border-radius: 1vw;
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+    border: 0.2vw solid black;
+    text-align: center;
+    font-size: 1.8vw;
+    resize: none;
+}
+
+#tela_resposta button {
+    cursor: pointer;
+    font-size: 1.6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    font-weight: 700;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    width: 12vw; 
+    background-color: var(--cor-caribbean);
+    color: white;
+    transition: 0.5s;
+}
+
+#tela_resposta button:hover {
+    font-size: 1.9vw;
+    overflow-y: hidden;
+    width: 12.5vw;
+    font-weight: 900;
+}
+
 
 
 
@@ -210,22 +275,81 @@ html, body {
 
 #ajuda {
     width: 100%;
-    height: 10%;
+    height: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2vw;
-    margin-bottom: 2vh;
+    margin-top: 2vh;
 }
 
 #ajuda span {
-    color: black;
+    color: white;
     font-size: 1.5vw;
     font-weight: 700;
 }
 
-#saida {
+
+
+
+
+
+
+
+#tela_resultados {
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    flex-direction: column;
+}
+
+#tela_resultados button {
+    cursor: pointer;
+    font-size: 1.7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6%;
+    font-weight: 700;
+    border-radius: 1vw;
+    border: 0.3vw solid white;
+    width: 12vw; 
+    background-color: var(--cor-space-blue);
+    color: var(--cor-taupe);
+    transition: 0.5s;
+}
+
+#tela_resultados button:hover {
+    font-size: 1.9vw;
+    overflow-y: hidden;
+    width: 13vw;
+    background-color: var(--cor-caribbean);
+    color: white;
+    font-weight: 700;
+}
+
+#lista_resultados {
     color: black;
-    font-size: 1.5vw;
-    font-weight: 900;
+    font-size: 1.2vw;
+}
+
+#lista_resultados h1 {
+    color: black;
+    font-size: 2vw;
+}
+
+
+
+
+
+#div_resultados {
+    width: 70vw;
+    height: 85vh;
+    background-color: white;
+    text-align: center;
+    border: 0.3vw solid black;
+    padding: 0.5vw;
 }
