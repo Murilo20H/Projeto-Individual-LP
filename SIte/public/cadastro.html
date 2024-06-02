@@ -63,10 +63,18 @@
                     
                     <input placeholder="Email" autocomplete="off" type="email" id="input_email">
                     
-                    <input placeholder="Senha" autocomplete="off" type="password" id="input_senha">
-                    
-                    <input placeholder="Confirme a senha" autocomplete="off" type="password" id="input_confirmar_senha">
-                    
+                    <input onblur="aparecer_olho1()" onfocus="tirar_olho1()" placeholder="Senha" autocomplete="off" type="password" id="input_senha">
+                    <div id="div_senha1" onclick="alterar_olho1()">
+                        <img id="img_olho_aberto1" src="assets/Icons/olho_aberto.png">
+                        <img id="img_olho_fechado1" src="assets/Icons/olho_fechado.png">
+                    </div>
+
+                    <input onblur="aparecer_olho2()" onfocus="tirar_olho2()" placeholder="Confirme a senha" autocomplete="off" type="password" id="input_confirmar_senha">
+                    <div id="div_senha2" onclick="alterar_olho2()">
+                        <img id="img_olho_aberto2" src="assets/Icons/olho_aberto.png">
+                        <img id="img_olho_fechado2" src="assets/Icons/olho_fechado.png">
+                    </div>
+
                     <div id="cadastrar">
                         <button onclick="validar()">CRIAR CONTA</button>
                     </div>

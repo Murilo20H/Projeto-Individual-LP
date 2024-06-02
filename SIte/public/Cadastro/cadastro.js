@@ -8,7 +8,51 @@ function home() {
 
 window.onload = function () {
     parte_beneficios.style.left = 0;
-};
+}
+
+function tirar_olho1() {
+    img_olho_aberto1.style = "width: 0vw; height: 0vw;";
+    img_olho_fechado1.style = "width: 0vw; height: 0vw;";
+}
+
+function tirar_olho2() {
+    img_olho_aberto2.style = "width: 0vw; height: 0vw;";
+    img_olho_fechado2.style = "width: 0vw; height: 0vw;";
+}
+
+function aparecer_olho1() {
+    img_olho_aberto1.style = "width: 2.2vw; height: 2.2vw;";
+    img_olho_fechado1.style = "width: 2.2vw; height: 2.2vw;";
+}
+
+function aparecer_olho2() {
+    img_olho_aberto2.style = "width: 2.2vw; height: 2.2vw;";
+    img_olho_fechado2.style = "width: 2.2vw; height: 2.2vw;";
+}
+
+function alterar_olho1() {
+    if (img_olho_aberto1.style.display == "none") {
+        img_olho_fechado1.style.display = "none";
+        img_olho_aberto1.style.display = "block";
+        input_senha.type = "password";
+    } else {
+        img_olho_aberto1.style.display = "none";
+        img_olho_fechado1.style.display = "block";
+        input_senha.type = "text";
+    }
+}
+
+function alterar_olho2() {
+    if (img_olho_aberto2.style.display == "none") {
+        img_olho_fechado2.style.display = "none";
+        img_olho_aberto2.style.display = "block";
+        input_confirmar_senha.type = "password";
+    } else {
+        img_olho_aberto2.style.display = "none";
+        img_olho_fechado2.style.display = "block";
+        input_confirmar_senha.type = "text";
+    }
+}
 
 function cadastrar() {
     var nomeVar = input_nome.value;

@@ -194,6 +194,30 @@ html, body {
 
 
 
+/* OLHO DA SENHA */
+#div_senha {
+    position: fixed;
+    margin-top: 13.8vh;
+    margin-left: 18.5vw;
+    transition: 0.4s;
+}
+
+#img_olho_aberto {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 2.2vw;
+    height: 2.2vw;
+}
+
+#img_olho_fechado {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 2.1vw;
+    height: 2.1vw;
+    display: none;
+}
+
+
 
 #entrar {
     margin-top: 7%;

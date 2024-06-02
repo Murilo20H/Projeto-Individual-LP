@@ -8,7 +8,29 @@ function home() {
 
 window.onload = function () {
     parte_imagem.style.left = 0;
-};
+}
+
+function tirar_olho() {
+    img_olho_aberto.style = "width: 0vw; height: 0vw;";
+    img_olho_fechado.style = "width: 0vw; height: 0vw;";
+}
+
+function aparecer_olho() {
+    img_olho_aberto.style = "width: 2.2vw; height: 2.2vw;";
+    img_olho_fechado.style = "width: 2.2vw; height: 2.2vw;";
+}
+
+function alterar_olho() {
+    if (img_olho_aberto.style.display == "none") {
+        img_olho_fechado.style.display = "none";
+        img_olho_aberto.style.display = "block";
+        input_senha.type = "password";
+    } else {
+        img_olho_aberto.style.display = "none";
+        img_olho_fechado.style.display = "block";
+        input_senha.type = "text";
+    }
+}
 
 function entrar() {
     var emailVar = input_email.value;

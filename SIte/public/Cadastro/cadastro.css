@@ -194,6 +194,38 @@ html, body {
 
 
 
+/* OLHO DA SENHA */
+#div_senha1 {
+    position: fixed;
+    margin-top: 21.3vh;
+    margin-left: 18.5vw;
+    transition: 0.4s;
+}
+
+#div_senha2 {
+    position: fixed;
+    margin-top: 41vh;
+    margin-left: 18.5vw;
+    transition: 0.4s;
+}
+
+#img_olho_aberto1, #img_olho_aberto2 {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 2.2vw;
+    height: 2.2vw;
+}
+
+#img_olho_fechado1, #img_olho_fechado2 {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 2.1vw;
+    height: 2.1vw;
+    display: none;
+}
+
+
+
 
 #cadastrar {
     margin-top: 4%;

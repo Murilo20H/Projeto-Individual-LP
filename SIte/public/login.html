@@ -33,7 +33,11 @@
 
                 <input placeholder="Email" autocomplete="off" type="email" id="input_email">
 
-                <input placeholder="Senha" autocomplete="off" type="password" id="input_senha">
+                <input onblur="aparecer_olho()" onfocus="tirar_olho()" placeholder="Senha" autocomplete="off" type="password" id="input_senha">
+                <div id="div_senha" onclick="alterar_olho()">
+                    <img id="img_olho_aberto" src="assets/Icons/olho_aberto.png">
+                    <img id="img_olho_fechado" src="assets/Icons/olho_fechado.png">
+                </div>
 
                 <div id="entrar">
                     <button onclick="entrar()">ENTRAR</button>
