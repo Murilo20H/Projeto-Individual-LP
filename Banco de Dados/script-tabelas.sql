@@ -295,7 +295,7 @@ INSERT INTO Alibi VALUES
 	(3, 3, 'fiquei em casa jogando videogame online com amigos', 'sim'),
 	(4, 4, 'trabalhei até tarde no escritório naquela noite', 'não'),
 	(5, 5, 'passei a noite na casa dos meus pais, eles podem confirmar', 'sim');
-SELECT * from Crime;
+    
 INSERT INTO Ligacao VALUES
 	(1, 12, 1, '2024-01-05', '12 min'),
 	(2, 5, 1, '2024-01-03', '47 min'),
