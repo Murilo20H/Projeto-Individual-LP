@@ -287,7 +287,7 @@ async function finalizou() {
     var esperado = document.getElementById("esperado");
     esperado.style.display = "none";
     try {
-        const response = await fetch(`/desafios/atualizar/${linguagem_atual}/${idUsuario}`, { cache: 'no-store' });
+        const response = await fetch("/desafios/atualizar", { method: "PUT",  headers: {  "Content-Type": "application/json"  }, body: JSON.stringify({ linguagem: linguagem_atual,  idUsuario: idUsuario }) });
         console.log(response);
 
         if (response.ok) {

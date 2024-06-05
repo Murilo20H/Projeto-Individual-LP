@@ -42,7 +42,7 @@ async function validarSessao() {
     }
 
     try {
-        const response = await fetch(`/dadosLinguagem/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/verDadosUsuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
 
         if (response.ok) {
             var resposta = await response.json();
@@ -70,7 +70,7 @@ async function verSeJaVotou() {
     var dados;
 
     try {
-        const response = await fetch(`/dadosLinguagem/usuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
+        const response = await fetch(`/dadosLinguagem/verDadosUsuario/${id}/${linguagem_atual}`, { cache: 'no-store' });
 
         if (response.ok) {
             var resposta = await response.json();
@@ -236,13 +236,7 @@ async function estaCerto() {
 async function votar() {
 
     try {
-        const response = await fetch(`/dadosLinguagem/criarNotas/${id}/${nota_aprecia}/${nota_dificuldade}/${linguagem_atual}`, {
-            cache: 'no-store',
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        });
+        const response = await fetch("/dadosLinguagem/criarNotas", { method: "POST",  headers: {  "Content-Type": "application/json"  }, body: JSON.stringify({ idUsuario: id,  notaAprecia: nota_aprecia, notaDificuldade: nota_dificuldade, linguagem: linguagem_atual }) });
 
         if (response.ok) {
             const data = await response.json();
@@ -267,10 +261,8 @@ async function apagar() {
             }
         });
 
-        if (response.ok) {
-            console.log(`Dados apagados: ${JSON.stringify(response)}`);
-        } else if (response.status === 404) {
-            window.alert("Deu 404!");
+        if (response.ok || response.status === 404) {
+            window.log(`Dados apagados!`);
         } else {
             throw new Error(`Houve um erro ao tentar apagar as notas antigas! Código da resposta: ${response.status}`);
         }

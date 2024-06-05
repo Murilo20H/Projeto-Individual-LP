@@ -98,7 +98,6 @@ function entrar() {
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-
                     let timerInterval;
                     tela_cobrir.style = "width: 100vw; height: 100vh;";
 

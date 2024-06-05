@@ -127,19 +127,19 @@ CREATE TABLE Ligacao (
 
 -- INSERT DESAFIO SQL
 INSERT INTO Pessoa VALUES 
-	(1, 'Enzo Ferreira', 28, 'Mecânico', 'Haddock Lobo', '194'),
-	(2, 'Vinicius Oliveira', 38, 'Professor', 'Rua Augusta', 'Ap 307'),
+	(1, 'Enzo Ferreira', 28, 'Administrador', 'Haddock Lobo', '194'),
+	(2, 'Vinicius Oliveira', 38, 'Professor', 'Augusta', 'Ap 307'),
 	(3, 'Cristina Ferreira', 32, 'Cientista', 'Haddock Lobo', '194'),
 	(4, 'Rafael Rodrigues', 43, 'Jornalista', 'Alameda Franca', '739'),
-	(5, 'Jefferson Santos', 62, 'Enfermeiro', 'Rua Bela Cintra', '29'),
+	(5, 'Jefferson Santos', 62, 'Enfermeiro', 'Bela Cintra', '29'),
 	(6, 'Carla Pereira', 38, 'Programadora', 'Haddock Lobo', '185'),
 	(7, 'Paula Souza', 28, 'Fotógrafa', 'Avenida Rio Branco', 'Ap 903'),
 	(8, 'Enzo Fernades', 53, 'Empresário', 'Avenida das Américas', '651'),
 	(9, 'Amanda Martinelli', 28, 'Artista', 'Haddock Lobo', '192'),
     (10, 'William Pinheiro', 28, 'Engenheiro', 'Haddock Lobo', '142'),
 	(11, 'Gabriela Marques', 28, 'Advogada', 'Haddock Lobo', '207'),
-	(12, 'Joel Gomes', 28, 'Desconhecido', 'Rua Peixoto Gomide', '-Ap307'),
-	(13, 'Vinicius Cardoso', 28, 'Bombeiro', 'Rua Augusta', '92');
+	(12, 'Joel Gomes', 28, 'Desconhecido', 'Peixoto Gomide', 'Ap 307'),
+	(13, 'Vinicius Cardoso', 28, 'Bombeiro', 'Augusta', '92');
 
 INSERT INTO Relacionamento VALUES
 	(1, 1, 3, 'irmãos'),
@@ -241,8 +241,8 @@ INSERT INTO Evidencia VALUES
     (34, 23, 'testemunho', 'Relato de um passageiro que viu o roubo'),
     (35, 23, 'video', 'Imagens de câmeras de segurança da estação de metrô'),
     (36, 24, 'arma', 'Taco de beisebol utilizado no crime sem impressões digitais'),
-    (37, 24, 'sangue', 'Mancha de sague no chão da calçada'),
-    (38, 24, 'digital', 'Impressões digitais na porta da casa da vítima'),
+    (37, 24, 'sangue', 'Mancha de sangue no chão da calçada'),
+    (38, 24, 'marcas', 'Marcas de pneu do carro do criminoso'),
     (39, 25, 'telefone', 'Histórico de chamadas revelando contato com sequestradores'),
     (40, 26, 'droga', 'Resíduos de droga encontrados na casa'),
     (41, 27, 'câmera', 'Imagens da câmera de segurança da joalheria'),
@@ -285,7 +285,7 @@ INSERT INTO Evidencia VALUES
 INSERT INTO Suspeito VALUES 
 	(1, 6, 24, 'brigaram recentemente no trabalho'),
 	(2, 10, 24, 'emprestou dinheiro para a vítima que ainda não devolveu'),
-	(3, 11, 24, 'sofreu uma traição pela vítima um três meses antes do crime'),
+	(3, 11, 24, 'sofreu uma traição pela vítima três meses antes do crime'),
 	(4, 12, 24, 'já foi preso por tráfico de drogas'),
 	(5, 13, 24, 'foi visto discutindo com a vítima uma semana antes');
 

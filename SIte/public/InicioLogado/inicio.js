@@ -83,7 +83,7 @@ async function verificarDesafios() {
 }
 
 function cadastrarDesafios() {
-    fetch(`/desafios/cadastrar/${id}`, { cache: 'no-store' })
+    fetch("/desafios/cadastrar", { method: "POST",  headers: {  "Content-Type": "application/json"  }, body: JSON.stringify({ idUsuario: id }) })
         .then(function (resposta) {
             console.log("resposta: ", resposta);
 

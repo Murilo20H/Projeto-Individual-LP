@@ -20,8 +20,8 @@ function verRanking(req, res) {
 
 
 function atualizar(req, res) {
-    var linguagem = req.params.linguagem;
-    var id = req.params.idUsuario;
+    var linguagem = req.body.linguagem;
+    var id = req.body.idUsuario;
     
     if (!linguagem) {
         console.error("Parâmetro 'linguagem' não foi fornecido.");
@@ -87,7 +87,7 @@ function verDadosUsuario(req, res) {
 
 
 function cadastrar(req, res) {
-    var id = req.params.idUsuario;
+    var id = req.body.idUsuario;
 
     console.log(`Cadastrando tabela de desafios do usuario`);
 

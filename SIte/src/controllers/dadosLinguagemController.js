@@ -69,10 +69,10 @@ function buscarMediaDados(req, res) {
 
 // INSERT E DELETE
 function darNotas(req, res) {
-    var id = req.params.idUsuario;
-    var nota_aprecia = req.params.notaAprecia;
-    var nota_dificuldade = req.params.notaDificuldade;
-    var linguagem = req.params.linguagem;
+    var id = req.body.idUsuario;
+    var nota_aprecia = req.body.notaAprecia;
+    var nota_dificuldade = req.body.notaDificuldade;
+    var linguagem = req.body.linguagem;
 
     if (id == undefined) {
         res.status(400).send("Seu id está undefined!");
@@ -103,7 +103,7 @@ function darNotas(req, res) {
 }
 
 function apagarNotas(req, res) {
-    var id = req.params.idUsuario;
+    var id = req.body.idUsuario;
 
     dadosLinguagemModel.apagarNotas(id)
         .then(
