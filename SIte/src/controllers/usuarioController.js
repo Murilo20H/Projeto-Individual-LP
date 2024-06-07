@@ -1,5 +1,66 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function pegarDados(req, res) {
+    var id = req.params.idUsuario;
+
+    if (id == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else {
+        usuarioModel.pegarDados(id)
+            .then(
+                function (resultadoAutenticar) {
+                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+                    var usuario = resultadoAutenticar[0];
+
+                    res.json({
+                        id: usuario.id,
+                        nome: usuario.nome,
+                        sobrenome: usuario.sobrenome,
+                        email: usuario.email,
+                        senha: usuario.senha
+                    });
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao pegar os dados do usuario! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+function atualizarCampo(req, res) {
+    var id = req.params.idUsuario;
+    var campo = req.body.campo;
+    var novo = req.body.novo;
+
+    if (id == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (campo == undefined) {
+        res.status(400).send("Seu campo está undefined!");
+    } else if (novo == undefined) {
+        res.status(400).send("Seu novo está undefined!");
+    } else {
+        usuarioModel.atualizarCampo(id, campo, novo).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao atualizar os dados! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+
+}
+
 function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -81,6 +142,8 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
+    atualizarCampo,
+    pegarDados,
     autenticar,
     cadastrar
 }

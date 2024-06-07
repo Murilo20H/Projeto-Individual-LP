@@ -102,8 +102,8 @@ function entrar() {
                     tela_cobrir.style = "width: 100vw; height: 100vh;";
 
                     Swal.fire({
-                        title: "Cadastro realizado com sucesso!",
-                        html: "Redirecionado para a página de login",
+                        title: "Login realizado com sucesso!",
+                        html: "Redirecionado para a página de linguagens",
                         imageUrl: "assets/Icons/foto_check.png",
                         imageHeight: 130,
                         timer: 1800,

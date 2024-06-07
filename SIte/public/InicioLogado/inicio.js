@@ -1,4 +1,5 @@
 function sair() {
+    sessionStorage.clear()
     window.location.href = "../index.html";
 }
 
@@ -28,6 +29,20 @@ function sql() {
 
 function sobre_mim() {
     window.location.href = "../Sobre Mim/sobre_mim.html";
+}
+
+function configuracoes() {
+    window.location.href = "Configuracoes/configuracoes.html";
+}
+
+function abrir_configuracoes() {
+    div_configuracoes.style = "background-color: white;";
+    span_configuracoes.style = "width: 17.5vw";
+}
+
+function fechar_configuracoes() {
+    div_configuracoes.style = "background-color: transparent;";
+    span_configuracoes.style = "width: 0vw";
 }
 
 var id = sessionStorage.ID_USUARIO;

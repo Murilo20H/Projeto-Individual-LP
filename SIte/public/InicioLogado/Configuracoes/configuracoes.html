@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="icon" href="../assets/Icons/logo-sem-fundo.png">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Configurações</title>
+</head>
+
+<body onload="validarSessao()">
+
+
+
+    <div>
+        <div id="tela_toda">
+            <div id="buttonVoltar">
+                <button onclick="voltar()">VOLTAR</button>
+            </div>
+            <div id="div_alteracoes">
+                <div id="dados_antigos">
+                    <div>
+                        <span class="anterior">Nome antigo: </span>
+                        <span class="antigo" id="nome_antigo">Murilo</span>
+                        <button onclick="abrir_nome()">ALTERAR NOME</button>
+                    </div>
+
+                    <div>
+                        <span class="anterior">Sobrenome antigo: </span>
+                        <span class="antigo" id="sobrenome_antigo">Henrique</span>
+                        <button onclick="abrir_sobrenome()">ALTERAR SOBRENOME</button>
+                    </div>
+
+                    <div>
+                        <span class="anterior">Email antigo: </span>
+                        <span class="antigo" id="email_antigo">murilo.correa@sptech.school</span>
+                        <button onclick="abrir_email()">ALTERAR EMAIL</button>
+                    </div>
+
+                    <div id="senha">
+                        <button onclick="abrir_senha()">ALTERAR SENHA</button>
+                    </div>
+                </div>
+
+
+                <div id="div_nome">
+                    <span class="novo">Nome novo:</span>
+                    <input id="input_nome" type="text">
+                    <button onclick="alterar_nome()">ALTERAR</button>
+                </div>
+
+                <div id="div_sobrenome">
+                    <span class="novo">Sobrenome novo:</span>
+                    <input id="input_sobrenome" type="text">
+                    <button onclick="alterar_sobrenome()">ALTERAR</button>
+                </div>
+
+                <div id="div_email">
+                    <span class="novo">Email novo:</span>
+                    <input id="input_email" type="text">
+                    <button onclick="alterar_email()">ALTERAR</button>
+                </div>
+
+                <div id="div_senha">
+                    <span class="novo" id="input_senha_antiga">Senha antiga:</span>
+                    <input id="input_senha_antiga" type="text">
+                    <span class="novo">Senha nova:</span>
+                    <input id="input_senha" type="text">
+                    <span class="novo">Confirme a senha nova:</span>
+                    <input id="input_confirmar_senha" type="text">
+                    <button onclick="alterar_senha()">ALTERAR</button>
+                </div>
+            </div>
+
+            <div id="erro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
+<script src="configuracoes.js"></script>

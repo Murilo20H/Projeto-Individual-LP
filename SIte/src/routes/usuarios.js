@@ -3,6 +3,14 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
+router.get("/pegarDados/:idUsuario", function (req, res) {
+    usuarioController.pegarDados(req, res);
+})
+
+router.put("/atualizarCampo/:idUsuario", function (req, res) {
+    usuarioController.atualizarCampo(req, res);
+})
+
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
