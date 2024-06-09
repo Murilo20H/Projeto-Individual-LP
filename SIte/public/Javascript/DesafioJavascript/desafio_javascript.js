@@ -160,10 +160,7 @@ function acertou(resultado) {
         title: `Fase ${fase} concluída`,
         text: "Próxima fase...",
         width: 400,
-        color: "black",
-        willClose: () => {
-            window.location.href = "../../index.html";
-        }
+        color: "black"
     });
     fase++;
 }
